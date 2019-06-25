@@ -6,5 +6,10 @@ target 'Bantu' do
   use_frameworks!
 
   # Pods for Bantu
+  pod 'ImageSlideshow'
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
 
 end
