@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>324120395700-rldi2h2or2kqq678gjc8b5159r56hdmk.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.324120395700-rldi2h2or2kqq678gjc8b5159r56hdmk</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAxapu6B80WvSGFxPYMQcNLMD1R1gbi1Tc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>324120395700</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.peppermint.bantu</string>
+	<key>PROJECT_ID</key>
+	<string>bantu-official</string>
+	<key>STORAGE_BUCKET</key>
+	<string>bantu-official.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:324120395700:ios:cec5026004debeb8</string>
+	<key>DATABASE_URL</key>
+	<string>https://bantu-official.firebaseio.com</string>
+</dict>
+</plist>

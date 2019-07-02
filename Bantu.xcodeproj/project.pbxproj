@@ -9,10 +9,21 @@
 /* Begin PBXBuildFile section */
 		4223599632CB585020380B60 /* Pods_Bantu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3553256243A38A44EBE8EA3F /* Pods_Bantu.framework */; };
 		85E5CD7722C23735005937F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5CD7622C23735005937F7 /* AppDelegate.swift */; };
-		85E5CD7922C23735005937F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5CD7822C23735005937F7 /* ViewController.swift */; };
 		85E5CD7C22C23735005937F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85E5CD7A22C23735005937F7 /* Main.storyboard */; };
 		85E5CD7E22C23736005937F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85E5CD7D22C23736005937F7 /* Assets.xcassets */; };
 		85E5CD8122C23736005937F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85E5CD7F22C23736005937F7 /* LaunchScreen.storyboard */; };
+		89C776ED22C23F4000BA96B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89C776EC22C23F4000BA96B3 /* GoogleService-Info.plist */; };
+		89C776F122C8EE6000BA96B3 /* MainEventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C776F022C8EE6000BA96B3 /* MainEventListViewController.swift */; };
+		89C776F322C8EE6F00BA96B3 /* AddDraftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C776F222C8EE6F00BA96B3 /* AddDraftViewController.swift */; };
+		89C776F522C8EE7900BA96B3 /* DraftListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C776F422C8EE7900BA96B3 /* DraftListViewController.swift */; };
+		89C776FA22CA68F700BA96B3 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C776F822CA68F600BA96B3 /* LogInViewController.swift */; };
+		89C776FB22CA68F700BA96B3 /* LogInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89C776F922CA68F700BA96B3 /* LogInViewController.xib */; };
+		89C776FF22CA698C00BA96B3 /* UITextField+Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C776FE22CA698C00BA96B3 /* UITextField+Design.swift */; };
+		89C7770222CA703700BA96B3 /* LoadingIndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C7770022CA703700BA96B3 /* LoadingIndicatorViewController.swift */; };
+		89C7770322CA703700BA96B3 /* LoadingIndicatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89C7770122CA703700BA96B3 /* LoadingIndicatorViewController.xib */; };
+		89C7770522CA73C300BA96B3 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C7770422CA73C300BA96B3 /* Globals.swift */; };
+		89C7770822CB090C00BA96B3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C7770622CB090C00BA96B3 /* SignUpViewController.swift */; };
+		89C7770922CB090C00BA96B3 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89C7770722CB090C00BA96B3 /* SignUpViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,11 +31,22 @@
 		3553256243A38A44EBE8EA3F /* Pods_Bantu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bantu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85E5CD7322C23735005937F7 /* Bantu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bantu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85E5CD7622C23735005937F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		85E5CD7822C23735005937F7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		85E5CD7B22C23735005937F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		85E5CD7D22C23736005937F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85E5CD8022C23736005937F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85E5CD8222C23736005937F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89C776EC22C23F4000BA96B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		89C776F022C8EE6000BA96B3 /* MainEventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEventListViewController.swift; sourceTree = "<group>"; };
+		89C776F222C8EE6F00BA96B3 /* AddDraftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDraftViewController.swift; sourceTree = "<group>"; };
+		89C776F422C8EE7900BA96B3 /* DraftListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftListViewController.swift; sourceTree = "<group>"; };
+		89C776F822CA68F600BA96B3 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		89C776F922CA68F700BA96B3 /* LogInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogInViewController.xib; sourceTree = "<group>"; };
+		89C776FE22CA698C00BA96B3 /* UITextField+Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Design.swift"; sourceTree = "<group>"; };
+		89C7770022CA703700BA96B3 /* LoadingIndicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorViewController.swift; sourceTree = "<group>"; };
+		89C7770122CA703700BA96B3 /* LoadingIndicatorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingIndicatorViewController.xib; sourceTree = "<group>"; };
+		89C7770422CA73C300BA96B3 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		89C7770622CB090C00BA96B3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		89C7770722CB090C00BA96B3 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		D530BC9E39FF417DE82BE4D2 /* Pods-Bantu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bantu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bantu/Pods-Bantu.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,14 +91,57 @@
 		85E5CD7522C23735005937F7 /* Bantu */ = {
 			isa = PBXGroup;
 			children = (
+				89C776FD22CA696900BA96B3 /* Extensions */,
+				89C776FC22CA690000BA96B3 /* SharedUI */,
+				89C776F722CA2C2200BA96B3 /* User */,
+				89C776F622CA2C1C00BA96B3 /* Admin */,
 				85E5CD7622C23735005937F7 /* AppDelegate.swift */,
-				85E5CD7822C23735005937F7 /* ViewController.swift */,
 				85E5CD7A22C23735005937F7 /* Main.storyboard */,
 				85E5CD7D22C23736005937F7 /* Assets.xcassets */,
 				85E5CD7F22C23736005937F7 /* LaunchScreen.storyboard */,
 				85E5CD8222C23736005937F7 /* Info.plist */,
+				89C776EC22C23F4000BA96B3 /* GoogleService-Info.plist */,
+				89C776F022C8EE6000BA96B3 /* MainEventListViewController.swift */,
+				89C776F222C8EE6F00BA96B3 /* AddDraftViewController.swift */,
+				89C776F422C8EE7900BA96B3 /* DraftListViewController.swift */,
+				89C7770422CA73C300BA96B3 /* Globals.swift */,
 			);
 			path = Bantu;
+			sourceTree = "<group>";
+		};
+		89C776F622CA2C1C00BA96B3 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
+		89C776F722CA2C2200BA96B3 /* User */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		89C776FC22CA690000BA96B3 /* SharedUI */ = {
+			isa = PBXGroup;
+			children = (
+				89C776F822CA68F600BA96B3 /* LogInViewController.swift */,
+				89C776F922CA68F700BA96B3 /* LogInViewController.xib */,
+				89C7770022CA703700BA96B3 /* LoadingIndicatorViewController.swift */,
+				89C7770122CA703700BA96B3 /* LoadingIndicatorViewController.xib */,
+				89C7770622CB090C00BA96B3 /* SignUpViewController.swift */,
+				89C7770722CB090C00BA96B3 /* SignUpViewController.xib */,
+			);
+			path = SharedUI;
+			sourceTree = "<group>";
+		};
+		89C776FD22CA696900BA96B3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				89C776FE22CA698C00BA96B3 /* UITextField+Design.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		A76F604089520F4E9C446F22 /* Pods */ = {
@@ -149,8 +214,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				85E5CD8122C23736005937F7 /* LaunchScreen.storyboard in Resources */,
+				89C7770322CA703700BA96B3 /* LoadingIndicatorViewController.xib in Resources */,
+				89C7770922CB090C00BA96B3 /* SignUpViewController.xib in Resources */,
+				89C776ED22C23F4000BA96B3 /* GoogleService-Info.plist in Resources */,
 				85E5CD7E22C23736005937F7 /* Assets.xcassets in Resources */,
 				85E5CD7C22C23735005937F7 /* Main.storyboard in Resources */,
+				89C776FB22CA68F700BA96B3 /* LogInViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,8 +277,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85E5CD7922C23735005937F7 /* ViewController.swift in Sources */,
+				89C776F322C8EE6F00BA96B3 /* AddDraftViewController.swift in Sources */,
+				89C776F122C8EE6000BA96B3 /* MainEventListViewController.swift in Sources */,
 				85E5CD7722C23735005937F7 /* AppDelegate.swift in Sources */,
+				89C776FA22CA68F700BA96B3 /* LogInViewController.swift in Sources */,
+				89C7770522CA73C300BA96B3 /* Globals.swift in Sources */,
+				89C776F522C8EE7900BA96B3 /* DraftListViewController.swift in Sources */,
+				89C7770822CB090C00BA96B3 /* SignUpViewController.swift in Sources */,
+				89C776FF22CA698C00BA96B3 /* UITextField+Design.swift in Sources */,
+				89C7770222CA703700BA96B3 /* LoadingIndicatorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,13 +433,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 98R673PJSG;
+				DEVELOPMENT_TEAM = VX2M58CCM9;
 				INFOPLIST_FILE = Bantu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Steven-Muliamin.Bantu";
+				PRODUCT_BUNDLE_IDENTIFIER = com.peppermint.bantu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -376,13 +452,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 98R673PJSG;
+				DEVELOPMENT_TEAM = VX2M58CCM9;
 				INFOPLIST_FILE = Bantu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Steven-Muliamin.Bantu";
+				PRODUCT_BUNDLE_IDENTIFIER = com.peppermint.bantu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

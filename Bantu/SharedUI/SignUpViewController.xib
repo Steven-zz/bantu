@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpViewController" customModule="Bantu" customModuleProvider="target">
+            <connections>
+                <outlet property="confirmPasswordTextField" destination="dxI-oE-vF3" id="AIN-yJ-hLe"/>
+                <outlet property="emailTextField" destination="MyQ-n6-YaK" id="t9A-LE-P9L"/>
+                <outlet property="fullNameTextField" destination="Ft0-dJ-TJ4" id="hoT-8x-Gwy"/>
+                <outlet property="passwordTextField" destination="9Bx-Kf-r8R" id="egE-xd-sK1"/>
+                <outlet property="signUpBtn" destination="NDm-OJ-UCp" id="HsO-ft-iiv"/>
+                <outlet property="telephoneTextField" destination="97F-k5-jUW" id="iKl-9J-qzK"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="No Telp" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="97F-k5-jUW" customClass="TextFieldExtension" customModule="Bantu" customModuleProvider="target">
+                    <rect key="frame" x="10" y="212" width="394" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="sB0-c0-ptc"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="next" textContentType="tel"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="phone"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NDm-OJ-UCp">
+                    <rect key="frame" x="10" y="484" width="394" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="idi-JW-f8S"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>
+                    <state key="normal" title="Daftar"/>
+                    <connections>
+                        <action selector="signUpBtn:" destination="-1" eventType="touchUpInside" id="PHI-ae-BH3"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Kata Sandi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Bx-Kf-r8R" customClass="TextFieldExtension" customModule="Bantu" customModuleProvider="target">
+                    <rect key="frame" x="10" y="348" width="394" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="w1P-g0-7HZ"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES" textContentType="password"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="password"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nama Lengkap" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ft0-dJ-TJ4" customClass="TextFieldExtension" customModule="Bantu" customModuleProvider="target">
+                    <rect key="frame" x="10" y="144" width="394" height="48"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="6wr-4W-ZcF"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="name"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="userOutline"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MyQ-n6-YaK" customClass="TextFieldExtension" customModule="Bantu" customModuleProvider="target">
+                    <rect key="frame" x="10" y="280" width="394" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="cBD-1t-GTO"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="email"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <textField opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Konfirmasi Kata Sandi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dxI-oE-vF3" customClass="TextFieldExtension" customModule="Bantu" customModuleProvider="target">
+                    <rect key="frame" x="10" y="416" width="394" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="0vY-UD-xiR"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="image" keyPath="leftImage" value="password"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="9Bx-Kf-r8R" firstAttribute="centerX" secondItem="MyQ-n6-YaK" secondAttribute="centerX" id="1Qb-n5-Nwf"/>
+                <constraint firstItem="9Bx-Kf-r8R" firstAttribute="width" secondItem="MyQ-n6-YaK" secondAttribute="width" id="4Da-Te-PXA"/>
+                <constraint firstItem="97F-k5-jUW" firstAttribute="width" secondItem="Ft0-dJ-TJ4" secondAttribute="width" id="9Hg-wh-v1Z"/>
+                <constraint firstItem="9Bx-Kf-r8R" firstAttribute="top" secondItem="MyQ-n6-YaK" secondAttribute="bottom" constant="20" id="AFY-HG-Nnh"/>
+                <constraint firstItem="MyQ-n6-YaK" firstAttribute="centerX" secondItem="97F-k5-jUW" secondAttribute="centerX" id="FQO-uu-7JZ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ft0-dJ-TJ4" secondAttribute="trailing" constant="10" id="Hw0-2A-ej7"/>
+                <constraint firstItem="NDm-OJ-UCp" firstAttribute="top" secondItem="dxI-oE-vF3" secondAttribute="bottom" constant="20" id="Ixf-hN-ETn"/>
+                <constraint firstItem="MyQ-n6-YaK" firstAttribute="top" secondItem="97F-k5-jUW" secondAttribute="bottom" constant="20" id="KmE-g9-vjW"/>
+                <constraint firstItem="97F-k5-jUW" firstAttribute="top" secondItem="Ft0-dJ-TJ4" secondAttribute="bottom" constant="20" id="T8D-Gn-svu"/>
+                <constraint firstItem="NDm-OJ-UCp" firstAttribute="centerX" secondItem="dxI-oE-vF3" secondAttribute="centerX" id="bLU-0k-Cnh"/>
+                <constraint firstItem="Ft0-dJ-TJ4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="bcc-Da-lbi"/>
+                <constraint firstItem="dxI-oE-vF3" firstAttribute="top" secondItem="9Bx-Kf-r8R" secondAttribute="bottom" constant="20" id="bm0-yA-U0x"/>
+                <constraint firstItem="dxI-oE-vF3" firstAttribute="width" secondItem="9Bx-Kf-r8R" secondAttribute="width" id="i8J-0o-yMj"/>
+                <constraint firstItem="Ft0-dJ-TJ4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="k7d-0f-Eog"/>
+                <constraint firstItem="dxI-oE-vF3" firstAttribute="centerX" secondItem="9Bx-Kf-r8R" secondAttribute="centerX" id="lSY-25-EzJ"/>
+                <constraint firstItem="MyQ-n6-YaK" firstAttribute="width" secondItem="97F-k5-jUW" secondAttribute="width" id="m3s-Lu-Ix9"/>
+                <constraint firstItem="97F-k5-jUW" firstAttribute="centerX" secondItem="Ft0-dJ-TJ4" secondAttribute="centerX" id="rac-AG-t9C"/>
+                <constraint firstItem="NDm-OJ-UCp" firstAttribute="width" secondItem="dxI-oE-vF3" secondAttribute="width" id="xni-y3-JwL"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="email" width="25" height="25"/>
+        <image name="password" width="25" height="25"/>
+        <image name="phone" width="25" height="25"/>
+        <image name="userOutline" width="25" height="25"/>
+    </resources>
+</document>
