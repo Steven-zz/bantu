@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		4223599632CB585020380B60 /* Pods_Bantu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3553256243A38A44EBE8EA3F /* Pods_Bantu.framework */; };
+		8555962522CB8ED500F0D6B6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8555962422CB8ED500F0D6B6 /* User.swift */; };
+		8555962722CB912600F0D6B6 /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8555962622CB912600F0D6B6 /* UserServices.swift */; };
+		8555962922CB971D00F0D6B6 /* GlobalSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8555962822CB971D00F0D6B6 /* GlobalSession.swift */; };
+		8555962B22CCC33400F0D6B6 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8555962A22CCC33400F0D6B6 /* Post.swift */; };
+		8555962D22CCC5CA00F0D6B6 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8555962C22CCC5CA00F0D6B6 /* Location.swift */; };
 		85E5CD7722C23735005937F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5CD7622C23735005937F7 /* AppDelegate.swift */; };
 		85E5CD7C22C23735005937F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85E5CD7A22C23735005937F7 /* Main.storyboard */; };
 		85E5CD7E22C23736005937F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85E5CD7D22C23736005937F7 /* Assets.xcassets */; };
@@ -29,6 +34,11 @@
 /* Begin PBXFileReference section */
 		34E0EEB44D00F9497FEC8D47 /* Pods-Bantu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bantu.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bantu/Pods-Bantu.release.xcconfig"; sourceTree = "<group>"; };
 		3553256243A38A44EBE8EA3F /* Pods_Bantu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bantu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8555962422CB8ED500F0D6B6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8555962622CB912600F0D6B6 /* UserServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServices.swift; sourceTree = "<group>"; };
+		8555962822CB971D00F0D6B6 /* GlobalSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalSession.swift; sourceTree = "<group>"; };
+		8555962A22CCC33400F0D6B6 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		8555962C22CCC5CA00F0D6B6 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		85E5CD7322C23735005937F7 /* Bantu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bantu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85E5CD7622C23735005937F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85E5CD7B22C23735005937F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -70,6 +80,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8555962022CB8D6200F0D6B6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8555962622CB912600F0D6B6 /* UserServices.swift */,
+				8555962822CB971D00F0D6B6 /* GlobalSession.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8555962322CB8DE600F0D6B6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8555962422CB8ED500F0D6B6 /* User.swift */,
+				8555962A22CCC33400F0D6B6 /* Post.swift */,
+				8555962C22CCC5CA00F0D6B6 /* Location.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		85E5CD6A22C23735005937F7 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +120,8 @@
 		85E5CD7522C23735005937F7 /* Bantu */ = {
 			isa = PBXGroup;
 			children = (
+				8555962322CB8DE600F0D6B6 /* Model */,
+				8555962022CB8D6200F0D6B6 /* Services */,
 				89C776FD22CA696900BA96B3 /* Extensions */,
 				89C776FC22CA690000BA96B3 /* SharedUI */,
 				89C776F722CA2C2200BA96B3 /* User */,
@@ -280,12 +311,17 @@
 				89C776F322C8EE6F00BA96B3 /* AddDraftViewController.swift in Sources */,
 				89C776F122C8EE6000BA96B3 /* MainEventListViewController.swift in Sources */,
 				85E5CD7722C23735005937F7 /* AppDelegate.swift in Sources */,
+				8555962722CB912600F0D6B6 /* UserServices.swift in Sources */,
+				8555962B22CCC33400F0D6B6 /* Post.swift in Sources */,
 				89C776FA22CA68F700BA96B3 /* LogInViewController.swift in Sources */,
+				8555962D22CCC5CA00F0D6B6 /* Location.swift in Sources */,
 				89C7770522CA73C300BA96B3 /* Globals.swift in Sources */,
 				89C776F522C8EE7900BA96B3 /* DraftListViewController.swift in Sources */,
+				8555962922CB971D00F0D6B6 /* GlobalSession.swift in Sources */,
 				89C7770822CB090C00BA96B3 /* SignUpViewController.swift in Sources */,
 				89C776FF22CA698C00BA96B3 /* UITextField+Design.swift in Sources */,
 				89C7770222CA703700BA96B3 /* LoadingIndicatorViewController.swift in Sources */,
+				8555962522CB8ED500F0D6B6 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
