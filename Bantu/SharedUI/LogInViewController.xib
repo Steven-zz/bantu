@@ -14,6 +14,8 @@
             <connections>
                 <outlet property="emailField" destination="tdV-x1-euA" id="gID-9X-eAc"/>
                 <outlet property="passwordField" destination="hZx-KT-JCY" id="6zn-Zt-Y73"/>
+                <outlet property="signInBtnOutlet" destination="dNU-Lb-7jE" id="a5S-X3-fFS"/>
+                <outlet property="signUpBtnOutlet" destination="8MS-Xx-AKi" id="NQq-5I-Uqw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -66,16 +68,17 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dEP-IQ-KsJ">
                     <rect key="frame" x="105" y="388" width="204" height="44"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tidak Mempunyai Akun?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Rr-kB-lCr">
-                            <rect key="frame" x="5" y="14" width="136" height="14"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tidak Mempunyai Akun?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Rr-kB-lCr">
+                            <rect key="frame" x="8" y="15" width="133" height="14"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8MS-Xx-AKi">
-                            <rect key="frame" x="153.99999999999983" y="8" width="36" height="27"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8MS-Xx-AKi">
+                            <rect key="frame" x="151" y="2" width="48" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="qIg-Q5-yvy"/>
+                            </constraints>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                             <state key="normal" title="Daftar"/>
                             <connections>
@@ -84,8 +87,13 @@
                         </button>
                     </subviews>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="8MS-Xx-AKi" secondAttribute="trailing" constant="5" id="41C-x3-oAJ"/>
                         <constraint firstAttribute="width" constant="204" id="Cb2-t9-FL7"/>
+                        <constraint firstItem="8MS-Xx-AKi" firstAttribute="leading" secondItem="9Rr-kB-lCr" secondAttribute="trailing" constant="10" id="EwO-Od-QbM"/>
                         <constraint firstAttribute="height" constant="44" id="Fvu-EM-vNa"/>
+                        <constraint firstItem="9Rr-kB-lCr" firstAttribute="leading" secondItem="dEP-IQ-KsJ" secondAttribute="leading" constant="8" id="Kl8-mF-5eE"/>
+                        <constraint firstItem="9Rr-kB-lCr" firstAttribute="centerY" secondItem="dEP-IQ-KsJ" secondAttribute="centerY" id="mbo-0z-vK7"/>
+                        <constraint firstItem="8MS-Xx-AKi" firstAttribute="centerY" secondItem="dEP-IQ-KsJ" secondAttribute="centerY" id="nWJ-uH-7KI"/>
                     </constraints>
                 </view>
             </subviews>

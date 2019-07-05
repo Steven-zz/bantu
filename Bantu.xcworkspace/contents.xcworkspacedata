@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Bantu/Base.lproj/CreateDraft.storyboard">
-   </FileRef>
-   <FileRef
       location = "group:Bantu.xcodeproj">
    </FileRef>
    <FileRef

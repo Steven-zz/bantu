@@ -38,5 +38,19 @@ class LoadingIndicatorViewController: UIViewController {
     public func finish() {
         self.dismiss(animated: false, completion: nil)
     }
-
+    
+    class func getIndicatorView() -> LoadingIndicatorViewController {
+        let viewController = LoadingIndicatorViewController()
+        viewController.modalPresentationStyle = .overCurrentContext
+        viewController.modalTransitionStyle = .coverVertical
+        return viewController
+    }
+    
+    static var indicatorVC: LoadingIndicatorViewController {
+        let viewController = LoadingIndicatorViewController()
+        viewController.modalPresentationStyle = .overCurrentContext
+        viewController.modalTransitionStyle = .coverVertical
+        return viewController
+    }
 }
+
