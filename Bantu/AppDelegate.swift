@@ -17,7 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        FirebaseApp.configure()
+//        FirebaseApp.configure()
+        
+        print("start app")
+//        UserServices.getUser(withID: "1") { user in
+//            print(user)
+//        }
+//        PostServices.getAllPosts() { posts in
+//            print(posts)
+//        }
+//        let user = User(userID: "m", roleID: 2, email: "kensen", phone: "kensen", fullName: "kensen")
+//        UserServices.postUser(newUser: user) { (bleh) in
+//            print(bleh)
+//        }
         return true
     }
 

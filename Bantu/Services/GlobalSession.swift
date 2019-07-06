@@ -11,7 +11,10 @@ import FirebaseAuth
 
 struct GlobalSession {
     static let session = URLSession(configuration: .default)
-    static let rootUrl = "https://bantu.website/public"
+//    static let rootUrl = "https://bantu.website/public"
+    
+    static let rootUrl = "http://localhost/MC3-Bantu/public"
+
     
     static var currentUser: User?
     

@@ -16,23 +16,23 @@ struct Location: Decodable {
     let latitude: Double
     let longitude: Double
     
-    enum CodingKeys: String, CodingKey {
-        case areaOfInterest = "locationAOI"
-        case name = "locationName"
-        case locality = "locationLocality"
-        case adminArea = "locationAdminArea"
-        case latitude = "locationLatitude"
-        case longitude = "locationLongitude"
-    }
+//    enum CodingKeys: String, CodingKey {
+//        case areaOfInterest = "locationAOI"
+//        case name = "locationName"
+//        case locality = "locationLocality"
+//        case adminArea = "locationAdminArea"
+//        case latitude = "locationLatitude"
+//        case longitude = "locationLongitude"
+//    }
     
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        areaOfInterest = try container.decode(String.self, forKey: .areaOfInterest)
-        name = try container.decode(String.self, forKey: .name)
-        locality = try container.decode(String.self, forKey: .locality)
-        adminArea = try container.decode(String.self, forKey: .adminArea)
-        latitude = try container.decode(Double.self, forKey: .latitude)
-        longitude = try container.decode(Double.self, forKey: .longitude)
-    }
+//    init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//
+//        areaOfInterest = try container.decode(String.self, forKey: .areaOfInterest)
+//        name = try container.decode(String.self, forKey: .name)
+//        locality = try container.decode(String.self, forKey: .locality)
+//        adminArea = try container.decode(String.self, forKey: .adminArea)
+//        latitude = try container.decode(Double.self, forKey: .latitude)
+//        longitude = try container.decode(Double.self, forKey: .longitude)
+//    }
 }
