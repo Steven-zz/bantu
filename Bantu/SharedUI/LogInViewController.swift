@@ -13,6 +13,8 @@ class LogInViewController: UIViewController {
 
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var signInBtnOutlet: UIButton!
+    @IBOutlet weak var signUpBtnOutlet: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +22,8 @@ class LogInViewController: UIViewController {
         //textfield delegate
         emailField.delegate = self
         passwordField.delegate = self
+        signInBtnOutlet.buttonDesign()
+        signUpBtnOutlet.setTitleColor(#colorLiteral(red: 0.1764705882, green: 0.4784313725, blue: 0.5607843137, alpha: 1), for: .normal)
         
         // end editing keyboard
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
