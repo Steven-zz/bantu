@@ -36,6 +36,18 @@
 		89C7772A22CD1AD700BA96B3 /* DraftListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89C7772822CD1AD700BA96B3 /* DraftListViewController.xib */; };
 		89C7772F22CD9C7B00BA96B3 /* DraftListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C7772D22CD9C7B00BA96B3 /* DraftListTableViewCell.swift */; };
 		89C7773022CD9C7B00BA96B3 /* DraftListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89C7772E22CD9C7B00BA96B3 /* DraftListTableViewCell.xib */; };
+		89E62D8022CFAFCA007922FF /* AdminSubmissionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62D7E22CFAFCA007922FF /* AdminSubmissionListViewController.swift */; };
+		89E62D8122CFAFCA007922FF /* AdminSubmissionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E62D7F22CFAFCA007922FF /* AdminSubmissionListViewController.xib */; };
+		89E62D8622CFB0F5007922FF /* AdminSubmissionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62D8422CFB0F5007922FF /* AdminSubmissionListTableViewCell.swift */; };
+		89E62D8722CFB0F5007922FF /* AdminSubmissionListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E62D8522CFB0F5007922FF /* AdminSubmissionListTableViewCell.xib */; };
+		89E62D8922CFB383007922FF /* UIImage+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62D8822CFB383007922FF /* UIImage+DownloadImage.swift */; };
+		89E62D8C22D04BC1007922FF /* SubmissionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62D8A22D04BC1007922FF /* SubmissionDetailViewController.swift */; };
+		89E62D8D22D04BC1007922FF /* SubmissionDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E62D8B22D04BC1007922FF /* SubmissionDetailViewController.xib */; };
+		89E62D9522D0549E007922FF /* GlobalSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62D8F22D0549E007922FF /* GlobalSession.swift */; };
+		89E62D9622D0549E007922FF /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62D9022D0549E007922FF /* UserServices.swift */; };
+		89E62D9722D0549E007922FF /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62D9222D0549E007922FF /* Location.swift */; };
+		89E62D9822D0549E007922FF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62D9322D0549E007922FF /* User.swift */; };
+		89E62D9922D0549E007922FF /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62D9422D0549E007922FF /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +83,18 @@
 		89C7772822CD1AD700BA96B3 /* DraftListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DraftListViewController.xib; sourceTree = "<group>"; };
 		89C7772D22CD9C7B00BA96B3 /* DraftListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftListTableViewCell.swift; sourceTree = "<group>"; };
 		89C7772E22CD9C7B00BA96B3 /* DraftListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DraftListTableViewCell.xib; sourceTree = "<group>"; };
+		89E62D7E22CFAFCA007922FF /* AdminSubmissionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminSubmissionListViewController.swift; sourceTree = "<group>"; };
+		89E62D7F22CFAFCA007922FF /* AdminSubmissionListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdminSubmissionListViewController.xib; sourceTree = "<group>"; };
+		89E62D8422CFB0F5007922FF /* AdminSubmissionListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminSubmissionListTableViewCell.swift; sourceTree = "<group>"; };
+		89E62D8522CFB0F5007922FF /* AdminSubmissionListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdminSubmissionListTableViewCell.xib; sourceTree = "<group>"; };
+		89E62D8822CFB383007922FF /* UIImage+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+DownloadImage.swift"; sourceTree = "<group>"; };
+		89E62D8A22D04BC1007922FF /* SubmissionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionDetailViewController.swift; sourceTree = "<group>"; };
+		89E62D8B22D04BC1007922FF /* SubmissionDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubmissionDetailViewController.xib; sourceTree = "<group>"; };
+		89E62D8F22D0549E007922FF /* GlobalSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalSession.swift; sourceTree = "<group>"; };
+		89E62D9022D0549E007922FF /* UserServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserServices.swift; sourceTree = "<group>"; };
+		89E62D9222D0549E007922FF /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		89E62D9322D0549E007922FF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		89E62D9422D0549E007922FF /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		D530BC9E39FF417DE82BE4D2 /* Pods-Bantu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bantu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bantu/Pods-Bantu.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +139,8 @@
 		85E5CD7522C23735005937F7 /* Bantu */ = {
 			isa = PBXGroup;
 			children = (
+				89E62D9122D0549E007922FF /* Model */,
+				89E62D8E22D0549E007922FF /* Services */,
 				89C7772B22CD9C4700BA96B3 /* Views */,
 				89C776FD22CA696900BA96B3 /* Extensions */,
 				89C776FC22CA690000BA96B3 /* SharedUI */,
@@ -136,6 +162,8 @@
 		89C776F622CA2C1C00BA96B3 /* Admin */ = {
 			isa = PBXGroup;
 			children = (
+				89E62D7E22CFAFCA007922FF /* AdminSubmissionListViewController.swift */,
+				89E62D7F22CFAFCA007922FF /* AdminSubmissionListViewController.xib */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -160,6 +188,8 @@
 				89C776F922CA68F700BA96B3 /* LogInViewController.xib */,
 				89C7770022CA703700BA96B3 /* LoadingIndicatorViewController.swift */,
 				89C7770122CA703700BA96B3 /* LoadingIndicatorViewController.xib */,
+				89E62D8A22D04BC1007922FF /* SubmissionDetailViewController.swift */,
+				89E62D8B22D04BC1007922FF /* SubmissionDetailViewController.xib */,
 			);
 			path = SharedUI;
 			sourceTree = "<group>";
@@ -171,6 +201,7 @@
 				89C7771722CC664100BA96B3 /* UIButton+Design.swift */,
 				89C7771D22CCD89800BA96B3 /* UITextView+Placeholder.swift */,
 				89C7771F22CD004B00BA96B3 /* UIImage+Compression.swift */,
+				89E62D8822CFB383007922FF /* UIImage+DownloadImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -200,8 +231,29 @@
 			children = (
 				89C7772D22CD9C7B00BA96B3 /* DraftListTableViewCell.swift */,
 				89C7772E22CD9C7B00BA96B3 /* DraftListTableViewCell.xib */,
+				89E62D8422CFB0F5007922FF /* AdminSubmissionListTableViewCell.swift */,
+				89E62D8522CFB0F5007922FF /* AdminSubmissionListTableViewCell.xib */,
 			);
 			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		89E62D8E22D0549E007922FF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				89E62D8F22D0549E007922FF /* GlobalSession.swift */,
+				89E62D9022D0549E007922FF /* UserServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		89E62D9122D0549E007922FF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				89E62D9222D0549E007922FF /* Location.swift */,
+				89E62D9322D0549E007922FF /* User.swift */,
+				89E62D9422D0549E007922FF /* Post.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		A76F604089520F4E9C446F22 /* Pods */ = {
@@ -276,15 +328,18 @@
 				89C7772A22CD1AD700BA96B3 /* DraftListViewController.xib in Resources */,
 				85E5CD8122C23736005937F7 /* LaunchScreen.storyboard in Resources */,
 				89C7770322CA703700BA96B3 /* LoadingIndicatorViewController.xib in Resources */,
+				89E62D8722CFB0F5007922FF /* AdminSubmissionListTableViewCell.xib in Resources */,
 				89C7773022CD9C7B00BA96B3 /* DraftListTableViewCell.xib in Resources */,
 				89C7770D22CB913700BA96B3 /* CreateDraftViewController.xib in Resources */,
 				89C7771C22CCAE0500BA96B3 /* FooterCollectionReusableView.xib in Resources */,
 				89C7770922CB090C00BA96B3 /* SignUpViewController.xib in Resources */,
 				89C776ED22C23F4000BA96B3 /* GoogleService-Info.plist in Resources */,
 				85E5CD7E22C23736005937F7 /* Assets.xcassets in Resources */,
+				89E62D8D22D04BC1007922FF /* SubmissionDetailViewController.xib in Resources */,
 				85E5CD7C22C23735005937F7 /* Main.storyboard in Resources */,
 				89C7771222CBBF6700BA96B3 /* ImageCollectionViewCell.xib in Resources */,
 				89C776FB22CA68F700BA96B3 /* LogInViewController.xib in Resources */,
+				89E62D8122CFAFCA007922FF /* AdminSubmissionListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,19 +400,28 @@
 				89C7772022CD004B00BA96B3 /* UIImage+Compression.swift in Sources */,
 				89C7771B22CCAE0500BA96B3 /* FooterCollectionReusableView.swift in Sources */,
 				89C776F322C8EE6F00BA96B3 /* AddDraftViewController.swift in Sources */,
+				89E62D8922CFB383007922FF /* UIImage+DownloadImage.swift in Sources */,
 				89C7771822CC664100BA96B3 /* UIButton+Design.swift in Sources */,
 				89C7772922CD1AD700BA96B3 /* DraftListViewController.swift in Sources */,
 				89C7771122CBBF6700BA96B3 /* ImageCollectionViewCell.swift in Sources */,
 				89C776F122C8EE6000BA96B3 /* MainEventListViewController.swift in Sources */,
 				89C7772F22CD9C7B00BA96B3 /* DraftListTableViewCell.swift in Sources */,
+				89E62D9922D0549E007922FF /* Post.swift in Sources */,
 				85E5CD7722C23735005937F7 /* AppDelegate.swift in Sources */,
 				89C776FA22CA68F700BA96B3 /* LogInViewController.swift in Sources */,
 				89C7770522CA73C300BA96B3 /* Globals.swift in Sources */,
+				89E62D9622D0549E007922FF /* UserServices.swift in Sources */,
 				89C7771E22CCD89800BA96B3 /* UITextView+Placeholder.swift in Sources */,
+				89E62D9722D0549E007922FF /* Location.swift in Sources */,
+				89E62D9522D0549E007922FF /* GlobalSession.swift in Sources */,
+				89E62D8C22D04BC1007922FF /* SubmissionDetailViewController.swift in Sources */,
 				89C7770C22CB913700BA96B3 /* CreateDraftViewController.swift in Sources */,
+				89E62D8622CFB0F5007922FF /* AdminSubmissionListTableViewCell.swift in Sources */,
 				89C7770822CB090C00BA96B3 /* SignUpViewController.swift in Sources */,
+				89E62D9822D0549E007922FF /* User.swift in Sources */,
 				89C776FF22CA698C00BA96B3 /* UITextField+Design.swift in Sources */,
 				89C7770222CA703700BA96B3 /* LoadingIndicatorViewController.swift in Sources */,
+				89E62D8022CFAFCA007922FF /* AdminSubmissionListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
