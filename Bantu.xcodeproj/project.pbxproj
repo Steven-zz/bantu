@@ -14,7 +14,6 @@
 		85E5CD8122C23736005937F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85E5CD7F22C23736005937F7 /* LaunchScreen.storyboard */; };
 		89C776ED22C23F4000BA96B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89C776EC22C23F4000BA96B3 /* GoogleService-Info.plist */; };
 		89C776F122C8EE6000BA96B3 /* MainEventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C776F022C8EE6000BA96B3 /* MainEventListViewController.swift */; };
-		89C776F322C8EE6F00BA96B3 /* AddDraftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C776F222C8EE6F00BA96B3 /* AddDraftViewController.swift */; };
 		89C776FA22CA68F700BA96B3 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C776F822CA68F600BA96B3 /* LogInViewController.swift */; };
 		89C776FB22CA68F700BA96B3 /* LogInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89C776F922CA68F700BA96B3 /* LogInViewController.xib */; };
 		89C776FF22CA698C00BA96B3 /* UITextField+Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C776FE22CA698C00BA96B3 /* UITextField+Design.swift */; };
@@ -50,6 +49,8 @@
 		89E62D9922D0549E007922FF /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62D9422D0549E007922FF /* Post.swift */; };
 		89E62D9C22D0FD45007922FF /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62D9A22D0FD45007922FF /* CreateEventViewController.swift */; };
 		89E62D9D22D0FD45007922FF /* CreateEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E62D9B22D0FD45007922FF /* CreateEventViewController.xib */; };
+		89E62DA022D1C880007922FF /* ChooseSchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62D9E22D1C880007922FF /* ChooseSchoolViewController.swift */; };
+		89E62DA122D1C880007922FF /* ChooseSchoolViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E62D9F22D1C880007922FF /* ChooseSchoolViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,7 +64,6 @@
 		85E5CD8222C23736005937F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89C776EC22C23F4000BA96B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		89C776F022C8EE6000BA96B3 /* MainEventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEventListViewController.swift; sourceTree = "<group>"; };
-		89C776F222C8EE6F00BA96B3 /* AddDraftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDraftViewController.swift; sourceTree = "<group>"; };
 		89C776F822CA68F600BA96B3 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		89C776F922CA68F700BA96B3 /* LogInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogInViewController.xib; sourceTree = "<group>"; };
 		89C776FE22CA698C00BA96B3 /* UITextField+Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Design.swift"; sourceTree = "<group>"; };
@@ -99,6 +99,8 @@
 		89E62D9422D0549E007922FF /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		89E62D9A22D0FD45007922FF /* CreateEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
 		89E62D9B22D0FD45007922FF /* CreateEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateEventViewController.xib; sourceTree = "<group>"; };
+		89E62D9E22D1C880007922FF /* ChooseSchoolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSchoolViewController.swift; sourceTree = "<group>"; };
+		89E62D9F22D1C880007922FF /* ChooseSchoolViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseSchoolViewController.xib; sourceTree = "<group>"; };
 		D530BC9E39FF417DE82BE4D2 /* Pods-Bantu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bantu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bantu/Pods-Bantu.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,7 +159,6 @@
 				85E5CD8222C23736005937F7 /* Info.plist */,
 				89C776EC22C23F4000BA96B3 /* GoogleService-Info.plist */,
 				89C776F022C8EE6000BA96B3 /* MainEventListViewController.swift */,
-				89C776F222C8EE6F00BA96B3 /* AddDraftViewController.swift */,
 				89C7770422CA73C300BA96B3 /* Globals.swift */,
 			);
 			path = Bantu;
@@ -170,6 +171,8 @@
 				89E62D7F22CFAFCA007922FF /* AdminSubmissionListViewController.xib */,
 				89E62D9A22D0FD45007922FF /* CreateEventViewController.swift */,
 				89E62D9B22D0FD45007922FF /* CreateEventViewController.xib */,
+				89E62D9E22D1C880007922FF /* ChooseSchoolViewController.swift */,
+				89E62D9F22D1C880007922FF /* ChooseSchoolViewController.xib */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				89C7772A22CD1AD700BA96B3 /* DraftListViewController.xib in Resources */,
 				85E5CD8122C23736005937F7 /* LaunchScreen.storyboard in Resources */,
 				89C7770322CA703700BA96B3 /* LoadingIndicatorViewController.xib in Resources */,
+				89E62DA122D1C880007922FF /* ChooseSchoolViewController.xib in Resources */,
 				89E62D9D22D0FD45007922FF /* CreateEventViewController.xib in Resources */,
 				89E62D8722CFB0F5007922FF /* AdminSubmissionListTableViewCell.xib in Resources */,
 				89C7773022CD9C7B00BA96B3 /* DraftListTableViewCell.xib in Resources */,
@@ -406,11 +410,11 @@
 			files = (
 				89C7772022CD004B00BA96B3 /* UIImage+Compression.swift in Sources */,
 				89C7771B22CCAE0500BA96B3 /* FooterCollectionReusableView.swift in Sources */,
-				89C776F322C8EE6F00BA96B3 /* AddDraftViewController.swift in Sources */,
 				89E62D8922CFB383007922FF /* UIImage+DownloadImage.swift in Sources */,
 				89C7771822CC664100BA96B3 /* UIButton+Design.swift in Sources */,
 				89C7772922CD1AD700BA96B3 /* DraftListViewController.swift in Sources */,
 				89C7771122CBBF6700BA96B3 /* ImageCollectionViewCell.swift in Sources */,
+				89E62DA022D1C880007922FF /* ChooseSchoolViewController.swift in Sources */,
 				89C776F122C8EE6000BA96B3 /* MainEventListViewController.swift in Sources */,
 				89C7772F22CD9C7B00BA96B3 /* DraftListTableViewCell.swift in Sources */,
 				89E62D9922D0549E007922FF /* Post.swift in Sources */,
