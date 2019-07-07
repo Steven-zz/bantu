@@ -56,7 +56,6 @@ class LogInViewController: UIViewController {
                 popup.stopAnimating()
                 popup.finish()
                 let userID = (Auth.auth().currentUser?.uid)!
-                //Get User Info from backend
 //                GlobalSession.currentUser = User(userID: <#T##String#>, roleID: <#T##Int#>, email: <#T##String#>, phone: <#T##String#>, fullName: <#T##String#>)
                 self.dismiss(animated: true, completion: nil)
                 popup.stopAnimating()

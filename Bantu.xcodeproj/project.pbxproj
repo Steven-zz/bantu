@@ -52,6 +52,8 @@
 		89E62D9D22D0FD45007922FF /* CreateEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E62D9B22D0FD45007922FF /* CreateEventViewController.xib */; };
 		89E62DA022D1C880007922FF /* ChooseSchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62D9E22D1C880007922FF /* ChooseSchoolViewController.swift */; };
 		89E62DA122D1C880007922FF /* ChooseSchoolViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E62D9F22D1C880007922FF /* ChooseSchoolViewController.xib */; };
+		89E62DA822D1E8BA007922FF /* UserSubmissionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62DA622D1E8BA007922FF /* UserSubmissionListViewController.swift */; };
+		89E62DA922D1E8BA007922FF /* UserSubmissionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E62DA722D1E8BA007922FF /* UserSubmissionListViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +105,8 @@
 		89E62D9B22D0FD45007922FF /* CreateEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateEventViewController.xib; sourceTree = "<group>"; };
 		89E62D9E22D1C880007922FF /* ChooseSchoolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseSchoolViewController.swift; sourceTree = "<group>"; };
 		89E62D9F22D1C880007922FF /* ChooseSchoolViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseSchoolViewController.xib; sourceTree = "<group>"; };
+		89E62DA622D1E8BA007922FF /* UserSubmissionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSubmissionListViewController.swift; sourceTree = "<group>"; };
+		89E62DA722D1E8BA007922FF /* UserSubmissionListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserSubmissionListViewController.xib; sourceTree = "<group>"; };
 		D530BC9E39FF417DE82BE4D2 /* Pods-Bantu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bantu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bantu/Pods-Bantu.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,6 +192,8 @@
 				89C7770B22CB913700BA96B3 /* CreateDraftViewController.xib */,
 				89C7772722CD1AD700BA96B3 /* DraftListViewController.swift */,
 				89C7772822CD1AD700BA96B3 /* DraftListViewController.xib */,
+				89E62DA622D1E8BA007922FF /* UserSubmissionListViewController.swift */,
+				89E62DA722D1E8BA007922FF /* UserSubmissionListViewController.xib */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -354,6 +360,7 @@
 				89C7771222CBBF6700BA96B3 /* ImageCollectionViewCell.xib in Resources */,
 				89C776FB22CA68F700BA96B3 /* LogInViewController.xib in Resources */,
 				89E62D8122CFAFCA007922FF /* AdminSubmissionListViewController.xib in Resources */,
+				89E62DA922D1E8BA007922FF /* UserSubmissionListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +437,7 @@
 				89E62D9722D0549E007922FF /* Location.swift in Sources */,
 				89E62D9522D0549E007922FF /* GlobalSession.swift in Sources */,
 				89E62D8C22D04BC1007922FF /* SubmissionDetailViewController.swift in Sources */,
+				89E62DA822D1E8BA007922FF /* UserSubmissionListViewController.swift in Sources */,
 				89C7770C22CB913700BA96B3 /* CreateDraftViewController.swift in Sources */,
 				89E62D9C22D0FD45007922FF /* CreateEventViewController.swift in Sources */,
 				89E62D8622CFB0F5007922FF /* AdminSubmissionListTableViewCell.swift in Sources */,
