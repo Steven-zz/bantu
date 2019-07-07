@@ -18,7 +18,11 @@ class PaddingTextView: UITextView, UITextViewDelegate {
         }
     }
     
-    func isNotEmpty() -> Bool {
+//    func isNotEmpty() -> Bool {
+//        return !(self.text == placeholder)
+//    }
+    
+    var isNotEmpty: Bool {
         return !(self.text == placeholder)
     }
     

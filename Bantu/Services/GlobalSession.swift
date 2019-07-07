@@ -8,15 +8,23 @@
 
 import Foundation
 import FirebaseAuth
+import FirebaseStorage
+
+struct FirebaseReferences {
+    static let storageRef: StorageReference = Storage.storage().reference()
+}
 
 struct GlobalSession {
     static let session = URLSession(configuration: .default)
-//    static let rootUrl = "https://bantu.website/public"
     
-    static let rootUrl = "http://localhost/MC3-Bantu/public"
+    
+    static let rootUrl = "https://bantu.website/public"
+//    static let rootUrl = "http://localhost/MC3-Bantu/public"
 
     
-    static var currentUser: User?
+//    static var currentUser: User?
+    
+    static var currentUser: User? = User(userID: "3F5DTfV1jgfEsLd36Ezxz3zBmKy2", roleID: 2, email: "steven@gmail.com", phone: "+6283870152354", fullName: "steven")
     
     //    static var submissions: [Post] = []
     

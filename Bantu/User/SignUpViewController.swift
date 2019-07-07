@@ -35,49 +35,58 @@ class SignUpViewController: UIViewController {
     }
 
     @IBAction func signUpBtn(_ sender: Any) {
-//        let x = LoadingIndicatorViewController.getIndicatorView()
-//        self.present(x)
-//        
-//        let y = LoadingIndicatorViewController.indicatorVC
-        
         let charactersetName = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ. ")
         let charactersetPhone = CharacterSet(charactersIn: "+1234567890")
         
         //validation for text fields
         guard let fullName = fullNameTextField.text, fullName != "" , fullName.first != " " , fullName.rangeOfCharacter(from: charactersetName.inverted) == nil else {
-            makeAlert(message: "Masukan nama Anda. Nama tidak boleh diawali dengan spasi atau mengandung karakter spesial")
+            makeAlert(title: "Error", message: "Masukan nama Anda. Nama tidak boleh diawali dengan spasi atau mengandung karakter spesial")
             return
         }
         guard let telephone = telephoneTextField.text, telephone != "" , !telephone.contains(" ") , telephone.rangeOfCharacter(from: charactersetPhone.inverted) == nil else {
-            makeAlert(message: "Masukan Nomor Telepon Anda dengan benar")
+            makeAlert(title: "Error", message: "Masukan Nomor Telepon Anda dengan benar")
             return
         }
         guard let email = emailTextField.text, email != "" , !email.contains(" ") else {
-            makeAlert(message: "Masukan email Anda, username tidak boleh ada spasi")
+            makeAlert(title: "Error", message: "Masukan email Anda, username tidak boleh ada spasi")
             return
         }
         guard let password = passwordTextField.text, password != "" , !password.contains(" ") else {
-            makeAlert(message: "Masukan password Anda, password tidak boleh ada spasi")
+            makeAlert(title: "Error", message: "Masukan password Anda, password tidak boleh ada spasi")
             return
         }
         guard let confirmPassword = confirmPasswordTextField.text, confirmPassword != "" else {
-            makeAlert(message: "Konfirmasi password Anda")
+            makeAlert(title: "Error", message: "Konfirmasi password Anda")
             return
         }
         
         //check if password is equal
         if password != confirmPassword {
-            makeAlert(message: "Konfirmasi kata sandi salah")
+            makeAlert(title: "Error", message: "Konfirmasi kata sandi salah")
             return
         }
         
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
-            
+            if error == nil {
+                let userID: String = Auth.auth().currentUser!.uid
+                let user = User(userID: userID, roleID: 2, email: email, phone: telephone, fullName: fullName)
+                UserServices.postUser(user: user) { isSuccess in
+                    if isSuccess {
+                        DispatchQueue.main.sync {
+                            self.makeAlert(title: "Sukses", message: "Akun berhasil terdaftar")
+                        }
+                    } else {
+                        // error di db
+                    }
+                }
+            } else {
+                print(error?.localizedDescription)
+            }
         }
     }
 
-    func makeAlert(message: String) {
-        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+    func makeAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alertController.addAction(defaultAction)
         present(alertController, animated: true, completion: nil)

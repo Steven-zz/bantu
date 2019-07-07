@@ -18,6 +18,8 @@
                 <outlet property="contactPhoneField" destination="a84-fw-ydL" id="ixs-Gi-7jB"/>
                 <outlet property="getLocationBtn" destination="71i-RG-q9a" id="Pt0-k6-YI0"/>
                 <outlet property="notesField" destination="qYI-bL-IYZ" id="WCR-dY-Ek0"/>
+                <outlet property="postDraftBtn" destination="1mQ-gu-T5I" id="ffh-kY-Ijb"/>
+                <outlet property="postDraftView" destination="Xi8-0v-b2B" id="5Vk-yv-I0p"/>
                 <outlet property="roadImagesCollectionView" destination="2NY-VN-VYh" id="iDP-XH-C7s"/>
                 <outlet property="schoolImagesCollectionView" destination="ttP-VW-wWh" id="Nsb-Nz-KJN"/>
                 <outlet property="schoolLocationMapView" destination="2dI-y9-dFM" id="Ovh-W6-pPL"/>
@@ -36,7 +38,7 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bL1-yD-ojD">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="1126.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="1190.5"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zh9-xj-bT2" userLabel="Nama Sekolah">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="70.5"/>
@@ -447,6 +449,29 @@ dikarenakan tidak ada aspal harus berjalan kaki</string>
                                         <constraint firstItem="71i-RG-q9a" firstAttribute="top" secondItem="KSS-BS-5o4" secondAttribute="top" constant="8" id="hxm-pK-vuZ"/>
                                         <constraint firstItem="71i-RG-q9a" firstAttribute="leading" secondItem="KSS-BS-5o4" secondAttribute="leading" constant="30" id="mtQ-oi-BQT"/>
                                         <constraint firstAttribute="trailing" secondItem="71i-RG-q9a" secondAttribute="trailing" constant="30" id="x1b-Tm-Mt9"/>
+                                    </constraints>
+                                </view>
+                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xi8-0v-b2B" userLabel="Post Draft">
+                                    <rect key="frame" x="0.0" y="1126.5" width="414" height="64"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mQ-gu-T5I">
+                                            <rect key="frame" x="30" y="8" width="354" height="48"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="48" id="Wc5-vU-t68"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
+                                            <state key="normal" title="Post Draft"/>
+                                            <connections>
+                                                <action selector="postBtn:" destination="-1" eventType="touchUpInside" id="HgH-94-AbR"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstItem="1mQ-gu-T5I" firstAttribute="top" secondItem="Xi8-0v-b2B" secondAttribute="top" constant="8" id="4ES-z2-8ug"/>
+                                        <constraint firstAttribute="bottom" secondItem="1mQ-gu-T5I" secondAttribute="bottom" constant="8" id="J1G-Gw-HJH"/>
+                                        <constraint firstAttribute="trailing" secondItem="1mQ-gu-T5I" secondAttribute="trailing" constant="30" id="ed2-8R-oWE"/>
+                                        <constraint firstItem="1mQ-gu-T5I" firstAttribute="leading" secondItem="Xi8-0v-b2B" secondAttribute="leading" constant="30" id="vas-HA-Rhm"/>
                                     </constraints>
                                 </view>
                             </subviews>

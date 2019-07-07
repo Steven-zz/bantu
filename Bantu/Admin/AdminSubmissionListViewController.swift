@@ -19,7 +19,7 @@ class AdminSubmissionListViewController: UIViewController, UITableViewDelegate, 
     let action: Action
     var delegate: AdminSubmissionListDelegate?
     
-    var posts:[Post] = [Post(schoolName: "WOOOT")]
+    var posts: [Post] = []
     
     enum Action { // klo choose pake delegate klo acceptreject buka detail
         case choosePost
@@ -37,8 +37,14 @@ class AdminSubmissionListViewController: UIViewController, UITableViewDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupTableViews()
+        
+        PostServices.getPosts() { posts in
+            self.posts = posts
+            DispatchQueue.main.sync {
+                self.SubmissionTable.reloadData()
+            }
+        }
     }
 
     func setupTableViews() {
@@ -50,12 +56,14 @@ class AdminSubmissionListViewController: UIViewController, UITableViewDelegate, 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = SubmissionTable.dequeueReusableCell(withIdentifier: "AdminSubmissionCell", for: indexPath) as! AdminSubmissionListTableViewCell
-        cell.setContent(imageLink: "", schoolName: "Jubilee", schoolLocation: "Sunter, Kemayoran", userName: "Cason Kang", date: "20/10/2019")
+        let post = posts[indexPath.row]
+        let locationString = post.location.locality + ", " + post.location.adminArea
+        cell.setContent(imageLink: post.schoolImages.first ?? "", schoolName: post.schoolName, schoolLocation: locationString, userName: post.user.fullName, date: post.timeStamp)
         
         return cell
     }
@@ -64,6 +72,9 @@ class AdminSubmissionListViewController: UIViewController, UITableViewDelegate, 
         if action == .choosePost {
             self.delegate?.didSelectPost(post: posts[indexPath.row])
             navigationController?.popViewController(animated: true)
+        } else {
+            let vc = SubmissionDetailViewController(userType: .admin, post: posts[indexPath.row])
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
     

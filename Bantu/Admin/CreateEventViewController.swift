@@ -49,7 +49,7 @@ class CreateEventViewController: UIViewController {
             return
         }
         
-        guard let about = aboutField.text, aboutField.isNotEmpty(), about.first != " " else {
+        guard let about = aboutField.text, aboutField.isNotEmpty, about.first != " " else {
             makeAlert(message: "Tentang harus diisi")
             return
         }
