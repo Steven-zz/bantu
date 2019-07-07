@@ -298,7 +298,6 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
         let myLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(userLocation.coordinate.latitude, userLocation.coordinate.longitude)
         let region: MKCoordinateRegion = MKCoordinateRegion(center: myLocation, span: span)
         schoolLocationMapView.setRegion(region, animated: true)
-        schoolLocationMapView.showsUserLocation = true
         annotation.coordinate = myLocation
         schoolLocationMapView.addAnnotation(annotation)
     }

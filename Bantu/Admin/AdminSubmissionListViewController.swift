@@ -8,11 +8,32 @@
 
 import UIKit
 
+protocol AdminSubmissionListDelegate {
+    func didSelectPost(post: Post)
+}
+
 class AdminSubmissionListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
-
     @IBOutlet weak var SubmissionTable: UITableView!
+    
+    let action: Action
+    var delegate: AdminSubmissionListDelegate?
+    
+    var posts:[Post] = [Post(schoolName: "WOOOT")]
+    
+    enum Action { // klo choose pake delegate klo acceptreject buka detail
+        case choosePost
+        case acceptReject
+    }
+    
+    init(action: Action) {
+        self.action = action
+        super.init(nibName: "AdminSubmissionListViewController", bundle: .main)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,5 +60,11 @@ class AdminSubmissionListViewController: UIViewController, UITableViewDelegate, 
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if action == .choosePost {
+            self.delegate?.didSelectPost(post: posts[indexPath.row])
+            navigationController?.popViewController(animated: true)
+        }
+    }
     
 }
