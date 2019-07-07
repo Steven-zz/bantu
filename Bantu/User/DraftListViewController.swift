@@ -11,12 +11,17 @@ import UIKit
 class DraftListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var draftListTableView: UITableView!
+    var drafts: [DraftEntityModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupTableViews()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        drafts = LocalServices.fetchAllDrafts()
     }
     
     func setupTableViews() {
@@ -28,15 +33,19 @@ class DraftListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return drafts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = draftListTableView.dequeueReusableCell(withIdentifier: "DraftCell", for: indexPath) as! DraftListTableViewCell
         
-        cell.setContent(name: "AAAAA", date: "AAA")
-        
+        cell.setContent(name: drafts[indexPath.row].schoolName, date: drafts[indexPath.row].timeStamp)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = CreateDraftViewController(entityModel: drafts[indexPath.row])
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
 }

@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		4223599632CB585020380B60 /* Pods_Bantu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3553256243A38A44EBE8EA3F /* Pods_Bantu.framework */; };
 		850B31F922D1E6150005E0CA /* PostServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B31F822D1E6150005E0CA /* PostServices.swift */; };
+		850B31FC22D1F3240005E0CA /* LocalServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B31FB22D1F3240005E0CA /* LocalServices.swift */; };
+		850B31FF22D1F3FA0005E0CA /* LocalModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 850B31FD22D1F3FA0005E0CA /* LocalModel.xcdatamodeld */; };
+		850B320D22D1FDCB0005E0CA /* DraftEntityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B320C22D1FDCB0005E0CA /* DraftEntityModel.swift */; };
+		850B321022D1FE730005E0CA /* DraftEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B320E22D1FE720005E0CA /* DraftEntity+CoreDataProperties.swift */; };
+		850B321122D1FE730005E0CA /* DraftEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B320F22D1FE720005E0CA /* DraftEntity+CoreDataClass.swift */; };
 		85E5CD7722C23735005937F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5CD7622C23735005937F7 /* AppDelegate.swift */; };
 		85E5CD7C22C23735005937F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85E5CD7A22C23735005937F7 /* Main.storyboard */; };
 		85E5CD7E22C23736005937F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85E5CD7D22C23736005937F7 /* Assets.xcassets */; };
@@ -63,6 +68,11 @@
 		34E0EEB44D00F9497FEC8D47 /* Pods-Bantu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bantu.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bantu/Pods-Bantu.release.xcconfig"; sourceTree = "<group>"; };
 		3553256243A38A44EBE8EA3F /* Pods_Bantu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bantu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		850B31F822D1E6150005E0CA /* PostServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostServices.swift; sourceTree = "<group>"; };
+		850B31FB22D1F3240005E0CA /* LocalServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalServices.swift; sourceTree = "<group>"; };
+		850B31FE22D1F3FA0005E0CA /* LocalModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalModel.xcdatamodel; sourceTree = "<group>"; };
+		850B320C22D1FDCB0005E0CA /* DraftEntityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftEntityModel.swift; sourceTree = "<group>"; };
+		850B320E22D1FE720005E0CA /* DraftEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DraftEntity+CoreDataProperties.swift"; path = "../../DraftEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		850B320F22D1FE720005E0CA /* DraftEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DraftEntity+CoreDataClass.swift"; path = "../../DraftEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		85E5CD7322C23735005937F7 /* Bantu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bantu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85E5CD7622C23735005937F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85E5CD7B22C23735005937F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -136,6 +146,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		850B31FA22D1F30E0005E0CA /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				850B320F22D1FE720005E0CA /* DraftEntity+CoreDataClass.swift */,
+				850B320E22D1FE720005E0CA /* DraftEntity+CoreDataProperties.swift */,
+				850B31FD22D1F3FA0005E0CA /* LocalModel.xcdatamodeld */,
+				850B31FB22D1F3240005E0CA /* LocalServices.swift */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
 		85E5CD6A22C23735005937F7 = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +178,7 @@
 		85E5CD7522C23735005937F7 /* Bantu */ = {
 			isa = PBXGroup;
 			children = (
+				850B31FA22D1F30E0005E0CA /* Core Data */,
 				89E62D9122D0549E007922FF /* Model */,
 				89E62D8E22D0549E007922FF /* Services */,
 				89C7772B22CD9C4700BA96B3 /* Views */,
@@ -276,6 +298,7 @@
 		89E62D9122D0549E007922FF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				850B320C22D1FDCB0005E0CA /* DraftEntityModel.swift */,
 				89E62D9222D0549E007922FF /* Location.swift */,
 				89E62D9322D0549E007922FF /* User.swift */,
 				89E62D9422D0549E007922FF /* Post.swift */,
@@ -431,10 +454,12 @@
 				850B31F922D1E6150005E0CA /* PostServices.swift in Sources */,
 				89C7772022CD004B00BA96B3 /* UIImage+Compression.swift in Sources */,
 				89C7771B22CCAE0500BA96B3 /* FooterCollectionReusableView.swift in Sources */,
+				850B31FF22D1F3FA0005E0CA /* LocalModel.xcdatamodeld in Sources */,
 				89E62D8922CFB383007922FF /* UIImage+DownloadImage.swift in Sources */,
 				89C7771822CC664100BA96B3 /* UIButton+Design.swift in Sources */,
 				89C7772922CD1AD700BA96B3 /* DraftListViewController.swift in Sources */,
 				89C7771122CBBF6700BA96B3 /* ImageCollectionViewCell.swift in Sources */,
+				850B321022D1FE730005E0CA /* DraftEntity+CoreDataProperties.swift in Sources */,
 				89E62DA022D1C880007922FF /* ChooseSchoolViewController.swift in Sources */,
 				89E62DB122D20AF2007922FF /* String+DownloadImage.swift in Sources */,
 				89C776F122C8EE6000BA96B3 /* MainEventListViewController.swift in Sources */,
@@ -443,6 +468,7 @@
 				85E5CD7722C23735005937F7 /* AppDelegate.swift in Sources */,
 				89C776FA22CA68F700BA96B3 /* LogInViewController.swift in Sources */,
 				89C7770522CA73C300BA96B3 /* Globals.swift in Sources */,
+				850B321122D1FE730005E0CA /* DraftEntity+CoreDataClass.swift in Sources */,
 				89E62D9622D0549E007922FF /* UserServices.swift in Sources */,
 				89C7771E22CCD89800BA96B3 /* UITextView+Placeholder.swift in Sources */,
 				89E62D9722D0549E007922FF /* Location.swift in Sources */,
@@ -454,6 +480,8 @@
 				89E62D9C22D0FD45007922FF /* CreateEventViewController.swift in Sources */,
 				89E62D8622CFB0F5007922FF /* AdminSubmissionListTableViewCell.swift in Sources */,
 				89C7770822CB090C00BA96B3 /* SignUpViewController.swift in Sources */,
+				850B31FC22D1F3240005E0CA /* LocalServices.swift in Sources */,
+				850B320D22D1FDCB0005E0CA /* DraftEntityModel.swift in Sources */,
 				89E62D9822D0549E007922FF /* User.swift in Sources */,
 				89C776FF22CA698C00BA96B3 /* UITextField+Design.swift in Sources */,
 				89C7770222CA703700BA96B3 /* LoadingIndicatorViewController.swift in Sources */,
@@ -605,7 +633,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VX2M58CCM9;
+				DEVELOPMENT_TEAM = 98R673PJSG;
 				INFOPLIST_FILE = Bantu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -624,7 +652,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VX2M58CCM9;
+				DEVELOPMENT_TEAM = 98R673PJSG;
 				INFOPLIST_FILE = Bantu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -659,6 +687,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		850B31FD22D1F3FA0005E0CA /* LocalModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				850B31FE22D1F3FA0005E0CA /* LocalModel.xcdatamodel */,
+			);
+			currentVersion = 850B31FE22D1F3FA0005E0CA /* LocalModel.xcdatamodel */;
+			path = LocalModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 85E5CD6B22C23735005937F7 /* Project object */;
 }

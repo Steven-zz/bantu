@@ -55,14 +55,21 @@ class LogInViewController: UIViewController {
             if error == nil {
                 popup.stopAnimating()
                 popup.finish()
-                let userID = (Auth.auth().currentUser?.uid)!
-//                GlobalSession.currentUser = User(userID: <#T##String#>, roleID: <#T##Int#>, email: <#T##String#>, phone: <#T##String#>, fullName: <#T##String#>)
-                self.dismiss(animated: true, completion: nil)
+                let userID: String = Auth.auth().currentUser!.uid
+                
+                UserServices.getUser(withID: userID) { user in
+                    guard let user = user else { return }
+                    GlobalSession.currentUser = user
+                    
+                    DispatchQueue.main.sync {
+                        self.dismiss(animated: true, completion: nil)
+                        popup.stopAnimating()
+                        popup.finish()
+                    }
+                }
+            } else {
                 popup.stopAnimating()
                 popup.finish()
-            } else {
-//                popup.stopAnimating()
-//                popup.finish()
                 let errorCode = error! as NSError
                 var errorMessage = String()
                 

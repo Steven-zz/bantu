@@ -9,6 +9,7 @@
 import CoreLocation
 import UIKit
 import MapKit
+import FirebaseStorage
 
 class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -27,8 +28,11 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var schoolImagesCollectionView: UICollectionView!
     @IBOutlet weak var roadImagesCollectionView: UICollectionView!
     
+    @IBOutlet weak var postDraftView: UIView!
+    @IBOutlet weak var postDraftBtn: UIButton!
+    
     enum State {
-        case load
+        case edit
         case create
     }
     
@@ -38,52 +42,26 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
     let state:State
     
     let locationManager: CLLocationManager
-    var longitude: Double
-    var latitude: Double
-    var aoi: String
-    var locationName: String
-    var locality: String
-    var adminArea: String
     
-    var schoolImages: [UIImage]
-    var roadImages: [UIImage]
+    var schoolImages: [UIImage] = [UIImage]()
+    var roadImages: [UIImage] = [UIImage]()
+    let entityModel: DraftEntityModel?
     
-    var schoolName: String
-    var about: String
-    var studentNumber: Int
-    var teacherNumber: Int
-    var contactPhone: String
-    var address: String
-    var access: String
-    var notes: String
-    var currentDate: String
+    var latitude: Double = 0.0
+    var longitude: Double = 0.0
+    var locality: String = ""
+    var locationName: String = ""
+    var adminArea: String = ""
+    var aoi: String = ""
 
-    init(state: State) {
-        
+    init(entityModel: DraftEntityModel? = nil) {
+        self.entityModel = entityModel
         self.locationManager = CLLocationManager()
-        
-        self.state = state
-        
-        self.latitude = -6.2
-        self.longitude = 106.8
-        self.aoi = "Stasiun"
-        self.locationName = "Kota"
-        self.locality = "Jakarta"
-        self.adminArea = "JAKSS"
-        
-        self.schoolImages = [UIImage]()
-        self.roadImages = [UIImage]()
-        
-        self.currentDate = "Tanggal Hari Ini"
-        
-        self.schoolName = "Nama SekolahKU"
-        self.about = "Tentang Sekolah"
-        self.studentNumber = 5
-        self.teacherNumber = 10
-        self.contactPhone = "+62811829991"
-        self.address = "Jl AAAAA no AAA"
-        self.access = "Susah banget aksesnya"
-        self.notes = "CatatanKu"
+        if entityModel != nil {
+            self.state = .edit
+        } else {
+            self.state = .create
+        }
         
         super.init(nibName: "CreateDraftViewController", bundle: .main)
     }
@@ -94,20 +72,20 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = self.state == .load ? "Edit Draft" : "Create Draft"
-        if state == .load {
+        self.title = self.state == .edit ? "Edit Draft" : "Create Draft"
+        if state == .edit {
             loadData()
+            postDraftView.isHidden = false
+            postDraftBtn.buttonSecondDesign()
         }
         
         getLocationBtn.buttonDesign()
         setupCollectionViews()
         
         if state == .create {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save(_:)))
             self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(dismiss(_:)))
-        } else {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Post", style: .done, target: self, action: #selector(post(_:)))
         }
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save(_:)))
         
         
         //location
@@ -209,7 +187,7 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     // MARK: - buttons
     @IBAction func getLocation(_ sender: UIButton) {
-        if latitude != 0.0 && longitude != 0.0 {
+        if state == .edit {
             let alertController = UIAlertController(title: "Perbarui Lokasi?", message: "Apakah anda ingin mengubah lokasi sekolah? Lokasi lama akan dihapus.", preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "Hapus & Perbarui", style: .destructive) { _ in
                 guard let initialLoc = self.locationManager.location else { return }
@@ -244,6 +222,11 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
             setLocationOnMap(userLocation: loc)
         }
     }
+    
+    @IBAction func postBtn(_ sender: UIButton) {
+        post()
+    }
+    
     // MARK: - functions
     private func loadData() {
         aboutField.textColor = .black
@@ -254,15 +237,24 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
         accessField.textColor = .black
         notesField.textColor = .black
         
-        schoolNameField.text = schoolName
-        aboutField.text = about
-        studentNumberField.text = String(studentNumber)
-        teacherNumberField.text = String(teacherNumber)
-        contactPhoneField.text = contactPhone
-        addressField.text = address
-        accessField.text = access
-        notesField.text = notes
-        setLocationOnMap(userLocation: CLLocation(latitude: latitude, longitude: longitude))
+        guard let entity = entityModel else { return }
+        schoolNameField.text = entity.schoolName
+        aboutField.text = entity.about
+        studentNumberField.text = String(entity.studentNo)
+        teacherNumberField.text = String(entity.teacherNo)
+        contactPhoneField.text = entity.contactNumber
+        addressField.text = entity.address
+        accessField.text = entity.accessNotes
+        notesField.text = entity.notes
+        roadImages = entity.roadImages
+        schoolImages = entity.schoolImages
+        latitude = entity.locationLatitude
+        longitude = entity.locationLongitude
+        aoi = entity.locationAOI
+        locationName = entity.locationName
+        adminArea = entity.locationAdminArea
+        locality = entity.locationLocality
+        setLocationOnMap(userLocation: CLLocation(latitude: entity.locationLatitude, longitude: entity.locationLongitude))
     }
     
     func presentAlert() {
@@ -312,17 +304,17 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
             return
         }
         
-        guard let about = aboutField.text, aboutField.isNotEmpty(), about.first != " " else {
+        guard let about = aboutField.text, aboutField.isNotEmpty, about.first != " " else {
             makeAlert(message: "Tentang harus diisi")
             return
         }
         
-        guard let studentNumber = studentNumberField.text, studentNumber != "", studentNumber.rangeOfCharacter(from: charactersetNumbers.inverted) == nil else {
+        guard let studentNumberString = studentNumberField.text, studentNumberString != "", studentNumberString.rangeOfCharacter(from: charactersetNumbers.inverted) == nil, let studentNumber = Int(studentNumberString) else {
             makeAlert(message: "Isi jumlah murid dengan benar")
             return
         }
         
-        guard let teacherNumber = teacherNumberField.text, teacherNumber != "", teacherNumber.rangeOfCharacter(from: charactersetNumbers.inverted) == nil else {
+        guard let teacherNumberString = teacherNumberField.text, teacherNumberString != "", teacherNumberString.rangeOfCharacter(from: charactersetNumbers.inverted) == nil, let teacherNumber = Int(teacherNumberString) else {
             makeAlert(message: "Isi jumlah guru dengan benar")
             return
         }
@@ -337,18 +329,23 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
             return
         }
         
-        guard let address = addressField.text, addressField.isNotEmpty(), address.first != " " else {
+        guard let address = addressField.text, addressField.isNotEmpty, address.first != " " else {
             makeAlert(message: "Isi alamat dengan benar")
             return
         }
         
-        guard let access = accessField.text, accessField.isNotEmpty(), access.first != " " else {
+        guard let access = accessField.text, accessField.isNotEmpty, access.first != " " else {
             makeAlert(message: "Isi akses dengan benar")
             return
         }
         
-        guard let notes = notesField.text, notesField.isNotEmpty(), notes.first != " " else {
+        guard let notes = notesField.text, notesField.isNotEmpty, notes.first != " " else {
             makeAlert(message: "Isi catatan dengan benar")
+            return
+        }
+        
+        if latitude == 0.0 || longitude == 0.0 {
+            makeAlert(message: "Dapatkan Lokasi")
             return
         }
         
@@ -356,17 +353,181 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM-yyyy"
         let dateString = formatter.string(from: currDate)
-        currentDate = dateString
         
-        print("YAY")
+        let draft = DraftEntityModel(timeStamp: dateString,
+                                          schoolName: schoolName,
+                                          about: about,
+                                          studentNo: studentNumber,
+                                          teacherNo: teacherNumber,
+                                          address: address,
+                                          accessNotes: access,
+                                          notes: notes,
+                                          contactNumber: phoneNumber,
+                                          locationAOI: aoi,
+                                          locationName: locationName,
+                                          locationLocality: locality,
+                                          locationAdminArea: adminArea,
+                                          locationLatitude: latitude,
+                                          locationLongitude: longitude,
+                                          roadImages: roadImages,
+                                          schoolImages: schoolImages
+        )
+        if state == .create {
+            LocalServices.saveToDraft(draft: draft)
+        } else {
+            // update
+        }
     }
+    
+    
     
     @objc func dismiss(_ button: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @objc func post(_ button: UIBarButtonItem) {
+    @objc func post() {
+        guard let user = GlobalSession.currentUser else {
+            makeAlert(message: "Anda harus login sebelum membuat post")
+            return
+        }
         
+        let currDate = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy"
+        let dateString = formatter.string(from: currDate)
+        
+        var schoolUrls: [String] = []
+        var roadUrls: [String] = []
+        
+        var imagesFlag: Int = 0 {
+            didSet {
+                let final: Int = roadImages.count + schoolImages.count
+                if imagesFlag == final {
+                    print(imagesFlag)
+                    guard let draft = entityModel else {
+                        makeAlert(message: "Terjadi error saat mengunggah draft")
+                        return
+                    }
+                    
+                    let location = Location(areaOfInterest: aoi,
+                                            name: locationName,
+                                            locality: locality,
+                                            adminArea: adminArea,
+                                            latitude: latitude,
+                                            longitude: longitude)
+                    
+                    let post = Post(postID: 0,
+                                    statusID: 3,
+                                    timeStamp: dateString,
+                                    schoolName: draft.schoolName,
+                                    about: draft.about,
+                                    teacherNo: draft.teacherNo,
+                                    studentNo: draft.studentNo,
+                                    address: draft.address,
+                                    accessNotes: draft.accessNotes,
+                                    notes: draft.notes,
+                                    contactNumber: draft.contactNumber,
+                                    roadImages: roadUrls,
+                                    schoolImages: schoolUrls,
+                                    location: location,
+                                    user: user)
+                    PostServices.submitPost(post: post) { isSuccess in
+                        print("postsucces please",isSuccess)
+                    }
+                }
+            }
+        }
+        
+        for image in schoolImages {
+            let tempPicId = "pic-\(UUID().uuidString)"
+            
+            guard let data = image.jpegData(compressionQuality: 0.1) else {
+                makeAlert(message: "Gagal mengunggah")
+                return
+            }
+            let tempRef = FirebaseReferences.storageRef.child("Posts/\(user.userID)/\(dateString)/\(tempPicId).jpeg")
+            
+            let metadata = StorageMetadata()
+            metadata.contentType = "image/jpg"
+            
+            let _ = tempRef.putData(data, metadata: metadata) { (metadata, error) in
+                if error != nil{
+                    print("ERROR - \(error?.localizedDescription)")
+                    return
+                }
+                print("success upload to storage")
+                // You can also access to download URL after upload.
+                tempRef.downloadURL { (url, error) in
+                    guard let downloadURL = url else {
+                        // Uh-oh, an error occurred!
+                        return
+                    }
+                    schoolUrls.append(downloadURL.absoluteString)
+                    imagesFlag += 1
+                }
+            }
+        }
+        
+        for image in roadImages {
+            let tempPicId = "pic-\(UUID().uuidString)"
+            
+            guard let data = image.jpegData(compressionQuality: 0.1) else {
+                makeAlert(message: "Gagal mengunggah")
+                return
+            }
+            let tempRef = FirebaseReferences.storageRef.child("Posts/\(user.userID)/\(dateString)/\(tempPicId).jpeg")
+            
+            let metadata = StorageMetadata()
+            metadata.contentType = "image/jpg"
+            
+            let _ = tempRef.putData(data, metadata: metadata) { (metadata, error) in
+                if error != nil{
+                    print("ERROR - \(error?.localizedDescription)")
+                    return
+                }
+                print("success upload to storage")
+                // You can also access to download URL after upload.
+                tempRef.downloadURL { (url, error) in
+                    guard let downloadURL = url else {
+                        // Uh-oh, an error occurred!
+                        return
+                    }
+                    roadUrls.append(downloadURL.absoluteString)
+                    imagesFlag += 1
+                }
+            }
+        }
+        
+//        guard let draft = entityModel else {
+//            makeAlert(message: "Terjadi error saat mengunggah draft")
+//            return
+//        }
+//
+//        let location = Location(areaOfInterest: aoi,
+//                                name: locationName,
+//                                locality: locality,
+//                                adminArea: adminArea,
+//                                latitude: latitude,
+//                                longitude: longitude)
+        
+//        let post = Post(postID: 0,
+//                        statusID: 3,
+//                        timeStamp: dateString,
+//                        schoolName: draft.schoolName,
+//                        about: draft.about,
+//                        teacherNo: draft.teacherNo,
+//                        studentNo: draft.studentNo,
+//                        address: draft.address,
+//                        accessNotes: draft.accessNotes,
+//                        notes: draft.notes,
+//                        contactNumber: draft.contactNumber,
+//                        roadImages: roadUrls,
+//                        schoolImages: schoolUrls,
+//                        location: location,
+//                        user: user)
+//        PostServices.submitPost(post: post) { isSuccess in
+//            print("postsucces please",isSuccess)
+//        }
     }
     
     @objc func schoolTapDetected() {
@@ -420,7 +581,7 @@ extension CreateDraftViewController: UIImagePickerControllerDelegate, UINavigati
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             picker.dismiss(animated: true, completion: nil)
             
-            guard let imageData = image.jpeg(.medium) else { return }
+            guard let imageData = image.jpeg(.low) else { return }
             guard let finalImage = UIImage(data: imageData) else { return }
             
             if (isPickingSchool == true) {
