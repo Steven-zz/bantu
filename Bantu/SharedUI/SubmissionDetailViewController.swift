@@ -36,7 +36,6 @@ class SubmissionDetailViewController: UIViewController {
     
     let userType: UserType
     let post: Post
-    let images:[ImageSource] = [ImageSource(image: UIImage(named: "school")!), ImageSource(image: UIImage(named: "school2")!), ImageSource(image: UIImage(named: "school3")!)]
     
     init(userType: UserType, post: Post) {
         self.userType = userType
@@ -62,20 +61,23 @@ class SubmissionDetailViewController: UIViewController {
     private func loadData() {
         schoolNameLbl.text = post.schoolName
         aboutField.text = post.about
-//        studentNumberField.text = String(post.studentNumber)
-//        teacherNumberField.text = String(post.teacherNumber)
+        studentNumberField.text = String(post.studentNo)
+        teacherNumberField.text = String(post.teacherNo)
         addressField.text = post.address
         accessField.text = post.accessNotes
-//        notesField.text = post.notes
+        notesField.text = post.notes
         setLocationOnMap(userLocation: CLLocation(latitude: post.location.latitude, longitude: post.location.longitude))
         
         if userType == .admin {
             acceptRejectView.isHidden = false
         }
-        setupSlide()
+        
+        downloadImages(imageLinks: post.schoolImages+post.roadImages) { images in
+            self.setupSlide(images: images)
+        }
     }
     
-    private func setupSlide() {
+    private func setupSlide(images: [ImageSource]) {
         self.schoolImageSlide.slideshowInterval = 0
         self.schoolImageSlide.circular = false
         self.schoolImageSlide.zoomEnabled = true
@@ -87,7 +89,7 @@ class SubmissionDetailViewController: UIViewController {
         pageControl.pageIndicatorTintColor = UIColor.lightGray
         
         self.schoolImageSlide.pageIndicator = pageControl
-        self.schoolImageSlide.setImageInputs(self.images)
+        self.schoolImageSlide.setImageInputs(images)
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.didTap))
         self.schoolImageSlide.addGestureRecognizer(gestureRecognizer)
@@ -102,6 +104,16 @@ class SubmissionDetailViewController: UIViewController {
         schoolLocationMapView.showsUserLocation = true
         annotation.coordinate = myLocation
         schoolLocationMapView.addAnnotation(annotation)
+    }
+    
+    func downloadImages(imageLinks: [String], onComplete: @escaping ([ImageSource]) -> Void) {
+        DispatchQueue.main.async {
+            var images: [ImageSource] = []
+            for imageLink in imageLinks {
+                images.append(imageLink.getImageFromString())
+            }
+            onComplete(images)
+        }
     }
     
     func presentAlert() {

@@ -54,6 +54,9 @@
 		89E62DA122D1C880007922FF /* ChooseSchoolViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E62D9F22D1C880007922FF /* ChooseSchoolViewController.xib */; };
 		89E62DA822D1E8BA007922FF /* UserSubmissionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62DA622D1E8BA007922FF /* UserSubmissionListViewController.swift */; };
 		89E62DA922D1E8BA007922FF /* UserSubmissionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E62DA722D1E8BA007922FF /* UserSubmissionListViewController.xib */; };
+		89E62DAE22D1F581007922FF /* UserSubmissionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62DAC22D1F581007922FF /* UserSubmissionListTableViewCell.swift */; };
+		89E62DAF22D1F581007922FF /* UserSubmissionListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E62DAD22D1F581007922FF /* UserSubmissionListTableViewCell.xib */; };
+		89E62DB122D20AF2007922FF /* String+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62DB022D20AF2007922FF /* String+DownloadImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +110,9 @@
 		89E62D9F22D1C880007922FF /* ChooseSchoolViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseSchoolViewController.xib; sourceTree = "<group>"; };
 		89E62DA622D1E8BA007922FF /* UserSubmissionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSubmissionListViewController.swift; sourceTree = "<group>"; };
 		89E62DA722D1E8BA007922FF /* UserSubmissionListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserSubmissionListViewController.xib; sourceTree = "<group>"; };
+		89E62DAC22D1F581007922FF /* UserSubmissionListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSubmissionListTableViewCell.swift; sourceTree = "<group>"; };
+		89E62DAD22D1F581007922FF /* UserSubmissionListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserSubmissionListTableViewCell.xib; sourceTree = "<group>"; };
+		89E62DB022D20AF2007922FF /* String+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DownloadImage.swift"; sourceTree = "<group>"; };
 		D530BC9E39FF417DE82BE4D2 /* Pods-Bantu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bantu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bantu/Pods-Bantu.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -219,6 +225,7 @@
 				89C7771D22CCD89800BA96B3 /* UITextView+Placeholder.swift */,
 				89C7771F22CD004B00BA96B3 /* UIImage+Compression.swift */,
 				89E62D8822CFB383007922FF /* UIImage+DownloadImage.swift */,
+				89E62DB022D20AF2007922FF /* String+DownloadImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -250,6 +257,8 @@
 				89C7772E22CD9C7B00BA96B3 /* DraftListTableViewCell.xib */,
 				89E62D8422CFB0F5007922FF /* AdminSubmissionListTableViewCell.swift */,
 				89E62D8522CFB0F5007922FF /* AdminSubmissionListTableViewCell.xib */,
+				89E62DAC22D1F581007922FF /* UserSubmissionListTableViewCell.swift */,
+				89E62DAD22D1F581007922FF /* UserSubmissionListTableViewCell.xib */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -357,6 +366,7 @@
 				85E5CD7E22C23736005937F7 /* Assets.xcassets in Resources */,
 				89E62D8D22D04BC1007922FF /* SubmissionDetailViewController.xib in Resources */,
 				85E5CD7C22C23735005937F7 /* Main.storyboard in Resources */,
+				89E62DAF22D1F581007922FF /* UserSubmissionListTableViewCell.xib in Resources */,
 				89C7771222CBBF6700BA96B3 /* ImageCollectionViewCell.xib in Resources */,
 				89C776FB22CA68F700BA96B3 /* LogInViewController.xib in Resources */,
 				89E62D8122CFAFCA007922FF /* AdminSubmissionListViewController.xib in Resources */,
@@ -426,6 +436,7 @@
 				89C7772922CD1AD700BA96B3 /* DraftListViewController.swift in Sources */,
 				89C7771122CBBF6700BA96B3 /* ImageCollectionViewCell.swift in Sources */,
 				89E62DA022D1C880007922FF /* ChooseSchoolViewController.swift in Sources */,
+				89E62DB122D20AF2007922FF /* String+DownloadImage.swift in Sources */,
 				89C776F122C8EE6000BA96B3 /* MainEventListViewController.swift in Sources */,
 				89C7772F22CD9C7B00BA96B3 /* DraftListTableViewCell.swift in Sources */,
 				89E62D9922D0549E007922FF /* Post.swift in Sources */,
@@ -435,6 +446,7 @@
 				89E62D9622D0549E007922FF /* UserServices.swift in Sources */,
 				89C7771E22CCD89800BA96B3 /* UITextView+Placeholder.swift in Sources */,
 				89E62D9722D0549E007922FF /* Location.swift in Sources */,
+				89E62DAE22D1F581007922FF /* UserSubmissionListTableViewCell.swift in Sources */,
 				89E62D9522D0549E007922FF /* GlobalSession.swift in Sources */,
 				89E62D8C22D04BC1007922FF /* SubmissionDetailViewController.swift in Sources */,
 				89E62DA822D1E8BA007922FF /* UserSubmissionListViewController.swift in Sources */,
