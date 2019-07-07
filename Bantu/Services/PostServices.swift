@@ -14,6 +14,45 @@ struct PostServices {
         if let userID = userID {
             endPointString += "user/" + userID
         }
+
+        let url = URL(string: endPointString)
+        
+        let dataTask = GlobalSession.session.dataTask(with: url!) { (data, response, error) in
+            if let unwrappedError = error {
+                print("Error = \(unwrappedError.localizedDescription)")
+            } else if let unwrappedData = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: unwrappedData, options: [])
+                    if let dictionary = json as? [String:Any] {
+                        print(dictionary)
+                    }
+                    let decoder = JSONDecoder()
+                    let posts = try decoder.decode([Post].self, from: unwrappedData)
+                    onComplete(posts)
+                } catch {
+                    print("Error convert JSON")
+                    onComplete([])
+                }
+            }
+        }
+        dataTask.resume()
+    }
+    
+    static func getPosts(withStatus status: Post.PostStatus? = nil, onComplete: @escaping ([Post])->()){
+        var endPointString = GlobalSession.rootUrl + "/posts/"
+        if let status = status {
+            let statusID: Int
+            switch status {
+            case .accepted:
+                statusID = 1
+            case .rejected:
+                statusID = 2
+            case .pending:
+                statusID = 3
+            endPointString += "status/" + "\(statusID)"
+            }
+        }
+        
         let url = URL(string: endPointString)
         
         let dataTask = GlobalSession.session.dataTask(with: url!) { (data, response, error) in
