@@ -20,12 +20,12 @@ struct Post: Decodable {
     let timeStamp: String
     let schoolName: String
     let about: String
-    let studentNo: Int?
-    let teacherNo: Int?
+    let studentNo: Int
+    let teacherNo: Int
     let address: String
     let accessNotes: String
     let notes: String
-    let contactNumber: String?
+    let contactNumber: String
     let roadImages: [String]
     let schoolImages: [String]
     let location: Location
@@ -53,12 +53,12 @@ struct Post: Decodable {
             "timeStamp": timeStamp,
             "schoolName": schoolName,
             "about": about,
-            "studentNo": studentNo as Any,
-            "teacherNo": teacherNo as Any,
+            "studentNo": studentNo,
+            "teacherNo": teacherNo,
             "address": address,
             "accessNotes": accessNotes,
             "notes": notes,
-            "contactNumber": contactNumber as Any,
+            "contactNumber": contactNumber,
             "locationAOI": location.areaOfInterest,
             "locationName": location.name,
             "locationLocality": location.locality,
@@ -102,17 +102,5 @@ struct Post: Decodable {
 //        contactPersonName = try container.decode(String.self, forKey: .contactPersonName)
 //        contactNumber = try container.decode(String.self, forKey: .contactNumber)
 //        location = try container.decode(Location.self, forKey: .location)
-//    }
-    
-//    init(postID: Int, statusID: Int, timeStamp: String, schoolName: String, about: String, address: String, accessNotes: String, contactNumber: String, location: Location) {
-//        self.postID = postID
-//        self.statusID = statusID
-//        self.timeStamp = timeStamp
-//        self.schoolName = schoolName
-//        self.about = about
-//        self.address = address
-//        self.accessNotes = accessNotes
-//        self.contactNumber = contactNumber
-//        self.location = location
 //    }
 }
