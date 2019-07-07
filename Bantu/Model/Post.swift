@@ -15,72 +15,104 @@ struct Post: Decodable {
         case pending = "Sedang Diproses"
     }
 
-    var user: User? = nil
     let postID: Int
     let statusID: Int
     let timeStamp: String
     let schoolName: String
     let about: String
+    let studentNo: Int?
+    let teacherNo: Int?
     let address: String
     let accessNotes: String
-    let contactPersonName: String?
+    let notes: String
     let contactNumber: String?
+    let roadImages: [String]
+    let schoolImages: [String]
     let location: Location
+    var user: User
     
     var status: PostStatus {
+        let status: PostStatus
         switch statusID {
         case 1:
-            break
+            status = .accepted
         case 2:
-            break
+            status = .rejected
         case 3:
-            break
+            status = .pending
         default:
-            break
+            status = .pending
         }
-        return .pending
+        return status
     }
     
-    enum CodingKeys: String, CodingKey {
-        case user
-        case postID
-        case statusID
-        case timeStamp
-        case schoolName
-        case about
-        case address
-        case accessNotes
-        case contactPersonName = "contactPerson"
-        case contactNumber
-        case location
+    var asJSONParam: [String:Any] {
+        return [
+            "userID": user.userID,
+            "statusID": statusID,
+            "timeStamp": timeStamp,
+            "schoolName": schoolName,
+            "about": about,
+            "studentNo": studentNo as Any,
+            "teacherNo": teacherNo as Any,
+            "address": address,
+            "accessNotes": accessNotes,
+            "notes": notes,
+            "contactNumber": contactNumber as Any,
+            "locationAOI": location.areaOfInterest,
+            "locationName": location.name,
+            "locationLocality": location.locality,
+            "locationAdminArea": location.adminArea,
+            "locationLatitude": location.latitude,
+            "locationLongitude": location.longitude,
+            "roadImages": roadImages,
+            "schoolImages": schoolImages
+        ]
     }
     
-    init(postID: Int = 0, statusID: Int = 0, timeStamp: String = "", schoolName: String = "", about: String = "", address: String = "", accessNotes: String = "", contactPersonName: String = "", contactNumber: String = "", location: Location = Location()) {
+    init(postID: Int = 0, statusID: Int = 0, timeStamp: String = "", schoolName: String = "", about: String = "", teacherNo: Int = 0, studentNo: Int = 0, address: String = "", accessNotes: String = "", notes:String = "", contactNumber: String = "", roadImages: [String] = [String](), schoolImages:[String] = [String](), location: Location = Location(), user: User = User()) {
         self.postID = postID
         self.statusID = statusID
         self.timeStamp = timeStamp
         self.schoolName = schoolName
         self.about = about
+        self.teacherNo = teacherNo
+        self.studentNo = studentNo
         self.address = address
         self.accessNotes = accessNotes
-        self.contactPersonName = contactPersonName
+        self.notes = notes
         self.contactNumber = contactNumber
+        self.roadImages = roadImages
+        self.schoolImages = schoolImages
         self.location = location
+        self.user = user
     }
     
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        user = try container.decode(User.self, forKey: .user)
-        postID = try container.decode(Int.self, forKey: .postID)
-        statusID = try container.decode(Int.self, forKey: .statusID)
-        timeStamp = try container.decode(String.self, forKey: .timeStamp)
-        schoolName = try container.decode(String.self, forKey: .schoolName)
-        about = try container.decode(String.self, forKey: .about)
-        address = try container.decode(String.self, forKey: .address)
-        accessNotes = try container.decode(String.self, forKey: .accessNotes)
-        contactPersonName = try container.decode(String.self, forKey: .contactPersonName)
-        contactNumber = try container.decode(String.self, forKey: .contactNumber)
-        location = try container.decode(Location.self, forKey: .location)
-    }
+//    init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//
+//        user = try container.decode(User.self, forKey: .user)
+//        postID = try container.decode(Int.self, forKey: .postID)
+//        statusID = try container.decode(Int.self, forKey: .statusID)
+//        timeStamp = try container.decode(String.self, forKey: .timeStamp)
+//        schoolName = try container.decode(String.self, forKey: .schoolName)
+//        about = try container.decode(String.self, forKey: .about)
+//        address = try container.decode(String.self, forKey: .address)
+//        accessNotes = try container.decode(String.self, forKey: .accessNotes)
+//        contactPersonName = try container.decode(String.self, forKey: .contactPersonName)
+//        contactNumber = try container.decode(String.self, forKey: .contactNumber)
+//        location = try container.decode(Location.self, forKey: .location)
+//    }
+    
+//    init(postID: Int, statusID: Int, timeStamp: String, schoolName: String, about: String, address: String, accessNotes: String, contactNumber: String, location: Location) {
+//        self.postID = postID
+//        self.statusID = statusID
+//        self.timeStamp = timeStamp
+//        self.schoolName = schoolName
+//        self.about = about
+//        self.address = address
+//        self.accessNotes = accessNotes
+//        self.contactNumber = contactNumber
+//        self.location = location
+//    }
 }

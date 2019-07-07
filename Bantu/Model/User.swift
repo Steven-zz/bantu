@@ -14,17 +14,17 @@ class User: Decodable {
     let email: String
     let phone: String
     let fullName: String
-    
+
     enum Role {
         case admin
         case publicUser
     }
-    
+
     var role: Role {
         return (roleID == 1) ? .admin : .publicUser
     }
-    
-    init(userID: String, roleID: Int, email: String, phone: String, fullName: String) {
+
+    init(userID: String = "", roleID: Int = 0, email: String = "", phone: String = "", fullName: String = "") {
         self.userID = userID
         self.roleID = roleID
         self.email = email
