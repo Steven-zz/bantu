@@ -1,21 +1,21 @@
 //
-//  AddDraftViewController.swift
+//  ChooseSchoolViewController.swift
 //  Bantu
 //
-//  Created by Cason Kang on 30/06/19.
+//  Created by Cason Kang on 07/07/19.
 //  Copyright © 2019 Steven Muliamin. All rights reserved.
 //
 
 import UIKit
 
-class AddDraftViewController: UIViewController {
+class ChooseSchoolViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
+
 
     /*
     // MARK: - Navigation
