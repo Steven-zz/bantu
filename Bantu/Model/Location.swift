@@ -25,6 +25,15 @@ struct Location: Decodable {
         case longitude = "locationLongitude"
     }
     
+    init(areaOfInterest: String = "", name: String = "", locality: String = "", adminArea: String = "", latitude: Double = 0.0, longitude: Double = 0.0) {
+        self.areaOfInterest = areaOfInterest
+        self.name = name
+        self.locality = locality
+        self.adminArea = adminArea
+        self.latitude = latitude
+        self.longitude = longitude
+    }
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         

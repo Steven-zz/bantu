@@ -48,6 +48,8 @@
 		89E62D9722D0549E007922FF /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62D9222D0549E007922FF /* Location.swift */; };
 		89E62D9822D0549E007922FF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62D9322D0549E007922FF /* User.swift */; };
 		89E62D9922D0549E007922FF /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62D9422D0549E007922FF /* Post.swift */; };
+		89E62D9C22D0FD45007922FF /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62D9A22D0FD45007922FF /* CreateEventViewController.swift */; };
+		89E62D9D22D0FD45007922FF /* CreateEventViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E62D9B22D0FD45007922FF /* CreateEventViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +97,8 @@
 		89E62D9222D0549E007922FF /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		89E62D9322D0549E007922FF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		89E62D9422D0549E007922FF /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		89E62D9A22D0FD45007922FF /* CreateEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
+		89E62D9B22D0FD45007922FF /* CreateEventViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateEventViewController.xib; sourceTree = "<group>"; };
 		D530BC9E39FF417DE82BE4D2 /* Pods-Bantu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bantu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bantu/Pods-Bantu.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,6 +168,8 @@
 			children = (
 				89E62D7E22CFAFCA007922FF /* AdminSubmissionListViewController.swift */,
 				89E62D7F22CFAFCA007922FF /* AdminSubmissionListViewController.xib */,
+				89E62D9A22D0FD45007922FF /* CreateEventViewController.swift */,
+				89E62D9B22D0FD45007922FF /* CreateEventViewController.xib */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -328,6 +334,7 @@
 				89C7772A22CD1AD700BA96B3 /* DraftListViewController.xib in Resources */,
 				85E5CD8122C23736005937F7 /* LaunchScreen.storyboard in Resources */,
 				89C7770322CA703700BA96B3 /* LoadingIndicatorViewController.xib in Resources */,
+				89E62D9D22D0FD45007922FF /* CreateEventViewController.xib in Resources */,
 				89E62D8722CFB0F5007922FF /* AdminSubmissionListTableViewCell.xib in Resources */,
 				89C7773022CD9C7B00BA96B3 /* DraftListTableViewCell.xib in Resources */,
 				89C7770D22CB913700BA96B3 /* CreateDraftViewController.xib in Resources */,
@@ -416,6 +423,7 @@
 				89E62D9522D0549E007922FF /* GlobalSession.swift in Sources */,
 				89E62D8C22D04BC1007922FF /* SubmissionDetailViewController.swift in Sources */,
 				89C7770C22CB913700BA96B3 /* CreateDraftViewController.swift in Sources */,
+				89E62D9C22D0FD45007922FF /* CreateEventViewController.swift in Sources */,
 				89E62D8622CFB0F5007922FF /* AdminSubmissionListTableViewCell.swift in Sources */,
 				89C7770822CB090C00BA96B3 /* SignUpViewController.swift in Sources */,
 				89E62D9822D0549E007922FF /* User.swift in Sources */,

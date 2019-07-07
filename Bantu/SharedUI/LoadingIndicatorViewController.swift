@@ -19,8 +19,8 @@ class LoadingIndicatorViewController: UIViewController {
         backgroundView.backgroundColor = #colorLiteral(red: 0.937254902, green: 0.937254902, blue: 0.9568627451, alpha: 1)
         backgroundView.layer.cornerRadius = 5.0
         backgroundView.layer.masksToBounds = true
-        activityIndicator.color = UIColor.init(red: 165/255, green: 0/255, blue: 1/255, alpha: 1)
-        activityLbl.textColor = UIColor.init(red: 165/255, green: 0/255, blue: 1/255, alpha: 1)
+        activityIndicator.color = UIColor.init(red: 45/255, green: 122/255, blue: 143/255, alpha: 1)
+        activityLbl.textColor = UIColor.init(red: 45/255, green: 122/255, blue: 143/255, alpha: 1)
     }
 
     public func startAnimating() {

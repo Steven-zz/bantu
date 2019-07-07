@@ -58,13 +58,15 @@ class PaddingTextView: UITextView, UITextViewDelegate {
         }
     }
     
-//    func textViewDidChange(_ textView: UITextView) {
-//        let fixedWidth = self.frame.size.width
-//        self.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
-//        let newSize = self.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
-//        var newFrame = self.frame
-//        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
-//        self.frame = newFrame
-//    }
-    
+}
+
+class SecondTextView: UITextView, UITextViewDelegate {
+        func textViewDidChange(_ textView: UITextView) {
+            let fixedWidth = self.frame.size.width
+            self.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+            let newSize = self.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+            var newFrame = self.frame
+            newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+            self.frame = newFrame
+        }
 }

@@ -27,13 +27,13 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var schoolImagesCollectionView: UICollectionView!
     @IBOutlet weak var roadImagesCollectionView: UICollectionView!
     
-    var isPickingSchool: Bool = false
-    var isPickingRoad: Bool = false
-    
     enum State {
         case load
         case create
     }
+    
+    var isPickingSchool: Bool = false
+    var isPickingRoad: Bool = false
     
     let state:State
     

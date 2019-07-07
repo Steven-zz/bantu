@@ -46,7 +46,7 @@ class LogInViewController: UIViewController {
             return
         }
         
-        guard let popup = UIViewController(nibName: "LoadingIndicatorViewController", bundle: nil) as? LoadingIndicatorViewController else {return}
+        let popup = LoadingIndicatorViewController.getIndicatorView()
         self.present(popup, animated: false, completion: nil)
         popup.startAnimating()
         popup.setLbl(activity: "Menghubungi Server")
@@ -55,11 +55,15 @@ class LogInViewController: UIViewController {
             if error == nil {
                 popup.stopAnimating()
                 popup.finish()
-                Globals.uid = (Auth.auth().currentUser?.uid)!
+                let userID = (Auth.auth().currentUser?.uid)!
+                //Get User Info from backend
+//                GlobalSession.currentUser = User(userID: <#T##String#>, roleID: <#T##Int#>, email: <#T##String#>, phone: <#T##String#>, fullName: <#T##String#>)
                 self.dismiss(animated: true, completion: nil)
-            } else {
                 popup.stopAnimating()
                 popup.finish()
+            } else {
+//                popup.stopAnimating()
+//                popup.finish()
                 let errorCode = error! as NSError
                 var errorMessage = String()
                 

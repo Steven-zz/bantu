@@ -7,25 +7,178 @@
 //
 
 import UIKit
+import ImageSlideshow
+import MapKit
 
 class SubmissionDetailViewController: UIViewController {
 
     @IBOutlet weak var schoolImageSlide: ImageSlideshow!
+    @IBOutlet weak var schoolNameLbl: UILabel!
+    @IBOutlet weak var aboutField: SecondTextView!
+    @IBOutlet weak var studentNumberField: UITextView!
+    @IBOutlet weak var teacherNumberField: UITextView!
+    @IBOutlet weak var accessField: SecondTextView!
+    @IBOutlet weak var notesField: SecondTextView!
+    @IBOutlet weak var addressField: SecondTextView!
+    @IBOutlet weak var schoolLocationMapView: MKMapView!
+    
+    @IBOutlet weak var navigateBtn: UIButton!
+    @IBOutlet weak var contactBtn: UIButton!
+    @IBOutlet weak var rejectBtn: UIButton!
+    @IBOutlet weak var acceptBtn: UIButton!
+    @IBOutlet weak var acceptRejectView: UIView!
+    
+    
+    enum UserType {
+        case user
+        case admin
+    }
+    
+    let userType: UserType
+    let post: Post
+    let images:[ImageSource] = [ImageSource(image: UIImage(named: "school")!), ImageSource(image: UIImage(named: "school2")!), ImageSource(image: UIImage(named: "school3")!)]
+    
+    init(userType: UserType, post: Post) {
+        self.userType = userType
+        self.post = post
+        
+        super.init(nibName: "SubmissionDetailViewController", bundle: .main)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigateBtn.buttonDesign()
+        contactBtn.buttonDesign()
+        rejectBtn.buttonSecondDesign()
+        acceptBtn.buttonSecondDesign()
         // Do any additional setup after loading the view.
+        loadData()
+    }
+    
+    private func loadData() {
+        schoolNameLbl.text = post.schoolName
+        aboutField.text = post.about
+//        studentNumberField.text = String(post.studentNumber)
+//        teacherNumberField.text = String(post.teacherNumber)
+        addressField.text = post.address
+        accessField.text = post.accessNotes
+//        notesField.text = post.notes
+        setLocationOnMap(userLocation: CLLocation(latitude: post.location.latitude, longitude: post.location.longitude))
+        
+        if userType == .admin {
+            acceptRejectView.isHidden = false
+        }
+        setupSlide()
+    }
+    
+    private func setupSlide() {
+        self.schoolImageSlide.slideshowInterval = 0
+        self.schoolImageSlide.circular = false
+        self.schoolImageSlide.zoomEnabled = true
+        self.schoolImageSlide.pageIndicatorPosition = .init(horizontal: .center, vertical: .under)
+        self.schoolImageSlide.contentScaleMode = UIView.ContentMode.scaleAspectFill
+        
+        let pageControl = UIPageControl()
+        pageControl.currentPageIndicatorTintColor = UIColor.black
+        pageControl.pageIndicatorTintColor = UIColor.lightGray
+        
+        self.schoolImageSlide.pageIndicator = pageControl
+        self.schoolImageSlide.setImageInputs(self.images)
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.didTap))
+        self.schoolImageSlide.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    func setLocationOnMap(userLocation: CLLocation) {
+        let annotation = MKPointAnnotation()
+        let span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        let myLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(userLocation.coordinate.latitude, userLocation.coordinate.longitude)
+        let region: MKCoordinateRegion = MKCoordinateRegion(center: myLocation, span: span)
+        schoolLocationMapView.setRegion(region, animated: true)
+        schoolLocationMapView.showsUserLocation = true
+        annotation.coordinate = myLocation
+        schoolLocationMapView.addAnnotation(annotation)
+    }
+    
+    func presentAlert() {
+        let alertController = UIAlertController(title: "Izinkan akses lokasi", message: "Aktifkan lokasi untuk mendapatkan lokasi anda", preferredStyle: .alert)
+        
+        let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
+            guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
+            if UIApplication.shared.canOpenURL(settingsURL) {
+                UIApplication.shared.open(settingsURL, completionHandler: nil)
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alertController.addAction(settingsAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    @objc func didTap() {
+        self.schoolImageSlide.presentFullScreenController(from: self)
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func openMaps(_ sender: UIButton) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Apple Maps", style: .default, handler: { (action) in
+            let url = "http://maps.apple.com/maps?saddr=&daddr=\(self.post.location.latitude),\(self.post.location.longitude)"
+            if UIApplication.shared.canOpenURL(NSURL(string: url)! as URL) {
+                UIApplication.shared.openURL(URL(string:url)!)
+            } else {
+                let alert = UIAlertController(title: "Error", message: "Tolong Install Apple Maps", preferredStyle: UIAlertController.Style.alert)
+                let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+                alert.addAction(okButton)
+                self.present(alert, animated: true, completion: nil)
+            }
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Google Maps", style: .default, handler: { (action) in
+            let url = "comgooglemaps://?saddr=&daddr=\(self.post.location.latitude),\(self.post.location.longitude)&directionsmode=driving"
+            if UIApplication.shared.canOpenURL(NSURL(string: url)! as URL) {
+                UIApplication.shared.openURL(URL(string:url)!)
+            } else {
+                let alert = UIAlertController(title: "Error", message: "Tolong Install Google Maps", preferredStyle: UIAlertController.Style.alert)
+                let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+                alert.addAction(okButton)
+                self.present(alert, animated: true, completion: nil)
+            }
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+        }))
+        
+        present(alert, animated: true, completion: nil)
+        
     }
-    */
+    
+    @IBAction func contact(_ sender: UIButton) {
+        let string = "whatsapp://send?phone=+6283870152354&text= "
+        guard let url = URL(string: string.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!) else { return }
+        
+        UIApplication.shared.openURL(url)
+    }
 
+    
+}
+
+extension SubmissionDetailViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if CLLocationManager.locationServicesEnabled() {
+            switch CLLocationManager.authorizationStatus() {
+            case .restricted, .denied:
+                presentAlert()
+            default:
+                break
+            }
+        }
+    }
 }

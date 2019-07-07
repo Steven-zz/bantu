@@ -55,7 +55,7 @@ struct Post: Decodable {
         case location
     }
     
-    init(postID: Int, statusID: Int, timeStamp: String, schoolName: String, about: String, address: String, accessNotes: String, contactPersonName: String, contactNumber: String, location: Location) {
+    init(postID: Int = 0, statusID: Int = 0, timeStamp: String = "", schoolName: String = "", about: String = "", address: String = "", accessNotes: String = "", contactPersonName: String = "", contactNumber: String = "", location: Location = Location()) {
         self.postID = postID
         self.statusID = statusID
         self.timeStamp = timeStamp
