@@ -72,8 +72,29 @@ class SubmissionDetailViewController: UIViewController {
             acceptRejectView.isHidden = false
         }
         
-        downloadImages(imageLinks: post.schoolImages+post.roadImages) { images in
-            self.setupSlide(images: images)
+//        self.downloadImages(imageLinks: self.post.schoolImages+self.post.roadImages) { images in
+//            self.setupSlide(images: images)
+//        }
+        var images: [ImageSource] = []
+        var imagesFlag: Int = 0 {
+            didSet {
+                let final = post.roadImages.count + post.schoolImages.count
+                if imagesFlag == final {
+                    self.setupSlide(images: images)
+                }
+            }
+        }
+        for x in post.roadImages {
+            x.getImageFromString() { img in
+                images.append(ImageSource(image: img))
+                imagesFlag += 1
+            }
+        }
+        for x in post.schoolImages {
+            x.getImageFromString() { img in
+                images.append(ImageSource(image: img))
+                imagesFlag += 1
+            }
         }
     }
     
@@ -106,15 +127,13 @@ class SubmissionDetailViewController: UIViewController {
         schoolLocationMapView.addAnnotation(annotation)
     }
     
-    func downloadImages(imageLinks: [String], onComplete: @escaping ([ImageSource]) -> Void) {
-        DispatchQueue.main.async {
-            var images: [ImageSource] = []
-            for imageLink in imageLinks {
-                images.append(imageLink.getImageFromString())
-            }
-            onComplete(images)
-        }
-    }
+//    func downloadImages(imageLinks: [String], onComplete: @escaping ([ImageSource]) -> Void) {
+//        var images: [ImageSource] = []
+//        for imageLink in imageLinks {
+//            images.append(imageLink.getImageFromString())
+//        }
+//        onComplete(images)
+//    }
     
     func presentAlert() {
         let alertController = UIAlertController(title: "Izinkan akses lokasi", message: "Aktifkan lokasi untuk mendapatkan lokasi anda", preferredStyle: .alert)
