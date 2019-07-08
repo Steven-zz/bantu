@@ -15,13 +15,13 @@ class DraftListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupTableViews()
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         drafts = LocalServices.fetchAllDrafts()
+        GlobalSession.selectedIndex = 2
     }
     
     func setupTableViews() {

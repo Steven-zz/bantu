@@ -13,19 +13,40 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    private func getTabBarController() -> UITabBarController {
+        let tabBarController = UITabBarController()
+        
+        let eventListVC = EventListViewController()
+        eventListVC.title = "Events"
+        eventListVC.tabBarItem = UITabBarItem(title: "Events", image: nil, tag: 0)
+        let eventNav = UINavigationController(rootViewController: eventListVC)
+        eventNav.setBantuStyle()
 
+        let defaultCreateDraftVC = DefaultCreateDraftVC()
+        defaultCreateDraftVC.title = ""
+        defaultCreateDraftVC.tabBarItem = UITabBarItem(title: "draft", image: nil, tag: 1)
+        
+        let draftListVC = DraftListViewController()
+        draftListVC.title = "Drafts"
+        draftListVC.tabBarItem = UITabBarItem(title: "Drafts", image: nil, tag: 2)
+        let draftNav = UINavigationController(rootViewController: draftListVC)
+        draftNav.setBantuStyle()
+        
+        let controllers = [eventNav, defaultCreateDraftVC, draftNav]
+        tabBarController.viewControllers = controllers
+        
+        return tabBarController
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        EventServices.getEvents() { events in
-            print(events)
-        }
+
         FirebaseApp.configure()
-//        let vc =  AdminSubmissionListViewController(action: .acceptReject)
-////        let vc = DraftListViewController()
-//        let nav = UINavigationController(rootViewController: vc)
-//        nav.navigationBar.isTranslucent = false
-//        window?.rootViewController = nav
+
+        window = UIWindow()
+        window?.rootViewController = getTabBarController()
+        window?.makeKeyAndVisible()
+        
         return true
     }
 
