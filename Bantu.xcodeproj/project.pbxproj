@@ -69,6 +69,10 @@
 		89E62DBA22D30A33007922FF /* EventListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62DB822D30A33007922FF /* EventListTableViewCell.swift */; };
 		89E62DBB22D30A33007922FF /* EventListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E62DB922D30A33007922FF /* EventListTableViewCell.xib */; };
 		89E62DBD22D32BFE007922FF /* UIColor+Bantu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62DBC22D32BFE007922FF /* UIColor+Bantu.swift */; };
+		89E62DC022D33254007922FF /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62DBE22D33254007922FF /* EventDetailViewController.swift */; };
+		89E62DC122D33254007922FF /* EventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E62DBF22D33254007922FF /* EventDetailViewController.xib */; };
+		89E62DC422D3597C007922FF /* SeeMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62DC222D3597C007922FF /* SeeMoreViewController.swift */; };
+		89E62DC522D3597C007922FF /* SeeMoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E62DC322D3597C007922FF /* SeeMoreViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -137,6 +141,10 @@
 		89E62DB822D30A33007922FF /* EventListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListTableViewCell.swift; sourceTree = "<group>"; };
 		89E62DB922D30A33007922FF /* EventListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventListTableViewCell.xib; sourceTree = "<group>"; };
 		89E62DBC22D32BFE007922FF /* UIColor+Bantu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Bantu.swift"; sourceTree = "<group>"; };
+		89E62DBE22D33254007922FF /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		89E62DBF22D33254007922FF /* EventDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventDetailViewController.xib; sourceTree = "<group>"; };
+		89E62DC222D3597C007922FF /* SeeMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeMoreViewController.swift; sourceTree = "<group>"; };
+		89E62DC322D3597C007922FF /* SeeMoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeeMoreViewController.xib; sourceTree = "<group>"; };
 		D530BC9E39FF417DE82BE4D2 /* Pods-Bantu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bantu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bantu/Pods-Bantu.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -250,6 +258,10 @@
 				89E62D8B22D04BC1007922FF /* SubmissionDetailViewController.xib */,
 				89E62DB422D3027A007922FF /* EventListViewController.swift */,
 				89E62DB522D3027A007922FF /* EventListViewController.xib */,
+				89E62DBE22D33254007922FF /* EventDetailViewController.swift */,
+				89E62DBF22D33254007922FF /* EventDetailViewController.xib */,
+				89E62DC222D3597C007922FF /* SeeMoreViewController.swift */,
+				89E62DC322D3597C007922FF /* SeeMoreViewController.xib */,
 			);
 			path = SharedUI;
 			sourceTree = "<group>";
@@ -413,9 +425,11 @@
 				89E62DAF22D1F581007922FF /* UserSubmissionListTableViewCell.xib in Resources */,
 				89E62DB722D3027A007922FF /* EventListViewController.xib in Resources */,
 				89C7771222CBBF6700BA96B3 /* ImageCollectionViewCell.xib in Resources */,
+				89E62DC522D3597C007922FF /* SeeMoreViewController.xib in Resources */,
 				89C776FB22CA68F700BA96B3 /* LogInViewController.xib in Resources */,
 				89E62D8122CFAFCA007922FF /* AdminSubmissionListViewController.xib in Resources */,
 				89E62DA922D1E8BA007922FF /* UserSubmissionListViewController.xib in Resources */,
+				89E62DC122D33254007922FF /* EventDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,9 +495,11 @@
 				850B31FF22D1F3FA0005E0CA /* LocalModel.xcdatamodeld in Sources */,
 				89E62D8922CFB383007922FF /* UIImage+DownloadImage.swift in Sources */,
 				89C7771822CC664100BA96B3 /* UIButton+Design.swift in Sources */,
+				89E62DC022D33254007922FF /* EventDetailViewController.swift in Sources */,
 				89C7772922CD1AD700BA96B3 /* DraftListViewController.swift in Sources */,
 				89C7771122CBBF6700BA96B3 /* ImageCollectionViewCell.swift in Sources */,
 				850B321022D1FE730005E0CA /* DraftEntity+CoreDataProperties.swift in Sources */,
+				89E62DC422D3597C007922FF /* SeeMoreViewController.swift in Sources */,
 				89E62DA022D1C880007922FF /* ChooseSchoolViewController.swift in Sources */,
 				89E62DB122D20AF2007922FF /* String+DownloadImage.swift in Sources */,
 				89C776F122C8EE6000BA96B3 /* MainEventListViewController.swift in Sources */,
