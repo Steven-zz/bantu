@@ -87,20 +87,4 @@ struct Post: Decodable {
         self.location = location
         self.user = user
     }
-    
-//    init(from decoder: Decoder) throws {
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//
-//        user = try container.decode(User.self, forKey: .user)
-//        postID = try container.decode(Int.self, forKey: .postID)
-//        statusID = try container.decode(Int.self, forKey: .statusID)
-//        timeStamp = try container.decode(String.self, forKey: .timeStamp)
-//        schoolName = try container.decode(String.self, forKey: .schoolName)
-//        about = try container.decode(String.self, forKey: .about)
-//        address = try container.decode(String.self, forKey: .address)
-//        accessNotes = try container.decode(String.self, forKey: .accessNotes)
-//        contactPersonName = try container.decode(String.self, forKey: .contactPersonName)
-//        contactNumber = try container.decode(String.self, forKey: .contactNumber)
-//        location = try container.decode(Location.self, forKey: .location)
-//    }
 }

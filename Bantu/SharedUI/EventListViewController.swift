@@ -23,6 +23,10 @@ class EventListViewController: UIViewController, UITableViewDelegate, UITableVie
         eventListTable.register(UINib(nibName: "EventListTableViewCell", bundle: .main), forCellReuseIdentifier: "EventListCell")
         eventListTable.tableFooterView = UIView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        GlobalSession.selectedIndex = 0
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
