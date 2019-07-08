@@ -20,6 +20,8 @@
 		8539CF9022D35D56004645B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8539CF8E22D35D56004645B7 /* Main.storyboard */; };
 		8539CFB022D386D2004645B7 /* UINavigationController+Bantu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8539CFAF22D386D2004645B7 /* UINavigationController+Bantu.swift */; };
 		8539CFB222D3A579004645B7 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8539CFB122D3A579004645B7 /* MainVC.swift */; };
+		8539CFB522D3A609004645B7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8539CFB322D3A609004645B7 /* ProfileViewController.swift */; };
+		8539CFB622D3A609004645B7 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8539CFB422D3A609004645B7 /* ProfileViewController.xib */; };
 		85E5CD7722C23735005937F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5CD7622C23735005937F7 /* AppDelegate.swift */; };
 		85E5CD7E22C23736005937F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85E5CD7D22C23736005937F7 /* Assets.xcassets */; };
 		85E5CD8122C23736005937F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85E5CD7F22C23736005937F7 /* LaunchScreen.storyboard */; };
@@ -91,6 +93,8 @@
 		8539CF8F22D35D56004645B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8539CFAF22D386D2004645B7 /* UINavigationController+Bantu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Bantu.swift"; sourceTree = "<group>"; };
 		8539CFB122D3A579004645B7 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		8539CFB322D3A609004645B7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		8539CFB422D3A609004645B7 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		85E5CD7322C23735005937F7 /* Bantu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bantu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85E5CD7622C23735005937F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85E5CD7D22C23736005937F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -255,6 +259,8 @@
 		89C776FC22CA690000BA96B3 /* SharedUI */ = {
 			isa = PBXGroup;
 			children = (
+				8539CFB322D3A609004645B7 /* ProfileViewController.swift */,
+				8539CFB422D3A609004645B7 /* ProfileViewController.xib */,
 				89C776F822CA68F600BA96B3 /* LogInViewController.swift */,
 				89C776F922CA68F700BA96B3 /* LogInViewController.xib */,
 				89E62D8A22D04BC1007922FF /* SubmissionDetailViewController.swift */,
@@ -425,6 +431,7 @@
 				8539CF9022D35D56004645B7 /* Main.storyboard in Resources */,
 				85E5CD7E22C23736005937F7 /* Assets.xcassets in Resources */,
 				89E62D8D22D04BC1007922FF /* SubmissionDetailViewController.xib in Resources */,
+				8539CFB622D3A609004645B7 /* ProfileViewController.xib in Resources */,
 				89E62DAF22D1F581007922FF /* UserSubmissionListTableViewCell.xib in Resources */,
 				89E62DB722D3027A007922FF /* EventListViewController.xib in Resources */,
 				89C7771222CBBF6700BA96B3 /* ImageCollectionViewCell.xib in Resources */,
@@ -534,6 +541,7 @@
 				850B320D22D1FDCB0005E0CA /* DraftEntityModel.swift in Sources */,
 				89E62D9822D0549E007922FF /* User.swift in Sources */,
 				89C776FF22CA698C00BA96B3 /* UITextField+Design.swift in Sources */,
+				8539CFB522D3A609004645B7 /* ProfileViewController.swift in Sources */,
 				89E62D8022CFAFCA007922FF /* AdminSubmissionListViewController.swift in Sources */,
 				8539CF8B22D329EE004645B7 /* EventServices.swift in Sources */,
 			);

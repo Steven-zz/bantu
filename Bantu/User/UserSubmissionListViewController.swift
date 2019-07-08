@@ -12,7 +12,7 @@ class UserSubmissionListViewController: UIViewController, UITableViewDelegate, U
 
     @IBOutlet weak var submissionListTableView: UITableView!
     
-    let posts: [Post] = [Post(statusID: 1, schoolName: "Binus1", schoolImages: ["https://i.dailymail.co.uk/i/pix/2015/09/01/18/2BE1E88B00000578-3218613-image-m-5_1441127035222.jpg"], location: Location(locality: "Tangerang", adminArea: "Banten")),Post(statusID: 2, schoolName: "Binus2", schoolImages: ["https://i.dailymail.co.uk/i/pix/2015/09/01/18/2BE1E88B00000578-3218613-image-m-5_1441127035222.jpg"], location: Location(locality: "Tangerang", adminArea: "Bantenn")),Post(statusID: 3, schoolName: "Binus3", schoolImages: ["https://i.dailymail.co.uk/i/pix/2015/09/01/18/2BE1E88B00000578-3218613-image-m-5_1441127035222.jpg"], location: Location(locality: "Tangerang", adminArea: "Bantennn"))]
+    var posts: [Post] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +21,13 @@ class UserSubmissionListViewController: UIViewController, UITableViewDelegate, U
         
         submissionListTableView.register(UINib(nibName: "UserSubmissionListTableViewCell", bundle: .main), forCellReuseIdentifier: "UserSubmissionCell")
         submissionListTableView.tableFooterView = UIView()
+        
+        PostServices.getPosts(withUserID: GlobalSession.currentUser?.userID) { posts in
+            self.posts = posts
+            DispatchQueue.main.sync {
+                self.submissionListTableView.reloadData()
+            }
+        }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -29,9 +36,8 @@ class UserSubmissionListViewController: UIViewController, UITableViewDelegate, U
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = submissionListTableView.dequeueReusableCell(withIdentifier: "UserSubmissionCell", for: indexPath) as! UserSubmissionListTableViewCell
-        let post = posts[indexPath.row]
         cell.setUI(post: posts[indexPath.row])
-        
+        cell.selectionStyle = .none
         return cell
     }
     

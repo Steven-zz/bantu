@@ -9,10 +9,21 @@
 import Foundation
 
 struct PostServices {
-    static func getPosts(withUserID userID: String? = nil, onComplete: @escaping ([Post])->()){
+    static func getPosts(withUserID userID: String? = nil, withStatus status: Post.PostStatus? = nil, onComplete: @escaping ([Post])->()){
         var endPointString = GlobalSession.rootUrl + "/posts/"
         if let userID = userID {
             endPointString += "user/" + userID
+        } else if let status = status {
+            let statusID: Int
+            switch status {
+            case .accepted:
+                statusID = 1
+            case .rejected:
+                statusID = 2
+            case .pending:
+                statusID = 3
+            }
+            endPointString += "status/" + "\(statusID)"
         }
 
         let url = URL(string: endPointString)

@@ -13,42 +13,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
-    private func getTabBarController() -> UITabBarController {
-        let tabBarController = UITabBarController()
-        tabBarController.tabBar.tintColor = .bantuBlue
-        
-        let eventListVC = EventListViewController()
-        eventListVC.title = "Events"
-        eventListVC.tabBarItem = UITabBarItem(title: "Events", image: UIImage(named: "calendar"), tag: 0)
-        let eventNav = UINavigationController(rootViewController: eventListVC)
-        eventNav.setBantuStyle()
-
-        let defaultCreateDraftVC = DefaultCreateDraftVC()
-        defaultCreateDraftVC.title = ""
-        defaultCreateDraftVC.tabBarItem = UITabBarItem(title: "Buat Draft", image: UIImage(named: "addDraft"), tag: 1)
-//        defaultCreateDraftVC.tabBarItem.imageInsets = UIEdgeInsets(top: 1, left: 0, bottom: 0, right: 0)
-        
-        let draftListVC = DraftListViewController()
-        draftListVC.title = "Drafts"
-        draftListVC.tabBarItem = UITabBarItem(title: "Drafts", image: UIImage(named: "drafts"), tag: 2)
-        let draftNav = UINavigationController(rootViewController: draftListVC)
-        draftNav.setBantuStyle()
-        
-        let controllers = [eventNav, defaultCreateDraftVC, draftNav]
-        tabBarController.viewControllers = controllers
-        
-        return tabBarController
-    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         FirebaseApp.configure()
 
         window = UIWindow()
-        window?.rootViewController = getTabBarController()
+        let mainVC = MainVC()
+        window?.rootViewController = mainVC
         window?.makeKeyAndVisible()
-        
         
         return true
     }

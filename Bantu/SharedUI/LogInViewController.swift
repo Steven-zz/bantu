@@ -24,14 +24,19 @@ class LogInViewController: UIViewController {
         emailField.delegate = self
         passwordField.delegate = self
         signInBtnOutlet.buttonDesign()
-        signUpBtnOutlet.setTitleColor(#colorLiteral(red: 0.1764705882, green: 0.4784313725, blue: 0.5607843137, alpha: 1), for: .normal)
+        signUpBtnOutlet.setTitleColor(.bantuBlue, for: .normal)
         
         // end editing keyboard
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
-        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(dismiss(_:)))
+    }
+    
+    override var canBecomeFirstResponder: Bool {
+        return true
     }
 
     @IBAction func loginBtn(_ sender: UIButton) {
+        self.becomeFirstResponder()
         guard let email = emailField.text, email != "" else {
             let alertController = UIAlertController(title: "Error", message: "Masukan e-mail Anda", preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -56,11 +61,11 @@ class LogInViewController: UIViewController {
                 
                 UserServices.getUser(withID: userID) { user in
                     guard let user = user else { return }
-                    GlobalSession.currentUser = user
+                    GlobalSession.login(user: user)
                     
                     DispatchQueue.main.sync {
-                        self.dismiss(animated: true, completion: nil)
                         SwiftOverlays.removeAllBlockingOverlays()
+                        self.dismiss(animated: true, completion: nil)
                     }
                 }
             } else {
@@ -100,6 +105,9 @@ class LogInViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    @objc func dismiss(_ button: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 // MARK: - Extension

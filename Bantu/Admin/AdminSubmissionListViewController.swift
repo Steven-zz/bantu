@@ -39,7 +39,24 @@ class AdminSubmissionListViewController: UIViewController, UITableViewDelegate, 
         super.viewDidLoad()
         setupTableViews()
         
-        PostServices.getPosts() { posts in
+        if action == .acceptReject {
+            getPendingPosts()
+        } else {
+            getAcceptedPosts()
+        }
+    }
+    
+    func getAcceptedPosts() {
+        PostServices.getPosts(withStatus: .accepted) { posts in
+            self.posts = posts
+            DispatchQueue.main.sync {
+                self.SubmissionTable.reloadData()
+            }
+        }
+    }
+    
+    func getPendingPosts() {
+        PostServices.getPosts(withStatus: .pending) { posts in
             self.posts = posts
             DispatchQueue.main.sync {
                 self.SubmissionTable.reloadData()
@@ -72,6 +89,7 @@ class AdminSubmissionListViewController: UIViewController, UITableViewDelegate, 
             navigationController?.popViewController(animated: true)
         } else {
             let vc = SubmissionDetailViewController(userRole: .admin, post: posts[indexPath.row])
+            vc.adminListVC = self
             navigationController?.pushViewController(vc, animated: true)
         }
     }

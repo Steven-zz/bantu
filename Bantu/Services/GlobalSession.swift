@@ -16,30 +16,39 @@ struct FirebaseReferences {
 
 struct GlobalSession {
     static let session = URLSession(configuration: .default)
-    
-    
+
     // domainesia
-//    static let rootUrl = "https://bantu.website/public"
+    static let rootUrl = "https://bantu.website/public"
     
     // local
-    static let rootUrl = "http://localhost/MC3-Bantu/public"
+//    static let rootUrl = "http://localhost/MC3-Bantu/public"
 
     static var selectedIndex: Int = 0
     static var currentUser: User? = nil
     
-//    static var currentUser: User? = User(userID: "3F5DTfV1jgfEsLd36Ezxz3zBmKy2", roleID: 2, email: "steven@gmail.com", phone: "+6283870152354", fullName: "steven")
-    
     //    static var submissions: [Post] = []
     
-    static var isLoggedIn: Bool {
-        return Auth.auth().currentUser != nil
+    static func logout() {
+        try! Auth.auth().signOut()
+        currentUser = nil
+        didChangeUser = true
     }
     
-    static func setupUser() {
+    static func login(user: User) {
+        currentUser = user
+        didChangeUser = true
+    }
+    
+    static var didChangeUser: Bool = false
+    
+    static func setupUser(onComplete: @escaping () -> Void) {
         if let userID = Auth.auth().currentUser?.uid {
             UserServices.getUser(withID: userID) { user in
                 self.currentUser = user
+                onComplete()
             }
+        } else {
+            onComplete()
         }
     }
 }

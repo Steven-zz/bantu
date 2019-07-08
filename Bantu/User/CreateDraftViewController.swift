@@ -375,6 +375,7 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
         )
         if state == .create {
             LocalServices.saveToDraft(draft: draft)
+            self.dismiss(animated: true)
         } else {
             // update
         }
@@ -406,6 +407,7 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
                 if imagesFlag == final {
                     print(imagesFlag)
                     guard let draft = entityModel else {
+                        SwiftOverlays.removeAllBlockingOverlays()
                         makeAlert(message: "Terjadi error saat mengunggah draft")
                         return
                     }
@@ -443,6 +445,7 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
             let tempPicId = "pic-\(UUID().uuidString)"
             
             guard let data = image.jpegData(compressionQuality: 0.1) else {
+                SwiftOverlays.removeAllBlockingOverlays()
                 makeAlert(message: "Gagal mengunggah")
                 return
             }
@@ -453,6 +456,7 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
             
             let _ = tempRef.putData(data, metadata: metadata) { (metadata, error) in
                 if error != nil{
+                    SwiftOverlays.removeAllBlockingOverlays()
                     print("ERROR - \(error?.localizedDescription)")
                     return
                 }
@@ -473,6 +477,7 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
             let tempPicId = "pic-\(UUID().uuidString)"
             
             guard let data = image.jpegData(compressionQuality: 0.1) else {
+                SwiftOverlays.removeAllBlockingOverlays()
                 makeAlert(message: "Gagal mengunggah")
                 return
             }
@@ -483,6 +488,7 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
             
             let _ = tempRef.putData(data, metadata: metadata) { (metadata, error) in
                 if error != nil{
+                    SwiftOverlays.removeAllBlockingOverlays()
                     print("ERROR - \(error?.localizedDescription)")
                     return
                 }

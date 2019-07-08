@@ -36,6 +36,7 @@ class SignUpViewController: UIViewController {
     }
 
     @IBAction func signUpBtn(_ sender: Any) {
+        self.becomeFirstResponder()
         let charactersetName = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ. ")
         let charactersetPhone = CharacterSet(charactersIn: "+1234567890")
         
@@ -76,9 +77,10 @@ class SignUpViewController: UIViewController {
                 let user = User(userID: userID, roleID: 2, email: email, phone: telephone, fullName: fullName)
                 UserServices.postUser(user: user) { isSuccess in
                     if isSuccess {
+                        GlobalSession.login(user: user)
                         DispatchQueue.main.sync {
                             SwiftOverlays.removeAllBlockingOverlays()
-                            self.makeAlert(title: "Sukses", message: "Akun berhasil terdaftar")
+                            self.dismiss(animated: true)
                         }
                     } else {
                         SwiftOverlays.removeAllBlockingOverlays()

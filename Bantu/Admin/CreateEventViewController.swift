@@ -8,6 +8,8 @@
 
 import UIKit
 import MapKit
+import SwiftOverlays
+import FirebaseStorage
 
 class CreateEventViewController: UIViewController {
 
@@ -36,6 +38,7 @@ class CreateEventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createDatePicker()
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel(_:)))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Buat Event", style: .done, target: self, action: #selector(submit(_:)))
         topView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageTapDetected)))
         schoolNameView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(schoolNameTapDetected)))
@@ -45,6 +48,15 @@ class CreateEventViewController: UIViewController {
         let charactersetPhone = CharacterSet(charactersIn: "+1234567890")
         let charactersetNumbers = CharacterSet(charactersIn: "1234567890")
         
+        guard let eventImage = eventPosterImage.image else {
+            makeAlert(message: "Pilih Gambar Poster")
+            return
+        }
+        
+        guard let eventName = eventNameField.text, eventName != "", eventName.first != " " else {
+            makeAlert(message: "Nama event tidak boleh kosong")
+            return
+        }
         
         guard let schoolName = schoolNameField.text, schoolName != "", schoolName.first != " " else {
             makeAlert(message: "Nama sekolah tidak boleh kosong")
@@ -56,9 +68,108 @@ class CreateEventViewController: UIViewController {
             return
         }
         
+        guard let startDate = startDateField.text, startDate != "", startDate.first != " " else {
+            makeAlert(message: "Tanggal mulai tidak boleh kosong")
+            return
+        }
         
+        guard let volunteerNo = volunteerNoField.text, volunteerNo != "", volunteerNo.first != " " else {
+            makeAlert(message: "Jumlah Volunteer yang dibutuhkan tidak boleh kosong")
+            return
+        }
         
-        print("YAY")
+        guard let endDate = endDateField.text, endDate != "", endDate.first != " " else {
+            makeAlert(message: "Tanggal selesai tidak boleh kosong")
+            return
+        }
+        
+        guard let budget = budgetField.text, budget != "", budget.first != " " else {
+            makeAlert(message: "Budget tidak boleh kosong")
+            return
+        }
+        
+        guard let priceIncluding = priceIncludingField.text, priceIncludingField.isNotEmpty, priceIncluding.first != " " else {
+            makeAlert(message: "Biaya Termasuk harus diisi")
+            return
+        }
+        
+        guard let contactNumber = picNumberField.text, contactNumber != "", contactNumber.first != " " else {
+            makeAlert(message: "Nomor Contact Person tidak boleh kosong")
+            return
+        }
+        
+        guard let requirement = requirementField.text, requirementField.isNotEmpty, requirement.first != " " else {
+            makeAlert(message: "Syarat Volunteer harus diisi")
+            return
+        }
+        
+        guard let additionalInfo = additionalInfoField.text, additionalInfoField.isNotEmpty, additionalInfo.first != " " else {
+            makeAlert(message: "Informasi Tambahan harus diisi")
+            return
+        }
+
+        SwiftOverlays.showBlockingWaitOverlayWithText("Mengunggah Event")
+        let currDate = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy"
+        let dateString = formatter.string(from: currDate)
+        
+        guard let data = eventImage.jpegData(compressionQuality: 0.1) else {
+            SwiftOverlays.removeAllBlockingOverlays()
+            makeAlert(message: "Gagal mengunggah")
+            return
+        }
+        let tempRef = FirebaseReferences.storageRef.child("Events/\(dateString).jpeg")
+        
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpg"
+        
+        var finalURL = String()
+        
+        let _ = tempRef.putData(data, metadata: metadata) { (metadata, error) in
+            if error != nil{
+                print("ERROR - \(error?.localizedDescription)")
+                return
+            }
+            print("success upload to storage")
+            // You can also access to download URL after upload.
+            tempRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    // Uh-oh, an error occurred!
+                    return
+                }
+                //url
+                finalURL = downloadURL.absoluteString
+                let event = Event(eventID: 0,
+                                  eventTimeStamp: dateString,
+                                  eventName: eventName,
+                                  startDate: startDate,
+                                  endDate: endDate,
+                                  description: about,
+                                  imgUrl: finalURL,
+                                  fee: Double(budget)!,
+                                  feeInfo: priceIncluding,
+                                  volunteerNo: Int(volunteerNo)!,
+                                  requirements: requirement,
+                                  eventNotes: additionalInfo,
+                                  eventContactNumber: contactNumber,
+                                  post: self.post!)
+                
+                EventServices.submitEvent(event: event) { success in
+                    if success {
+                        SwiftOverlays.removeAllBlockingOverlays()
+                        self.dismiss(animated: true)
+                    } else {
+                        SwiftOverlays.removeAllBlockingOverlays()
+                        self.makeAlert(message: "Gagal mengunggah")
+                    }
+                }
+            }
+        }
+    }
+    
+    @objc func cancel(_ button: UIBarButtonItem) {
+        self.dismiss(animated: true)
     }
     
     @objc func schoolNameTapDetected() {

@@ -35,6 +35,8 @@ class SubmissionDetailViewController: UIViewController {
     let userRole: User.Role
     let post: Post
     
+    weak var adminListVC: AdminSubmissionListViewController?
+    
     init(userRole: User.Role, post: Post) {
         self.userRole = userRole
         self.post = post
@@ -185,6 +187,50 @@ class SubmissionDetailViewController: UIViewController {
         
     }
     
+    @IBAction func rejectBtn(_ sender: UIButton) {
+        SwiftOverlays.showBlockingWaitOverlay()
+        let alertController = UIAlertController(title: "Tolak Post", message: "Apakah anda ingin menolak post?", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "Tolak", style: .destructive) { _ in
+            PostServices.updatePostStatus(postID: self.post.postID, status: .rejected) { success in
+                if success {
+                    SwiftOverlays.removeAllBlockingOverlays()
+                    self.adminListVC?.getPendingPosts()
+                    self.dismiss(animated: true)
+                } else {
+                    SwiftOverlays.removeAllBlockingOverlays()
+                    //error
+                    self.makeAlert(title: "Gagal", message: "Gagal mengubah status")
+                }
+            }
+        }
+        let cancel = UIAlertAction(title: "Batal", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        alertController.addAction(cancel)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    @IBAction func acceptBtn(_ sender: UIButton) {
+        SwiftOverlays.showBlockingWaitOverlay()
+        let alertController = UIAlertController(title: "Terima Post", message: "Apakah anda ingin menerima post?", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "Terima", style: .destructive) { _ in
+            PostServices.updatePostStatus(postID: self.post.postID, status: .accepted) { success in
+                if success {
+                    SwiftOverlays.removeAllBlockingOverlays()
+                    self.adminListVC?.getPendingPosts()
+                    self.dismiss(animated: true)
+                } else {
+                    SwiftOverlays.removeAllBlockingOverlays()
+                    self.makeAlert(title: "Gagal", message: "Gagal mengubah status")
+                }
+            }
+        }
+        let cancel = UIAlertAction(title: "Batal", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        alertController.addAction(cancel)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    
     @IBAction func contact(_ sender: UIButton) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
@@ -220,6 +266,13 @@ class SubmissionDetailViewController: UIViewController {
         }))
         
         present(alert, animated: true, completion: nil)
+    }
+    
+    func makeAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(defaultAction)
+        present(alertController, animated: true, completion: nil)
     }
     
 }

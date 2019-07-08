@@ -25,7 +25,7 @@ class ProfileViewController: UIViewController {
         }
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save(_:)))
-        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(dismiss(_:)))
         profileImageView.layer.cornerRadius = profileImageView.frame.width/2
         fullNameField.text = GlobalSession.currentUser?.fullName
         phoneNoField.text = GlobalSession.currentUser?.phone
@@ -64,11 +64,22 @@ class ProfileViewController: UIViewController {
         let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alertController.addAction(defaultAction)
         present(alertController, animated: true, completion: nil)
-        signUpBtn.isEnabled = true
     }
     
     @IBAction func logoutBtn(_ sender: Any) {
-        try! Auth.auth().signOut()
+        let alertController = UIAlertController(title: "Log Out", message: "Apakah anda ingin Log Out?", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "Log Out", style: .destructive) { _ in
+            GlobalSession.logout()
+            self.dismiss(animated: true)
+        }
+        let cancel = UIAlertAction(title: "Batal", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        alertController.addAction(cancel)
+        present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    @objc func dismiss(_ button: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
     
