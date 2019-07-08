@@ -71,6 +71,8 @@
 		89E62DC122D33254007922FF /* EventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E62DBF22D33254007922FF /* EventDetailViewController.xib */; };
 		89E62DC422D3597C007922FF /* SeeMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62DC222D3597C007922FF /* SeeMoreViewController.swift */; };
 		89E62DC522D3597C007922FF /* SeeMoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E62DC322D3597C007922FF /* SeeMoreViewController.xib */; };
+		89E62DC822D385E0007922FF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62DC622D385E0007922FF /* ProfileViewController.swift */; };
+		89E62DC922D385E0007922FF /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E62DC722D385E0007922FF /* ProfileViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -141,6 +143,8 @@
 		89E62DBF22D33254007922FF /* EventDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventDetailViewController.xib; sourceTree = "<group>"; };
 		89E62DC222D3597C007922FF /* SeeMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeMoreViewController.swift; sourceTree = "<group>"; };
 		89E62DC322D3597C007922FF /* SeeMoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeeMoreViewController.xib; sourceTree = "<group>"; };
+		89E62DC622D385E0007922FF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		89E62DC722D385E0007922FF /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		D530BC9E39FF417DE82BE4D2 /* Pods-Bantu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bantu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bantu/Pods-Bantu.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -257,6 +261,8 @@
 				89E62DBF22D33254007922FF /* EventDetailViewController.xib */,
 				89E62DC222D3597C007922FF /* SeeMoreViewController.swift */,
 				89E62DC322D3597C007922FF /* SeeMoreViewController.xib */,
+				89E62DC622D385E0007922FF /* ProfileViewController.swift */,
+				89E62DC722D385E0007922FF /* ProfileViewController.xib */,
 			);
 			path = SharedUI;
 			sourceTree = "<group>";
@@ -416,6 +422,7 @@
 				85E5CD7E22C23736005937F7 /* Assets.xcassets in Resources */,
 				89E62D8D22D04BC1007922FF /* SubmissionDetailViewController.xib in Resources */,
 				85E5CD7C22C23735005937F7 /* Main.storyboard in Resources */,
+				89E62DC922D385E0007922FF /* ProfileViewController.xib in Resources */,
 				89E62DAF22D1F581007922FF /* UserSubmissionListTableViewCell.xib in Resources */,
 				89E62DB722D3027A007922FF /* EventListViewController.xib in Resources */,
 				89C7771222CBBF6700BA96B3 /* ImageCollectionViewCell.xib in Resources */,
@@ -501,6 +508,7 @@
 				89E62DBD22D32BFE007922FF /* UIColor+Bantu.swift in Sources */,
 				89C7772F22CD9C7B00BA96B3 /* DraftListTableViewCell.swift in Sources */,
 				89E62D9922D0549E007922FF /* Post.swift in Sources */,
+				89E62DC822D385E0007922FF /* ProfileViewController.swift in Sources */,
 				85E5CD7722C23735005937F7 /* AppDelegate.swift in Sources */,
 				89E62DB622D3027A007922FF /* EventListViewController.swift in Sources */,
 				89C776FA22CA68F700BA96B3 /* LogInViewController.swift in Sources */,
