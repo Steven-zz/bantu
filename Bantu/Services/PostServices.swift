@@ -22,10 +22,6 @@ struct PostServices {
                 print("Error = \(unwrappedError.localizedDescription)")
             } else if let unwrappedData = data {
                 do {
-                    let json = try JSONSerialization.jsonObject(with: unwrappedData, options: [])
-                    if let dictionary = json as? [String:Any] {
-                        print(dictionary)
-                    }
                     let decoder = JSONDecoder()
                     let posts = try decoder.decode([Post].self, from: unwrappedData)
                     onComplete(posts)
@@ -60,10 +56,6 @@ struct PostServices {
 //                print("Error = \(unwrappedError.localizedDescription)")
 //            } else if let unwrappedData = data {
 //                do {
-//                    let json = try JSONSerialization.jsonObject(with: unwrappedData, options: [])
-//                    if let dictionary = json as? [String:Any] {
-//                        print(dictionary)
-//                    }
 //                    let decoder = JSONDecoder()
 //                    let posts = try decoder.decode([Post].self, from: unwrappedData)
 //                    onComplete(posts)
@@ -93,6 +85,41 @@ struct PostServices {
             if let unwrappedError = error {
                 print("Error = \(unwrappedError.localizedDescription)")
                 onComplete(false)
+            } else if let _ = data {
+                onComplete(true)
+            } else {
+                onComplete(false)
+            }
+        }
+        dataTask.resume()
+    }
+    
+    static func updatePostStatus(postID: Int, status: Post.PostStatus, onComplete: @escaping (Bool) -> Void) {
+        let newUrlString = GlobalSession.rootUrl + "/postsStatus/\(postID)"
+        let url = URL(string: newUrlString)
+        
+        var urlRequest = URLRequest.init(url: url!)
+        urlRequest.httpMethod = "PUT"
+        
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let statusID: Int
+        switch status {
+        case .accepted:
+            statusID = 1
+        case .rejected:
+            statusID = 2
+        case .pending:
+            statusID = 3
+        }
+        
+        let jsonInput = ["statusID":statusID]
+        let data = try? JSONSerialization.data(withJSONObject: jsonInput, options: [])
+        
+        urlRequest.httpBody = data
+        let dataTask = GlobalSession.session.dataTask(with: urlRequest) { (data, response, error) in
+            if let unwrappedError = error {
+                print("Error = \(unwrappedError.localizedDescription)")
             } else if let _ = data {
                 onComplete(true)
             } else {
