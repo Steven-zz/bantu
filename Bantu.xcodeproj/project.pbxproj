@@ -179,8 +179,8 @@
 			isa = PBXGroup;
 			children = (
 				850B31FA22D1F30E0005E0CA /* Core Data */,
-				89E62D9122D0549E007922FF /* Model */,
 				89E62D8E22D0549E007922FF /* Services */,
+				89E62D9122D0549E007922FF /* Model */,
 				89C7772B22CD9C4700BA96B3 /* Views */,
 				89C776FD22CA696900BA96B3 /* Extensions */,
 				89C776FC22CA690000BA96B3 /* SharedUI */,
@@ -288,8 +288,8 @@
 		89E62D8E22D0549E007922FF /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				850B31F822D1E6150005E0CA /* PostServices.swift */,
 				89E62D8F22D0549E007922FF /* GlobalSession.swift */,
+				850B31F822D1E6150005E0CA /* PostServices.swift */,
 				89E62D9022D0549E007922FF /* UserServices.swift */,
 			);
 			path = Services;

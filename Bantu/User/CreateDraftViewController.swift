@@ -497,37 +497,6 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
                 }
             }
         }
-        
-//        guard let draft = entityModel else {
-//            makeAlert(message: "Terjadi error saat mengunggah draft")
-//            return
-//        }
-//
-//        let location = Location(areaOfInterest: aoi,
-//                                name: locationName,
-//                                locality: locality,
-//                                adminArea: adminArea,
-//                                latitude: latitude,
-//                                longitude: longitude)
-        
-//        let post = Post(postID: 0,
-//                        statusID: 3,
-//                        timeStamp: dateString,
-//                        schoolName: draft.schoolName,
-//                        about: draft.about,
-//                        teacherNo: draft.teacherNo,
-//                        studentNo: draft.studentNo,
-//                        address: draft.address,
-//                        accessNotes: draft.accessNotes,
-//                        notes: draft.notes,
-//                        contactNumber: draft.contactNumber,
-//                        roadImages: roadUrls,
-//                        schoolImages: schoolUrls,
-//                        location: location,
-//                        user: user)
-//        PostServices.submitPost(post: post) { isSuccess in
-//            print("postsucces please",isSuccess)
-//        }
     }
     
     @objc func schoolTapDetected() {
