@@ -10,7 +10,7 @@ import Foundation
 
 struct Event: Decodable {
     let eventID: Int
-    let timeStamp: String
+    let eventTimeStamp: String
     let eventName: String
     let startDate: String
     let endDate: String

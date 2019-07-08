@@ -22,10 +22,6 @@ struct PostServices {
                 print("Error = \(unwrappedError.localizedDescription)")
             } else if let unwrappedData = data {
                 do {
-                    let json = try JSONSerialization.jsonObject(with: unwrappedData, options: [])
-                    if let dictionary = json as? [String:Any] {
-                        print(dictionary)
-                    }
                     let decoder = JSONDecoder()
                     let posts = try decoder.decode([Post].self, from: unwrappedData)
                     onComplete(posts)
@@ -60,10 +56,6 @@ struct PostServices {
 //                print("Error = \(unwrappedError.localizedDescription)")
 //            } else if let unwrappedData = data {
 //                do {
-//                    let json = try JSONSerialization.jsonObject(with: unwrappedData, options: [])
-//                    if let dictionary = json as? [String:Any] {
-//                        print(dictionary)
-//                    }
 //                    let decoder = JSONDecoder()
 //                    let posts = try decoder.decode([Post].self, from: unwrappedData)
 //                    onComplete(posts)
