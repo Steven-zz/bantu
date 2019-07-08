@@ -61,10 +61,8 @@ class AdminSubmissionListViewController: UIViewController, UITableViewDelegate, 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = SubmissionTable.dequeueReusableCell(withIdentifier: "AdminSubmissionCell", for: indexPath) as! AdminSubmissionListTableViewCell
-        let post = posts[indexPath.row]
-        let locationString = post.location.locality + ", " + post.location.adminArea
-        cell.setContent(imageLink: post.schoolImages.first ?? "", schoolName: post.schoolName, schoolLocation: locationString, userName: post.user.fullName, date: post.timeStamp)
-        
+        cell.setContent(post: posts[indexPath.row])
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -73,7 +71,7 @@ class AdminSubmissionListViewController: UIViewController, UITableViewDelegate, 
             self.delegate?.didSelectPost(post: posts[indexPath.row])
             navigationController?.popViewController(animated: true)
         } else {
-            let vc = SubmissionDetailViewController(userType: .admin, post: posts[indexPath.row])
+            let vc = SubmissionDetailViewController(userRole: .admin, post: posts[indexPath.row])
             navigationController?.pushViewController(vc, animated: true)
         }
     }

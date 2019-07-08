@@ -11,11 +11,6 @@ import ImageSlideshow
 import MapKit
 import SwiftOverlays
 
-enum UserType {
-    case user
-    case admin
-}
-
 class SubmissionDetailViewController: UIViewController {
 
     @IBOutlet weak var schoolImageSlide: ImageSlideshow!
@@ -37,11 +32,11 @@ class SubmissionDetailViewController: UIViewController {
     @IBOutlet weak var acceptBtn: UIButton!
     @IBOutlet weak var acceptRejectView: UIView!
     
-    let userType: UserType
+    let userRole: User.Role
     let post: Post
     
-    init(userType: UserType, post: Post) {
-        self.userType = userType
+    init(userRole: User.Role, post: Post) {
+        self.userRole = userRole
         self.post = post
         
         super.init(nibName: "SubmissionDetailViewController", bundle: .main)
@@ -73,7 +68,7 @@ class SubmissionDetailViewController: UIViewController {
         notesField.text = post.notes
         setLocationOnMap(userLocation: CLLocation(latitude: post.location.latitude, longitude: post.location.longitude))
         
-        if userType == .admin {
+        if userRole == .admin {
             acceptRejectView.isHidden = false
         }
         
@@ -191,17 +186,40 @@ class SubmissionDetailViewController: UIViewController {
     }
     
     @IBAction func contact(_ sender: UIButton) {
-        let alertController = UIAlertController(title: "Hubungi", message: "Hubungi contact person di nomor \(post.contactNumber.trimmingCharacters(in: .whitespacesAndNewlines))? ", preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: "Hubungi", style: .default) { _ in
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "User", style: .default, handler: { _ in
+            let string = "whatsapp://send?phone=\(self.post.user.phone.trimmingCharacters(in: .whitespacesAndNewlines))&text= "
+            guard let url = URL(string: string.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!) else { return }
+            
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.openURL(url)
+            } else {
+                let alert = UIAlertController(title: "Error", message: "Mohon Install WhatsApp", preferredStyle: UIAlertController.Style.alert)
+                let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+                alert.addAction(okButton)
+                self.present(alert, animated: true, completion: nil)
+            }
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Contact Person Sekolah", style: .default, handler: { _ in
             let string = "whatsapp://send?phone=\(self.post.contactNumber.trimmingCharacters(in: .whitespacesAndNewlines))&text= "
             guard let url = URL(string: string.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!) else { return }
             
-            UIApplication.shared.openURL(url)
-        }
-        let cancel = UIAlertAction(title: "Batal", style: .cancel, handler: nil)
-        alertController.addAction(defaultAction)
-        alertController.addAction(cancel)
-        present(alertController, animated: true, completion: nil)
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.openURL(url)
+            } else {
+                let alert = UIAlertController(title: "Error", message: "Mohon Install WhatsApp", preferredStyle: UIAlertController.Style.alert)
+                let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+                alert.addAction(okButton)
+                self.present(alert, animated: true, completion: nil)
+            }
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+        }))
+        
+        present(alert, animated: true, completion: nil)
     }
     
 }

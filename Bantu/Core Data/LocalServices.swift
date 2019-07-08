@@ -13,6 +13,8 @@ import UIKit
 class LocalServices{
     private init(){}
     
+    private var draftEntities: [DraftEntity] = []
+    
     static var context: NSManagedObjectContext{
         return persistentContainer.viewContext
     }
@@ -21,19 +23,13 @@ class LocalServices{
         let container = NSPersistentContainer(name: "LocalModel")
         container.loadPersistentStores(completionHandler: {(storeDescription, error) in
             if let error = error as NSError? {
-                
                 fatalError("error has occured")
-                
             }
-            
         })
-        
         return container
-        
     }()
     
     static func saveContext () {
-        
         let context = persistentContainer.viewContext
         if context.hasChanges{
             do{
@@ -45,7 +41,6 @@ class LocalServices{
                 fatalError("Error has occured: \(nserror)")
             }
         }
-        
     }
 }
 

@@ -12,7 +12,7 @@ class EventListViewController: UIViewController, UITableViewDelegate, UITableVie
 
     @IBOutlet weak var eventListTable: UITableView!
     
-//    var events: [Event]
+    var events: [Event] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +22,17 @@ class EventListViewController: UIViewController, UITableViewDelegate, UITableVie
         
         eventListTable.register(UINib(nibName: "EventListTableViewCell", bundle: .main), forCellReuseIdentifier: "EventListCell")
         eventListTable.tableFooterView = UIView()
+        
+        reloadEvents()
+    }
+    
+    func reloadEvents() {
+        EventServices.getEvents() { events in
+            self.events = events
+            DispatchQueue.main.sync {
+                self.eventListTable.reloadData()
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,12 +40,20 @@ class EventListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return events.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = eventListTable.dequeueReusableCell(withIdentifier: "EventListCell", for: indexPath) as! EventListTableViewCell
+        cell.setContent(event: events[indexPath.row])
+        cell.selectionStyle = .none
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let userRole: User.Role = GlobalSession.currentUser?.role ?? .publicUser
+        let vc = EventDetailViewController(userRole: userRole, event: events[indexPath.row])
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
 }

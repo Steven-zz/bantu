@@ -25,13 +25,21 @@ struct GlobalSession {
     static let rootUrl = "http://localhost/MC3-Bantu/public"
 
     static var selectedIndex: Int = 0
-//    static var currentUser: User?
+    static var currentUser: User? = nil
     
-    static var currentUser: User? = User(userID: "3F5DTfV1jgfEsLd36Ezxz3zBmKy2", roleID: 2, email: "steven@gmail.com", phone: "+6283870152354", fullName: "steven")
+//    static var currentUser: User? = User(userID: "3F5DTfV1jgfEsLd36Ezxz3zBmKy2", roleID: 2, email: "steven@gmail.com", phone: "+6283870152354", fullName: "steven")
     
     //    static var submissions: [Post] = []
     
     static var isLoggedIn: Bool {
         return Auth.auth().currentUser != nil
+    }
+    
+    static func setupUser() {
+        if let userID = Auth.auth().currentUser?.uid {
+            UserServices.getUser(withID: userID) { user in
+                self.currentUser = user
+            }
+        }
     }
 }

@@ -30,13 +30,13 @@ class UserSubmissionListViewController: UIViewController, UITableViewDelegate, U
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = submissionListTableView.dequeueReusableCell(withIdentifier: "UserSubmissionCell", for: indexPath) as! UserSubmissionListTableViewCell
         let post = posts[indexPath.row]
-        cell.setUI(imageLink: post.schoolImages.first ?? "", schoolName: post.schoolName, status: post.status, schoolLocation: "\(post.location.locality), \(post.location.adminArea)")
+        cell.setUI(post: posts[indexPath.row])
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = SubmissionDetailViewController(userType: .user, post: posts[indexPath.row])
+        let vc = SubmissionDetailViewController(userRole: .publicUser, post: posts[indexPath.row])
         navigationController?.pushViewController(vc, animated: true)
     }
 

@@ -27,12 +27,12 @@ class AdminSubmissionListTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    public func setContent(imageLink: String, schoolName: String, schoolLocation:String , userName: String, date: String) {
-        self.schoolImage.downloaded(from: imageLink)
-        self.schoolNameLbl.text = schoolName
-        self.schoolLocationLbl.text = schoolLocation
-        self.userNameLbl.text = userName
-        self.dateLbl.text = date
+    public func setContent(post: Post) {
+        self.schoolImage.downloaded(from: post.schoolImages.first!)
+        self.schoolNameLbl.text = post.schoolName
+        self.schoolLocationLbl.text = "\(post.location.locality), \(post.location.adminArea)"
+        self.userNameLbl.text = post.user.fullName
+        self.dateLbl.text = post.timeStamp
     }
     
 }

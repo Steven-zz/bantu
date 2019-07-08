@@ -27,12 +27,12 @@ class UserSubmissionListTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setUI(imageLink: String, schoolName: String, status: Post.PostStatus, schoolLocation: String) {
-        schoolImageView.downloaded(from: imageLink)
-        schoolNameLbl.text = schoolName
-        locationLbl.text = schoolLocation
-        statusLbl.text = status.rawValue
-        switch status {
+    func setUI(post: Post) {
+        schoolImageView.downloaded(from: post.schoolImages.first!)
+        schoolNameLbl.text = post.schoolName
+        locationLbl.text = "\(post.location.locality), \(post.location.adminArea)"
+        statusLbl.text = post.status.rawValue
+        switch post.status {
         case .accepted:
             statusLbl.textColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
         case .pending:

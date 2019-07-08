@@ -29,13 +29,13 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="S1j-QK-fBp">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="412.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="416.5"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="657-ij-69X">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="82.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="86.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tentang Event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDs-rX-pnO">
-                                            <rect key="frame" x="12" y="4" width="170" height="17"/>
+                                            <rect key="frame" x="12" y="8" width="170" height="17"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="170" id="6TB-hD-f10"/>
                                                 <constraint firstAttribute="height" constant="17" id="A7t-XP-CSW"/>
@@ -45,7 +45,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="T4D-aN-UiS">
-                                            <rect key="frame" x="12" y="25" width="390" height="57.5"/>
+                                            <rect key="frame" x="12" y="29" width="390" height="57.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco </string>
                                             <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
@@ -55,7 +55,7 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="T4D-aN-UiS" secondAttribute="trailing" constant="12" id="2HX-pb-ZfK"/>
-                                        <constraint firstItem="bDs-rX-pnO" firstAttribute="top" secondItem="657-ij-69X" secondAttribute="top" constant="4" id="E3O-bf-kaC"/>
+                                        <constraint firstItem="bDs-rX-pnO" firstAttribute="top" secondItem="657-ij-69X" secondAttribute="top" constant="8" id="E3O-bf-kaC"/>
                                         <constraint firstItem="T4D-aN-UiS" firstAttribute="top" secondItem="bDs-rX-pnO" secondAttribute="bottom" constant="4" id="Qte-kn-TJW"/>
                                         <constraint firstAttribute="bottom" secondItem="T4D-aN-UiS" secondAttribute="bottom" id="acF-hl-uKd"/>
                                         <constraint firstItem="T4D-aN-UiS" firstAttribute="leading" secondItem="657-ij-69X" secondAttribute="leading" constant="12" id="mpJ-4V-d0p"/>
@@ -63,7 +63,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hPM-9L-u5Y">
-                                    <rect key="frame" x="0.0" y="82.5" width="414" height="82.5"/>
+                                    <rect key="frame" x="0.0" y="86.5" width="414" height="82.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biaya Termasuk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtt-kf-L8B">
                                             <rect key="frame" x="12" y="4" width="170" height="17"/>
@@ -94,7 +94,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VQE-ug-waP">
-                                    <rect key="frame" x="0.0" y="165" width="414" height="82.5"/>
+                                    <rect key="frame" x="0.0" y="169" width="414" height="82.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Syarat Menjadi Volunteer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="He8-hv-R5o">
                                             <rect key="frame" x="12" y="4" width="170" height="17"/>
@@ -125,7 +125,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2gh-Mt-mkY">
-                                    <rect key="frame" x="0.0" y="247.5" width="414" height="82.5"/>
+                                    <rect key="frame" x="0.0" y="251.5" width="414" height="82.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Informasi Tambahan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pph-Yb-h4q">
                                             <rect key="frame" x="12" y="4" width="170" height="17"/>
@@ -156,7 +156,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="06w-g9-w9W">
-                                    <rect key="frame" x="0.0" y="330" width="414" height="82.5"/>
+                                    <rect key="frame" x="0.0" y="334" width="414" height="82.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obV-7F-NcZ">
                                             <rect key="frame" x="12" y="4" width="170" height="17"/>

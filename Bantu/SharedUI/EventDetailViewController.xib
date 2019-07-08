@@ -306,6 +306,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="48" id="EgW-Er-AXd"/>
                                             </constraints>
+                                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
                                             <state key="normal" title="Hubungi">
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>

@@ -28,11 +28,11 @@ class EventListTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    public func setContent(imageLink: String, eventName: String, eventDateRange: String, locationName: String) {
-        eventImageView.downloaded(from: imageLink)
-        eventNameLbl.text = eventName
-        eventDateLbl.text = eventDateRange
-        eventLocationLbl.text = locationName
+    public func setContent(event: Event) {
+        eventImageView.downloaded(from: event.imgUrl)
+        eventNameLbl.text = event.eventName
+        eventDateLbl.text = "\(event.startDate) - \(event.endDate)"
+        eventLocationLbl.text = "\(event.post.location.locality), \(event.post.location.adminArea)"
     }
     
 }

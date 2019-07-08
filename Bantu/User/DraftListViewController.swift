@@ -38,8 +38,8 @@ class DraftListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = draftListTableView.dequeueReusableCell(withIdentifier: "DraftCell", for: indexPath) as! DraftListTableViewCell
-        
-        cell.setContent(name: drafts[indexPath.row].schoolName, date: drafts[indexPath.row].timeStamp)
+        cell.setContent(entity: drafts[indexPath.row])
+        cell.selectionStyle = .none
         return cell
     }
     

@@ -16,6 +16,7 @@ class DraftListTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -24,9 +25,9 @@ class DraftListTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setContent(name: String, date: String) {
-        nameLbl.text = name
-        dateLbl.text = date
+    func setContent(entity: DraftEntityModel) {
+        nameLbl.text = entity.schoolName
+        dateLbl.text = entity.timeStamp
     }
     
 }

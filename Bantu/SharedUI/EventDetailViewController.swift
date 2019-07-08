@@ -30,10 +30,10 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var contactView: UIView!
     
     let event: Event
-    let userType: UserType
+    let userRole: User.Role
     
-    init(userType: UserType, event: Event) {
-        self.userType = userType
+    init(userRole: User.Role, event: Event) {
+        self.userRole = userRole
         self.event = event
         
         super.init(nibName: "EventDetailViewController", bundle: .main)
@@ -48,7 +48,7 @@ class EventDetailViewController: UIViewController {
         contactBtn.buttonSecondDesign()
         openMapsBtn.buttonDesign()
         seeMoreBtn.setTitleColor(.bantuBlue, for: .normal)
-        if userType == .admin {
+        if userRole == .admin {
             contactView.isHidden = true
         }
         loadData()
