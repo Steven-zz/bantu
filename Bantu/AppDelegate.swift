@@ -18,11 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        let vc =  AdminSubmissionListViewController(action: .acceptReject)
-//        let vc = DraftListViewController()
-        let nav = UINavigationController(rootViewController: vc)
-        nav.navigationBar.isTranslucent = false
-        window?.rootViewController = nav
+//        let vc =  AdminSubmissionListViewController(action: .acceptReject)
+////        let vc = DraftListViewController()
+//        let nav = UINavigationController(rootViewController: vc)
+//        nav.navigationBar.isTranslucent = false
+//        window?.rootViewController = nav
         return true
     }
 

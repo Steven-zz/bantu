@@ -14,6 +14,8 @@
 		850B320D22D1FDCB0005E0CA /* DraftEntityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B320C22D1FDCB0005E0CA /* DraftEntityModel.swift */; };
 		850B321022D1FE730005E0CA /* DraftEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B320E22D1FE720005E0CA /* DraftEntity+CoreDataProperties.swift */; };
 		850B321122D1FE730005E0CA /* DraftEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850B320F22D1FE720005E0CA /* DraftEntity+CoreDataClass.swift */; };
+		8539CF8922D31ECA004645B7 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8539CF8822D31ECA004645B7 /* Event.swift */; };
+		8539CF8B22D329EE004645B7 /* EventServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8539CF8A22D329EE004645B7 /* EventServices.swift */; };
 		85E5CD7722C23735005937F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E5CD7622C23735005937F7 /* AppDelegate.swift */; };
 		85E5CD7C22C23735005937F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85E5CD7A22C23735005937F7 /* Main.storyboard */; };
 		85E5CD7E22C23736005937F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85E5CD7D22C23736005937F7 /* Assets.xcassets */; };
@@ -73,6 +75,8 @@
 		850B320C22D1FDCB0005E0CA /* DraftEntityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftEntityModel.swift; sourceTree = "<group>"; };
 		850B320E22D1FE720005E0CA /* DraftEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DraftEntity+CoreDataProperties.swift"; path = "../../DraftEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		850B320F22D1FE720005E0CA /* DraftEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DraftEntity+CoreDataClass.swift"; path = "../../DraftEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8539CF8822D31ECA004645B7 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		8539CF8A22D329EE004645B7 /* EventServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventServices.swift; sourceTree = "<group>"; };
 		85E5CD7322C23735005937F7 /* Bantu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bantu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85E5CD7622C23735005937F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85E5CD7B22C23735005937F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -291,6 +295,7 @@
 				89E62D8F22D0549E007922FF /* GlobalSession.swift */,
 				850B31F822D1E6150005E0CA /* PostServices.swift */,
 				89E62D9022D0549E007922FF /* UserServices.swift */,
+				8539CF8A22D329EE004645B7 /* EventServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 				89E62D9222D0549E007922FF /* Location.swift */,
 				89E62D9322D0549E007922FF /* User.swift */,
 				89E62D9422D0549E007922FF /* Post.swift */,
+				8539CF8822D31ECA004645B7 /* Event.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -479,6 +485,7 @@
 				89C7770C22CB913700BA96B3 /* CreateDraftViewController.swift in Sources */,
 				89E62D9C22D0FD45007922FF /* CreateEventViewController.swift in Sources */,
 				89E62D8622CFB0F5007922FF /* AdminSubmissionListTableViewCell.swift in Sources */,
+				8539CF8922D31ECA004645B7 /* Event.swift in Sources */,
 				89C7770822CB090C00BA96B3 /* SignUpViewController.swift in Sources */,
 				850B31FC22D1F3240005E0CA /* LocalServices.swift in Sources */,
 				850B320D22D1FDCB0005E0CA /* DraftEntityModel.swift in Sources */,
@@ -486,6 +493,7 @@
 				89C776FF22CA698C00BA96B3 /* UITextField+Design.swift in Sources */,
 				89C7770222CA703700BA96B3 /* LoadingIndicatorViewController.swift in Sources */,
 				89E62D8022CFAFCA007922FF /* AdminSubmissionListViewController.swift in Sources */,
+				8539CF8B22D329EE004645B7 /* EventServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
