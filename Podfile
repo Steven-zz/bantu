@@ -6,6 +6,7 @@ target 'Bantu' do
   use_frameworks!
 
   # Pods for Bantu
+  pod 'SwiftOverlays', '~> 5.0.1'
   pod 'ImageSlideshow'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'

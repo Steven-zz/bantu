@@ -30,10 +30,12 @@ class CreateEventViewController: UIViewController {
     
     var post: Post?
     var posterImage: UIImage?
+    let datePickerStart = UIDatePicker()
+    let datePickerEnd = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        createDatePicker()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Buat Event", style: .done, target: self, action: #selector(submit(_:)))
         topView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageTapDetected)))
         schoolNameView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(schoolNameTapDetected)))
@@ -116,5 +118,67 @@ extension CreateEventViewController: AdminSubmissionListDelegate {
         self.post = post
         setLocationOnMap(userLocation: CLLocation(latitude: post.location.latitude, longitude: post.location.longitude))
         schoolNameField.text = post.schoolName
+    }
+}
+
+extension CreateEventViewController {
+    // Create Date Picker and Toolbar
+    func createDatePicker() {
+        
+        // Formatting the date picker type
+        datePickerStart.datePickerMode = .date
+        datePickerStart.locale = Locale(identifier: "id")
+        datePickerEnd.datePickerMode = .date
+        datePickerEnd.locale = Locale(identifier: "id")
+        
+        // Create Toolbar
+        let toolbar = UIToolbar()
+        let toolbar2 = UIToolbar()
+        toolbar.sizeToFit()
+        toolbar2.sizeToFit()
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissDatePicker))
+        doneButton.tintColor = .bantuBlue
+        let doneButton2 = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissDatePicker2))
+        doneButton2.tintColor = .bantuBlue
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let flexibleSpace2 = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker))
+        let cancelButton2 = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker))
+        cancelButton.tintColor = .bantuBlue
+        cancelButton2.tintColor = .bantuBlue
+        toolbar.setItems([cancelButton,flexibleSpace,doneButton], animated: false)
+        toolbar2.setItems([cancelButton2,flexibleSpace2,doneButton2], animated: false)
+        
+        
+        startDateField.inputAccessoryView = toolbar
+        startDateField.inputView = datePickerStart
+        endDateField.inputAccessoryView = toolbar2
+        endDateField.inputView = datePickerEnd
+    }
+    
+    @objc func cancelDatePicker(){
+        self.view.endEditing(true)
+    }
+    
+    // Used for Date Picker Done button
+    @objc func dismissDatePicker() {
+        // Format Date
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy" // dd-MM-yyyy
+        formatter.locale = Locale(identifier: "id")
+        let date = formatter.string(from: datePickerStart.date)
+        
+        startDateField.text = String(date)
+        view.endEditing(true)
+    }
+    @objc func dismissDatePicker2() {
+        // Format Date
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy" // dd-MM-yyyy
+        formatter.locale = Locale(identifier: "id")
+        let date = formatter.string(from: datePickerEnd.date)
+        
+        endDateField.text = String(date)
+        view.endEditing(true)
     }
 }

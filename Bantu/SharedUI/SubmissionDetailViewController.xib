@@ -16,8 +16,10 @@
                 <outlet property="acceptBtn" destination="zXO-7m-6Z4" id="KhJ-Dl-2Js"/>
                 <outlet property="acceptRejectView" destination="9cO-B5-qyA" id="zpj-me-Wfx"/>
                 <outlet property="accessField" destination="vWE-YA-oA3" id="uL7-qc-4ND"/>
+                <outlet property="activIndicator" destination="Yof-Lt-upB" id="BPX-d9-bxR"/>
                 <outlet property="addressField" destination="Edg-Ud-Cme" id="p5K-cl-56W"/>
                 <outlet property="contactBtn" destination="VLL-5K-1JQ" id="jb2-Gv-ZG3"/>
+                <outlet property="loadingView" destination="6uS-mF-kEk" id="men-JC-aTb"/>
                 <outlet property="navigateBtn" destination="4if-3z-vyo" id="RMo-Ga-tLn"/>
                 <outlet property="notesField" destination="xe8-IP-j5i" id="Pam-8T-eQ8"/>
                 <outlet property="rejectBtn" destination="WAx-Cj-Z53" id="bXI-Ge-mVH"/>
@@ -42,8 +44,27 @@
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SXW-cS-ayc" customClass="ImageSlideshow" customModule="ImageSlideshow">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6uS-mF-kEk" userLabel="LoadingView">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                                            <subviews>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Yof-Lt-upB">
+                                                    <rect key="frame" x="189" y="52" width="37" height="37"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="Yof-Lt-upB" firstAttribute="centerX" secondItem="6uS-mF-kEk" secondAttribute="centerX" id="8Gs-mr-nYB"/>
+                                                <constraint firstItem="Yof-Lt-upB" firstAttribute="centerY" secondItem="6uS-mF-kEk" secondAttribute="centerY" id="h1e-JS-tRN"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="6uS-mF-kEk" secondAttribute="trailing" id="2A5-n2-N4E"/>
+                                        <constraint firstItem="6uS-mF-kEk" firstAttribute="top" secondItem="SXW-cS-ayc" secondAttribute="top" id="7DN-ee-8qg"/>
+                                        <constraint firstItem="6uS-mF-kEk" firstAttribute="leading" secondItem="SXW-cS-ayc" secondAttribute="leading" id="brY-0z-bJ0"/>
+                                        <constraint firstAttribute="bottom" secondItem="6uS-mF-kEk" secondAttribute="bottom" id="ed9-SH-Tlb"/>
                                         <constraint firstAttribute="height" constant="140" id="s6h-Wv-b9y"/>
                                     </constraints>
                                 </view>

@@ -8,6 +8,7 @@
 
 import FirebaseAuth
 import UIKit
+import SwiftOverlays
 
 class SignUpViewController: UIViewController {
 
@@ -36,7 +37,7 @@ class SignUpViewController: UIViewController {
 
     @IBAction func signUpBtn(_ sender: Any) {
         let charactersetName = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ. ")
-        let charactersetPhone = CharacterSet(charactersIn: "+1234567890")
+        let charactersetPhone = CharacterSet(charactersIn: "+1234567890 ")
         
         //validation for text fields
         guard let fullName = fullNameTextField.text, fullName != "" , fullName.first != " " , fullName.rangeOfCharacter(from: charactersetName.inverted) == nil else {
@@ -66,21 +67,48 @@ class SignUpViewController: UIViewController {
             return
         }
         
+        SwiftOverlays.showBlockingWaitOverlayWithText("Menghubungi Server")
+        
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+            SwiftOverlays.showBlockingWaitOverlayWithText("Membuat Akun")
             if error == nil {
                 let userID: String = Auth.auth().currentUser!.uid
                 let user = User(userID: userID, roleID: 2, email: email, phone: telephone, fullName: fullName)
                 UserServices.postUser(user: user) { isSuccess in
                     if isSuccess {
                         DispatchQueue.main.sync {
+                            SwiftOverlays.removeAllBlockingOverlays()
                             self.makeAlert(title: "Sukses", message: "Akun berhasil terdaftar")
                         }
                     } else {
+                        SwiftOverlays.removeAllBlockingOverlays()
                         // error di db
                     }
                 }
             } else {
-                print(error?.localizedDescription)
+                SwiftOverlays.removeAllBlockingOverlays()
+                let errorCode = error! as NSError
+                var errorMessage = String()
+                
+                switch errorCode.code{
+                case AuthErrorCode.invalidEmail.rawValue:
+                    errorMessage = "Format email tidak tepat"
+                case AuthErrorCode.emailAlreadyInUse.rawValue:
+                    errorMessage = "Email sudah digunakan"
+                case AuthErrorCode.weakPassword.rawValue:
+                    errorMessage = "Kata sandi harus lebih dari 6 karakter"
+                case AuthErrorCode.networkError.rawValue:
+                    errorMessage = "Internet Anda sedang mengalami gangguan"
+                case AuthErrorCode.userTokenExpired.rawValue:
+                    errorMessage = "Telah terjadi perubahan pada akun Anda. Tolong masuk kembali ke akun Anda"
+                case AuthErrorCode.tooManyRequests.rawValue:
+                    errorMessage = "Data server sedang mengalami masalah. Silakan coba lagi beberapa saat"
+                default:
+                    errorMessage = error.debugDescription
+                }
+                
+                self.makeAlert(title: "Error", message: errorMessage)
+                return
             }
         }
     }

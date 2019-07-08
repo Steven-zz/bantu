@@ -9,6 +9,7 @@
 import UIKit
 import ImageSlideshow
 import MapKit
+import SwiftOverlays
 
 class SubmissionDetailViewController: UIViewController {
 
@@ -21,6 +22,9 @@ class SubmissionDetailViewController: UIViewController {
     @IBOutlet weak var notesField: SecondTextView!
     @IBOutlet weak var addressField: SecondTextView!
     @IBOutlet weak var schoolLocationMapView: MKMapView!
+    
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var activIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var navigateBtn: UIButton!
     @IBOutlet weak var contactBtn: UIButton!
@@ -59,6 +63,8 @@ class SubmissionDetailViewController: UIViewController {
     }
     
     private func loadData() {
+        activIndicator.startAnimating()
+        
         schoolNameLbl.text = post.schoolName
         aboutField.text = post.about
         studentNumberField.text = String(post.studentNo)
@@ -80,7 +86,9 @@ class SubmissionDetailViewController: UIViewController {
             didSet {
                 let final = post.roadImages.count + post.schoolImages.count
                 if imagesFlag == final {
-                    self.setupSlide(images: images)
+                    DispatchQueue.main.sync {
+                        self.setupSlide(images: images)
+                    }
                 }
             }
         }
@@ -114,6 +122,7 @@ class SubmissionDetailViewController: UIViewController {
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.didTap))
         self.schoolImageSlide.addGestureRecognizer(gestureRecognizer)
+        loadingView.removeFromSuperview()
     }
     
     func setLocationOnMap(userLocation: CLLocation) {
@@ -126,14 +135,6 @@ class SubmissionDetailViewController: UIViewController {
         annotation.coordinate = myLocation
         schoolLocationMapView.addAnnotation(annotation)
     }
-    
-//    func downloadImages(imageLinks: [String], onComplete: @escaping ([ImageSource]) -> Void) {
-//        var images: [ImageSource] = []
-//        for imageLink in imageLinks {
-//            images.append(imageLink.getImageFromString())
-//        }
-//        onComplete(images)
-//    }
     
     func presentAlert() {
         let alertController = UIAlertController(title: "Izinkan akses lokasi", message: "Aktifkan lokasi untuk mendapatkan lokasi anda", preferredStyle: .alert)

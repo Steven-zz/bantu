@@ -26,7 +26,7 @@ class TextFieldExtension: UITextField {
     
     func updateView() {
         self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor.init(red: 45/255, green: 122/255, blue: 143/255, alpha: 1).cgColor
+        self.layer.borderColor = UIColor.bantuBlue.cgColor
         self.layer.cornerRadius = 15
         
         if let image = leftImage {

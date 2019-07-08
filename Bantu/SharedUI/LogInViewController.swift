@@ -8,6 +8,7 @@
 
 import FirebaseAuth
 import UIKit
+import SwiftOverlays
 
 class LogInViewController: UIViewController {
 
@@ -46,15 +47,11 @@ class LogInViewController: UIViewController {
             return
         }
         
-        let popup = LoadingIndicatorViewController.getIndicatorView()
-        self.present(popup, animated: false, completion: nil)
-        popup.startAnimating()
-        popup.setLbl(activity: "Menghubungi Server")
+        SwiftOverlays.showBlockingWaitOverlayWithText("Menghubungi Server")
         
         Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
             if error == nil {
-                popup.stopAnimating()
-                popup.finish()
+                SwiftOverlays.removeAllBlockingOverlays()
                 let userID: String = Auth.auth().currentUser!.uid
                 
                 UserServices.getUser(withID: userID) { user in
@@ -63,13 +60,11 @@ class LogInViewController: UIViewController {
                     
                     DispatchQueue.main.sync {
                         self.dismiss(animated: true, completion: nil)
-                        popup.stopAnimating()
-                        popup.finish()
+                        SwiftOverlays.removeAllBlockingOverlays()
                     }
                 }
             } else {
-                popup.stopAnimating()
-                popup.finish()
+                SwiftOverlays.removeAllBlockingOverlays()
                 let errorCode = error! as NSError
                 var errorMessage = String()
                 
@@ -101,7 +96,8 @@ class LogInViewController: UIViewController {
     }
     
     @IBAction func signUpBtn(_ sender: Any) {
-        
+        let vc = SignUpViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

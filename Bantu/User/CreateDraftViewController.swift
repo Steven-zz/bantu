@@ -10,6 +10,7 @@ import CoreLocation
 import UIKit
 import MapKit
 import FirebaseStorage
+import SwiftOverlays
 
 class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -390,7 +391,7 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
             makeAlert(message: "Anda harus login sebelum membuat post")
             return
         }
-        
+        SwiftOverlays.showBlockingWaitOverlayWithText("Mengunggah Post")
         let currDate = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM-yyyy"
@@ -433,11 +434,11 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
                                     user: user)
                     PostServices.submitPost(post: post) { isSuccess in
                         print("postsucces please",isSuccess)
+                        SwiftOverlays.removeAllBlockingOverlays()
                     }
                 }
             }
         }
-        
         for image in schoolImages {
             let tempPicId = "pic-\(UUID().uuidString)"
             
@@ -497,37 +498,6 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
                 }
             }
         }
-        
-//        guard let draft = entityModel else {
-//            makeAlert(message: "Terjadi error saat mengunggah draft")
-//            return
-//        }
-//
-//        let location = Location(areaOfInterest: aoi,
-//                                name: locationName,
-//                                locality: locality,
-//                                adminArea: adminArea,
-//                                latitude: latitude,
-//                                longitude: longitude)
-        
-//        let post = Post(postID: 0,
-//                        statusID: 3,
-//                        timeStamp: dateString,
-//                        schoolName: draft.schoolName,
-//                        about: draft.about,
-//                        teacherNo: draft.teacherNo,
-//                        studentNo: draft.studentNo,
-//                        address: draft.address,
-//                        accessNotes: draft.accessNotes,
-//                        notes: draft.notes,
-//                        contactNumber: draft.contactNumber,
-//                        roadImages: roadUrls,
-//                        schoolImages: schoolUrls,
-//                        location: location,
-//                        user: user)
-//        PostServices.submitPost(post: post) { isSuccess in
-//            print("postsucces please",isSuccess)
-//        }
     }
     
     @objc func schoolTapDetected() {

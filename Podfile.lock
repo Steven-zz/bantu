@@ -78,6 +78,7 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - SwiftOverlays (5.0.1)
 
 DEPENDENCIES:
   - Firebase/Auth
@@ -85,6 +86,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - ImageSlideshow
+  - SwiftOverlays (~> 5.0.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -102,6 +104,7 @@ SPEC REPOS:
     - ImageSlideshow
     - leveldb-library
     - nanopb
+    - SwiftOverlays
 
 SPEC CHECKSUMS:
   Firebase: 8432d732974498afd5987e9001a05f90f1a3d625
@@ -118,7 +121,8 @@ SPEC CHECKSUMS:
   ImageSlideshow: 197130fe349aafa9446f54277c792551d41eadf9
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  SwiftOverlays: ab459ea9194b0e96aaccaa00e9ead1bf6d46eef1
 
-PODFILE CHECKSUM: 75bdef3fdf38880017792c4246899d5e1dba9769
+PODFILE CHECKSUM: 562f56bdec8727f108376cc5659281335abc69ec
 
 COCOAPODS: 1.5.3
