@@ -11,6 +11,11 @@ import ImageSlideshow
 import MapKit
 import SwiftOverlays
 
+enum UserType {
+    case user
+    case admin
+}
+
 class SubmissionDetailViewController: UIViewController {
 
     @IBOutlet weak var schoolImageSlide: ImageSlideshow!
@@ -31,12 +36,6 @@ class SubmissionDetailViewController: UIViewController {
     @IBOutlet weak var rejectBtn: UIButton!
     @IBOutlet weak var acceptBtn: UIButton!
     @IBOutlet weak var acceptRejectView: UIView!
-    
-    
-    enum UserType {
-        case user
-        case admin
-    }
     
     let userType: UserType
     let post: Post
@@ -192,12 +191,18 @@ class SubmissionDetailViewController: UIViewController {
     }
     
     @IBAction func contact(_ sender: UIButton) {
-        let string = "whatsapp://send?phone=+6283870152354&text= "
-        guard let url = URL(string: string.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!) else { return }
-        
-        UIApplication.shared.openURL(url)
+        let alertController = UIAlertController(title: "Hubungi", message: "Hubungi contact person di nomor \(post.contactNumber.trimmingCharacters(in: .whitespacesAndNewlines))? ", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "Hubungi", style: .default) { _ in
+            let string = "whatsapp://send?phone=\(self.post.contactNumber.trimmingCharacters(in: .whitespacesAndNewlines))&text= "
+            guard let url = URL(string: string.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!) else { return }
+            
+            UIApplication.shared.openURL(url)
+        }
+        let cancel = UIAlertAction(title: "Batal", style: .cancel, handler: nil)
+        alertController.addAction(defaultAction)
+        alertController.addAction(cancel)
+        present(alertController, animated: true, completion: nil)
     }
-
     
 }
 

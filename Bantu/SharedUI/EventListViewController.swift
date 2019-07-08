@@ -12,6 +12,8 @@ class EventListViewController: UIViewController, UITableViewDelegate, UITableVie
 
     @IBOutlet weak var eventListTable: UITableView!
     
+//    var events: [Event]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

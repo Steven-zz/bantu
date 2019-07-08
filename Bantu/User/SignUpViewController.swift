@@ -37,14 +37,14 @@ class SignUpViewController: UIViewController {
 
     @IBAction func signUpBtn(_ sender: Any) {
         let charactersetName = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ. ")
-        let charactersetPhone = CharacterSet(charactersIn: "+1234567890 ")
+        let charactersetPhone = CharacterSet(charactersIn: "+1234567890")
         
         //validation for text fields
         guard let fullName = fullNameTextField.text, fullName != "" , fullName.first != " " , fullName.rangeOfCharacter(from: charactersetName.inverted) == nil else {
             makeAlert(title: "Error", message: "Masukan nama Anda. Nama tidak boleh diawali dengan spasi atau mengandung karakter spesial")
             return
         }
-        guard let telephone = telephoneTextField.text, telephone != "" , !telephone.contains(" ") , telephone.rangeOfCharacter(from: charactersetPhone.inverted) == nil else {
+        guard let telephone = telephoneTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines), telephone != "" , !telephone.contains(" ") , telephone.rangeOfCharacter(from: charactersetPhone.inverted) == nil else {
             makeAlert(title: "Error", message: "Masukan Nomor Telepon Anda dengan benar")
             return
         }
