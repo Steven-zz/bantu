@@ -68,7 +68,9 @@ class EventDetailViewController: UIViewController {
         self.activIndicator.startAnimating()
         event.imgUrl.getImageFromString { image in
             let img = ImageSource(image: image)
-            self.setupSlide(images: [img])
+            DispatchQueue.main.sync {
+                self.setupSlide(images: [img])
+            }
         }
     }
     
@@ -76,7 +78,6 @@ class EventDetailViewController: UIViewController {
         self.imageSlide.slideshowInterval = 0
         self.imageSlide.circular = false
         self.imageSlide.zoomEnabled = true
-        self.imageSlide.pageIndicatorPosition = .init(horizontal: .center, vertical: .under)
         self.imageSlide.contentScaleMode = UIView.ContentMode.scaleAspectFill
         
         self.imageSlide.setImageInputs(images)

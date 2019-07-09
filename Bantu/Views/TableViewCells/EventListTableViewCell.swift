@@ -29,7 +29,9 @@ class EventListTableViewCell: UITableViewCell {
     }
     
     public func setContent(event: Event) {
-        eventImageView.downloaded(from: event.imgUrl)
+        eventImageView.pin_updateWithProgress = true
+        eventImageView.pin_setPlaceholder(with: UIImage(named: "broken-image"))
+        eventImageView.pin_setImage(from: URL(string: event.imgUrl))
         eventNameLbl.text = event.eventName
         eventDateLbl.text = "\(event.startDate) - \(event.endDate)"
         eventLocationLbl.text = "\(event.post.location.locality), \(event.post.location.adminArea)"

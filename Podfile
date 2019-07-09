@@ -8,6 +8,7 @@ target 'Bantu' do
   # Pods for Bantu
   pod 'SwiftOverlays', '~> 5.0.1'
   pod 'ImageSlideshow'
+  pod 'PINRemoteImage'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'

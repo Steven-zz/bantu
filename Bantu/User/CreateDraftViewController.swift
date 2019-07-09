@@ -84,7 +84,7 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
         setupCollectionViews()
         
         if state == .create {
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(dismiss(_:)))
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismiss(_:)))
         }
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save(_:)))
         
@@ -392,6 +392,19 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
             makeAlert(message: "Anda harus login sebelum membuat post")
             return
         }
+        let alertController = UIAlertController(title: "Buat Post", message: "Apakah anda ingin membuat post?", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "Buat", style: .default) { _ in
+            self.uploadPost(user: user)
+        }
+        let cancel = UIAlertAction(title: "Batal", style: .default) { _ in
+            return
+        }
+        alertController.addAction(cancel)
+        alertController.addAction(defaultAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func uploadPost(user: User) {
         SwiftOverlays.showBlockingWaitOverlayWithText("Mengunggah Post")
         let currDate = Date()
         let formatter = DateFormatter()

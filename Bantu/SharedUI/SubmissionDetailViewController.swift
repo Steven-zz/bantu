@@ -73,10 +73,7 @@ class SubmissionDetailViewController: UIViewController {
         if userRole == .admin {
             acceptRejectView.isHidden = false
         }
-        
-//        self.downloadImages(imageLinks: self.post.schoolImages+self.post.roadImages) { images in
-//            self.setupSlide(images: images)
-//        }
+
         var images: [ImageSource] = []
         var imagesFlag: Int = 0 {
             didSet {
@@ -103,7 +100,7 @@ class SubmissionDetailViewController: UIViewController {
     }
     
     private func setupSlide(images: [ImageSource]) {
-        self.schoolImageSlide.slideshowInterval = 0
+        self.schoolImageSlide.slideshowInterval = 2
         self.schoolImageSlide.circular = false
         self.schoolImageSlide.zoomEnabled = true
         self.schoolImageSlide.pageIndicatorPosition = .init(horizontal: .center, vertical: .under)
@@ -203,16 +200,18 @@ class SubmissionDetailViewController: UIViewController {
                 }
             }
         }
-        let cancel = UIAlertAction(title: "Batal", style: .default, handler: nil)
-        alertController.addAction(defaultAction)
+        let cancel = UIAlertAction(title: "Batal", style: .default) { _ in
+            SwiftOverlays.removeAllBlockingOverlays()
+        }
         alertController.addAction(cancel)
+        alertController.addAction(defaultAction)
         present(alertController, animated: true, completion: nil)
     }
     
     @IBAction func acceptBtn(_ sender: UIButton) {
         SwiftOverlays.showBlockingWaitOverlay()
         let alertController = UIAlertController(title: "Terima Post", message: "Apakah anda ingin menerima post?", preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: "Terima", style: .destructive) { _ in
+        let defaultAction = UIAlertAction(title: "Terima", style: .default) { _ in
             PostServices.updatePostStatus(postID: self.post.postID, status: .accepted) { success in
                 if success {
                     SwiftOverlays.removeAllBlockingOverlays()
@@ -224,9 +223,11 @@ class SubmissionDetailViewController: UIViewController {
                 }
             }
         }
-        let cancel = UIAlertAction(title: "Batal", style: .default, handler: nil)
-        alertController.addAction(defaultAction)
+        let cancel = UIAlertAction(title: "Batal", style: .default) { _ in
+            SwiftOverlays.removeAllBlockingOverlays()
+        }
         alertController.addAction(cancel)
+        alertController.addAction(defaultAction)
         present(alertController, animated: true, completion: nil)
     }
     
@@ -234,19 +235,21 @@ class SubmissionDetailViewController: UIViewController {
     @IBAction func contact(_ sender: UIButton) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        alert.addAction(UIAlertAction(title: "User", style: .default, handler: { _ in
-            let string = "whatsapp://send?phone=\(self.post.user.phone.trimmingCharacters(in: .whitespacesAndNewlines))&text= "
-            guard let url = URL(string: string.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!) else { return }
-            
-            if UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.openURL(url)
-            } else {
-                let alert = UIAlertController(title: "Error", message: "Mohon Install WhatsApp", preferredStyle: UIAlertController.Style.alert)
-                let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
-                alert.addAction(okButton)
-                self.present(alert, animated: true, completion: nil)
-            }
-        }))
+        if userRole == .admin {
+            alert.addAction(UIAlertAction(title: "User", style: .default, handler: { _ in
+                let string = "whatsapp://send?phone=\(self.post.user.phone.trimmingCharacters(in: .whitespacesAndNewlines))&text= "
+                guard let url = URL(string: string.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!) else { return }
+                
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.openURL(url)
+                } else {
+                    let alert = UIAlertController(title: "Error", message: "Mohon Install WhatsApp", preferredStyle: UIAlertController.Style.alert)
+                    let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+                    alert.addAction(okButton)
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }))
+        }
         
         alert.addAction(UIAlertAction(title: "Contact Person Sekolah", style: .default, handler: { _ in
             let string = "whatsapp://send?phone=\(self.post.contactNumber.trimmingCharacters(in: .whitespacesAndNewlines))&text= "

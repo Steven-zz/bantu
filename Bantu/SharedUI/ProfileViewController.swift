@@ -73,8 +73,8 @@ class ProfileViewController: UIViewController {
             self.dismiss(animated: true)
         }
         let cancel = UIAlertAction(title: "Batal", style: .default, handler: nil)
-        alertController.addAction(defaultAction)
         alertController.addAction(cancel)
+        alertController.addAction(defaultAction)
         present(alertController, animated: true, completion: nil)
         
     }

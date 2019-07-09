@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PINRemoteImage
 
 class AdminSubmissionListTableViewCell: UITableViewCell {
 
@@ -28,11 +29,13 @@ class AdminSubmissionListTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     public func setContent(post: Post) {
-        self.schoolImage.downloaded(from: post.schoolImages.first!)
-        self.schoolNameLbl.text = post.schoolName
-        self.schoolLocationLbl.text = "\(post.location.locality), \(post.location.adminArea)"
-        self.userNameLbl.text = post.user.fullName
-        self.dateLbl.text = post.timeStamp
+        schoolImage.pin_updateWithProgress = true
+        schoolImage.pin_setPlaceholder(with: UIImage(named: "broken-image"))
+        schoolImage.pin_setImage(from: URL(string: post.schoolImages.first ?? ""))
+        schoolNameLbl.text = post.schoolName
+        schoolLocationLbl.text = "\(post.location.locality), \(post.location.adminArea)"
+        userNameLbl.text = post.user.fullName
+        dateLbl.text = post.timeStamp
     }
     
 }

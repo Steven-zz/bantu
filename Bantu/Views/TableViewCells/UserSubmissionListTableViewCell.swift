@@ -28,7 +28,9 @@ class UserSubmissionListTableViewCell: UITableViewCell {
     }
     
     func setUI(post: Post) {
-        schoolImageView.downloaded(from: post.schoolImages.first!)
+        schoolImageView.pin_updateWithProgress = true
+        schoolImageView.pin_setPlaceholder(with: UIImage(named: "broken-image"))
+        schoolImageView.pin_setImage(from: URL(string: post.schoolImages.first ?? ""))
         schoolNameLbl.text = post.schoolName
         locationLbl.text = "\(post.location.locality), \(post.location.adminArea)"
         statusLbl.text = post.status.rawValue

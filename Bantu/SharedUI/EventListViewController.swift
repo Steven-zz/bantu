@@ -10,13 +10,18 @@ import UIKit
 
 class EventListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var eventListTable: UITableView!
     
     var events: [Event] = []
+    var filteredEvents: [Event] = []
+    
+    var searching = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        searchBar.delegate = self
+        
         eventListTable.delegate = self
         eventListTable.dataSource = self
         
@@ -54,20 +59,33 @@ class EventListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count
+        if searching == true {
+            return filteredEvents.count
+        } else {
+            return events.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = eventListTable.dequeueReusableCell(withIdentifier: "EventListCell", for: indexPath) as! EventListTableViewCell
-        cell.setContent(event: events[indexPath.row])
+        if searching == true {
+            cell.setContent(event: filteredEvents[indexPath.row])
+        } else {
+            cell.setContent(event: events[indexPath.row])
+        }
         cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let userRole: User.Role = GlobalSession.currentUser?.role ?? .publicUser
-        let vc = EventDetailViewController(userRole: userRole, event: events[indexPath.row])
-        self.navigationController?.pushViewController(vc, animated: true)
+        if searching == true {
+            let vc = EventDetailViewController(userRole: userRole, event: filteredEvents[indexPath.row])
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = EventDetailViewController(userRole: userRole, event: events[indexPath.row])
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 
     @objc func add(_ button: UIBarButtonItem) {
@@ -75,6 +93,10 @@ class EventListViewController: UIViewController, UITableViewDelegate, UITableVie
         let nav = UINavigationController(rootViewController: vc)
         nav.setBantuStyle()
         navigationController?.present(nav, animated: true)
+    }
+    
+    override var canBecomeFirstResponder: Bool {
+        return true
     }
     
     @objc func toProfile(_ button: UIBarButtonItem) {
@@ -87,5 +109,22 @@ class EventListViewController: UIViewController, UITableViewDelegate, UITableVie
         let nav = UINavigationController(rootViewController: vc)
         nav.setBantuStyle()
         navigationController?.present(nav, animated: true)
+    }
+}
+
+extension EventListViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.filteredEvents = self.events.filter({$0.eventName.lowercased().contains(searchText.lowercased())})
+        if searchText == ""{
+            self.filteredEvents = self.events
+        }
+        searching = true
+        self.eventListTable.reloadData()
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searching = false
+        searchBar.text = ""
+        self.eventListTable.reloadData()
+        self.becomeFirstResponder()
     }
 }
