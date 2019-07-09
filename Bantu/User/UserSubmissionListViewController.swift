@@ -11,6 +11,7 @@ import UIKit
 class UserSubmissionListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var submissionListTableView: UITableView!
+    @IBOutlet weak var emptyView: UIView!
     
     var posts: [Post] = []
     
@@ -22,9 +23,14 @@ class UserSubmissionListViewController: UIViewController, UITableViewDelegate, U
         submissionListTableView.register(UINib(nibName: "UserSubmissionListTableViewCell", bundle: .main), forCellReuseIdentifier: "UserSubmissionCell")
         submissionListTableView.tableFooterView = UIView()
         
+        reloadSubmissions()
+    }
+    
+    func reloadSubmissions() {
         PostServices.getPosts(withUserID: GlobalSession.currentUser?.userID) { posts in
             self.posts = posts
             DispatchQueue.main.sync {
+                self.emptyView.isHidden = !posts.isEmpty
                 self.submissionListTableView.reloadData()
             }
         }

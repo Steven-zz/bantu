@@ -10,7 +10,9 @@ import UIKit
 
 class DraftListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var draftListTableView: UITableView!
+    
     var drafts: [DraftEntityModel] = []
     
     override func viewDidLoad() {
@@ -33,6 +35,7 @@ class DraftListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func refreshTable() {
         drafts = LocalServices.fetchAllDrafts()
+        self.emptyView.isHidden = !drafts.isEmpty
         GlobalSession.selectedIndex = 2
         draftListTableView.reloadData()
     }

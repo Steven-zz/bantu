@@ -14,6 +14,7 @@ protocol AdminSubmissionListDelegate {
 
 class AdminSubmissionListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var SubmissionTable: UITableView!
     
     let action: Action
@@ -50,6 +51,7 @@ class AdminSubmissionListViewController: UIViewController, UITableViewDelegate, 
         PostServices.getPosts(withStatus: .accepted) { posts in
             self.posts = posts
             DispatchQueue.main.sync {
+                self.emptyView.isHidden = !posts.isEmpty
                 self.SubmissionTable.reloadData()
             }
         }
@@ -59,6 +61,7 @@ class AdminSubmissionListViewController: UIViewController, UITableViewDelegate, 
         PostServices.getPosts(withStatus: .pending) { posts in
             self.posts = posts
             DispatchQueue.main.sync {
+                self.emptyView.isHidden = !posts.isEmpty
                 self.SubmissionTable.reloadData()
             }
         }

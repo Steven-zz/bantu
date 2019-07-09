@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DraftListViewController" customModule="Bantu" customModuleProvider="target">
             <connections>
                 <outlet property="draftListTableView" destination="1c0-3c-iiv" id="sHd-GN-8o6"/>
+                <outlet property="emptyView" destination="0Q5-Aj-cR7" id="6EC-wg-Xcw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,15 +26,78 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Q5-Aj-cR7">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3UO-Zz-5AD">
+                            <rect key="frame" x="87" y="300.5" width="240" height="217"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyDraft" translatesAutoresizingMaskIntoConstraints="NO" id="VKE-fX-HzQ">
+                                    <rect key="frame" x="56" y="9" width="128" height="128"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="128" id="9oZ-pb-pGW"/>
+                                        <constraint firstAttribute="width" constant="128" id="yoR-z0-LS4"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tidak Ada Draft!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CkF-ie-95A">
+                                    <rect key="frame" x="45" y="145" width="150" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="150" id="2j0-hJ-ECz"/>
+                                        <constraint firstAttribute="height" constant="20" id="I7D-1I-RNG"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buat Draft Sekarang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7p-m5-D3r">
+                                    <rect key="frame" x="40.5" y="181" width="159" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="9PR-Oe-EuX"/>
+                                        <constraint firstAttribute="width" constant="159" id="pOd-of-cOx"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="240" id="2Xy-5h-9zB"/>
+                                <constraint firstItem="VKE-fX-HzQ" firstAttribute="leading" secondItem="3UO-Zz-5AD" secondAttribute="leading" constant="56" id="DEO-O8-DfR"/>
+                                <constraint firstItem="CkF-ie-95A" firstAttribute="top" secondItem="VKE-fX-HzQ" secondAttribute="bottom" constant="8" id="Yda-W1-PRC"/>
+                                <constraint firstItem="CkF-ie-95A" firstAttribute="centerX" secondItem="3UO-Zz-5AD" secondAttribute="centerX" id="dj8-KQ-LJe"/>
+                                <constraint firstAttribute="trailing" secondItem="VKE-fX-HzQ" secondAttribute="trailing" constant="56" id="hDT-n8-eIs"/>
+                                <constraint firstItem="CkF-ie-95A" firstAttribute="top" secondItem="VKE-fX-HzQ" secondAttribute="bottom" constant="8" id="i2K-nf-sRc"/>
+                                <constraint firstAttribute="height" constant="217" id="kqA-6h-Ub4"/>
+                                <constraint firstItem="VKE-fX-HzQ" firstAttribute="centerX" secondItem="3UO-Zz-5AD" secondAttribute="centerX" id="rcO-5E-1ES"/>
+                                <constraint firstAttribute="bottom" secondItem="j7p-m5-D3r" secondAttribute="bottom" constant="16" id="yc5-hN-Opj"/>
+                                <constraint firstItem="j7p-m5-D3r" firstAttribute="centerX" secondItem="3UO-Zz-5AD" secondAttribute="centerX" id="ypW-dU-I4t"/>
+                                <constraint firstItem="j7p-m5-D3r" firstAttribute="top" secondItem="CkF-ie-95A" secondAttribute="bottom" constant="16" id="zW8-dn-aEe"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="3UO-Zz-5AD" firstAttribute="centerX" secondItem="0Q5-Aj-cR7" secondAttribute="centerX" id="E0o-nk-Lt7"/>
+                        <constraint firstItem="3UO-Zz-5AD" firstAttribute="centerY" secondItem="0Q5-Aj-cR7" secondAttribute="centerY" id="woJ-j0-F8v"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="0Q5-Aj-cR7" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Ll0-3H-3OV"/>
                 <constraint firstItem="1c0-3c-iiv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ObZ-Ov-1kX"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1c0-3c-iiv" secondAttribute="trailing" id="SCf-5g-ZZy"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="1c0-3c-iiv" secondAttribute="bottom" id="dCQ-VG-AIh"/>
+                <constraint firstItem="0Q5-Aj-cR7" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="kHm-VH-OJO"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="0Q5-Aj-cR7" secondAttribute="bottom" id="l4o-I0-oam"/>
+                <constraint firstItem="0Q5-Aj-cR7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="l67-Ng-CCT"/>
                 <constraint firstItem="1c0-3c-iiv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xV8-RH-sWo"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
+    <resources>
+        <image name="emptyDraft" width="512" height="512"/>
+    </resources>
 </document>

@@ -296,7 +296,7 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     @objc func save(_ button: UIBarButtonItem) {
-        let charactersetPhone = CharacterSet(charactersIn: "+1234567890")
+        let charactersetPhone = CharacterSet(charactersIn: "+1234567890 ")
         let charactersetNumbers = CharacterSet(charactersIn: "1234567890")
 
         

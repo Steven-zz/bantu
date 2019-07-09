@@ -10,6 +10,7 @@ import UIKit
 
 class EventListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var eventListTable: UITableView!
     
@@ -40,6 +41,7 @@ class EventListViewController: UIViewController, UITableViewDelegate, UITableVie
         EventServices.getEvents() { events in
             self.events = events
             DispatchQueue.main.sync {
+                self.emptyView.isHidden = !events.isEmpty
                 self.eventListTable.reloadData()
             }
         }
