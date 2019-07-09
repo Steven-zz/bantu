@@ -17,6 +17,8 @@ class AdminSubmissionListViewController: UIViewController, UITableViewDelegate, 
     @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var SubmissionTable: UITableView!
     
+    private let refreshControl = UIRefreshControl()
+    
     let action: Action
     var delegate: AdminSubmissionListDelegate?
     
@@ -40,6 +42,19 @@ class AdminSubmissionListViewController: UIViewController, UITableViewDelegate, 
         super.viewDidLoad()
         setupTableViews()
         
+        refreshControl.addTarget(self, action: #selector(didPullToRefresh(_:)), for: .valueChanged)
+        refreshControl.tintColor = .bantuBlue
+        SubmissionTable.alwaysBounceVertical = true
+        SubmissionTable.refreshControl = refreshControl
+        
+        if action == .acceptReject {
+            getPendingPosts()
+        } else {
+            getAcceptedPosts()
+        }
+    }
+    
+    @objc func didPullToRefresh(_: Any) {
         if action == .acceptReject {
             getPendingPosts()
         } else {
@@ -48,9 +63,11 @@ class AdminSubmissionListViewController: UIViewController, UITableViewDelegate, 
     }
     
     func getAcceptedPosts() {
+        refreshControl.beginRefreshing()
         PostServices.getPosts(withStatus: .accepted) { posts in
-            self.posts = posts
+            self.posts = posts.reversed()
             DispatchQueue.main.sync {
+                self.refreshControl.endRefreshing()
                 self.emptyView.isHidden = !posts.isEmpty
                 self.SubmissionTable.reloadData()
             }
@@ -58,9 +75,11 @@ class AdminSubmissionListViewController: UIViewController, UITableViewDelegate, 
     }
     
     func getPendingPosts() {
+        refreshControl.beginRefreshing()
         PostServices.getPosts(withStatus: .pending) { posts in
-            self.posts = posts
+            self.posts = posts.reversed()
             DispatchQueue.main.sync {
+                self.refreshControl.endRefreshing()
                 self.emptyView.isHidden = !posts.isEmpty
                 self.SubmissionTable.reloadData()
             }

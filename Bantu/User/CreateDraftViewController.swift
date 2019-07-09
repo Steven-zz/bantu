@@ -73,7 +73,7 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = self.state == .edit ? "Edit Draft" : "Create Draft"
+        self.title = self.state == .edit ? "Edit Draft" : "Buat Draft"
         if state == .edit {
             loadData()
             postDraftView.isHidden = false
@@ -157,6 +157,7 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
             
         default:
             assert(false, "Unexpected element kind")
+            return UICollectionReusableView()
         }
     }
     

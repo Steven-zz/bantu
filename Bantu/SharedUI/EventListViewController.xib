@@ -33,7 +33,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uds-9H-YC7">
                             <rect key="frame" x="87" y="274.5" width="240" height="217"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyDraft" translatesAutoresizingMaskIntoConstraints="NO" id="XnM-XX-lYU">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyEvent" translatesAutoresizingMaskIntoConstraints="NO" id="XnM-XX-lYU">
                                     <rect key="frame" x="56" y="9" width="128" height="128"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="128" id="eST-co-LON"/>
@@ -122,6 +122,6 @@
         </view>
     </objects>
     <resources>
-        <image name="emptyDraft" width="512" height="512"/>
+        <image name="emptyEvent" width="256" height="256"/>
     </resources>
 </document>

@@ -14,6 +14,8 @@ class EventListViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var eventListTable: UITableView!
     
+    private let refreshControl = UIRefreshControl()
+    
     var events: [Event] = []
     var filteredEvents: [Event] = []
     
@@ -29,6 +31,11 @@ class EventListViewController: UIViewController, UITableViewDelegate, UITableVie
         eventListTable.register(UINib(nibName: "EventListTableViewCell", bundle: .main), forCellReuseIdentifier: "EventListCell")
         eventListTable.tableFooterView = UIView()
         
+        refreshControl.addTarget(self, action: #selector(didPullToRefresh(_:)), for: .valueChanged)
+        refreshControl.tintColor = .bantuBlue
+        eventListTable.alwaysBounceVertical = true
+        eventListTable.refreshControl = refreshControl
+        
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "profileIcon"), style: .plain, target: self, action: #selector(toProfile(_:)))
         if GlobalSession.currentUser?.role == .admin {
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add(_:)))
@@ -38,13 +45,19 @@ class EventListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func reloadEvents() {
+        refreshControl.beginRefreshing()
         EventServices.getEvents() { events in
-            self.events = events
+            self.events = events.reversed()
             DispatchQueue.main.sync {
+                self.refreshControl.endRefreshing()
                 self.emptyView.isHidden = !events.isEmpty
                 self.eventListTable.reloadData()
             }
         }
+    }
+    
+    @objc func didPullToRefresh(_: Any) {
+        reloadEvents()
     }
     
     override func viewWillAppear(_ animated: Bool) {

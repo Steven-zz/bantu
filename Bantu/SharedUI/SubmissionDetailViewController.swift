@@ -190,13 +190,16 @@ class SubmissionDetailViewController: UIViewController {
         let defaultAction = UIAlertAction(title: "Tolak", style: .destructive) { _ in
             PostServices.updatePostStatus(postID: self.post.postID, status: .rejected) { success in
                 if success {
-                    SwiftOverlays.removeAllBlockingOverlays()
-                    self.adminListVC?.getPendingPosts()
-                    self.dismiss(animated: true)
+                    DispatchQueue.main.sync {
+                        SwiftOverlays.removeAllBlockingOverlays()
+                        self.adminListVC?.getPendingPosts()
+                        self.navigationController?.popViewController(animated: true)
+                    }
                 } else {
-                    SwiftOverlays.removeAllBlockingOverlays()
-                    //error
-                    self.makeAlert(title: "Gagal", message: "Gagal mengubah status")
+                    DispatchQueue.main.sync {
+                        SwiftOverlays.removeAllBlockingOverlays()
+                        self.makeAlert(title: "Gagal", message: "Gagal mengubah status")
+                    }
                 }
             }
         }
@@ -214,12 +217,16 @@ class SubmissionDetailViewController: UIViewController {
         let defaultAction = UIAlertAction(title: "Terima", style: .default) { _ in
             PostServices.updatePostStatus(postID: self.post.postID, status: .accepted) { success in
                 if success {
-                    SwiftOverlays.removeAllBlockingOverlays()
-                    self.adminListVC?.getPendingPosts()
-                    self.dismiss(animated: true)
+                    DispatchQueue.main.sync {
+                        SwiftOverlays.removeAllBlockingOverlays()
+                        self.adminListVC?.getPendingPosts()
+                        self.navigationController?.popViewController(animated: true)
+                    }
                 } else {
-                    SwiftOverlays.removeAllBlockingOverlays()
-                    self.makeAlert(title: "Gagal", message: "Gagal mengubah status")
+                    DispatchQueue.main.sync {
+                        SwiftOverlays.removeAllBlockingOverlays()
+                        self.makeAlert(title: "Gagal", message: "Gagal mengubah status")
+                    }
                 }
             }
         }

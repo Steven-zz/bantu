@@ -13,6 +13,8 @@ class UserSubmissionListViewController: UIViewController, UITableViewDelegate, U
     @IBOutlet weak var submissionListTableView: UITableView!
     @IBOutlet weak var emptyView: UIView!
     
+    private let refreshControl = UIRefreshControl()
+    
     var posts: [Post] = []
     
     override func viewDidLoad() {
@@ -20,16 +22,27 @@ class UserSubmissionListViewController: UIViewController, UITableViewDelegate, U
         submissionListTableView.dataSource = self
         submissionListTableView.delegate = self
         
+        refreshControl.addTarget(self, action: #selector(didPullToRefresh(_:)), for: .valueChanged)
+        refreshControl.tintColor = .bantuBlue
+        submissionListTableView.alwaysBounceVertical = true
+        submissionListTableView.refreshControl = refreshControl
+        
         submissionListTableView.register(UINib(nibName: "UserSubmissionListTableViewCell", bundle: .main), forCellReuseIdentifier: "UserSubmissionCell")
         submissionListTableView.tableFooterView = UIView()
         
         reloadSubmissions()
     }
     
+    @objc func didPullToRefresh(_: Any) {
+        reloadSubmissions()
+    }
+    
     func reloadSubmissions() {
+        refreshControl.beginRefreshing()
         PostServices.getPosts(withUserID: GlobalSession.currentUser?.userID) { posts in
-            self.posts = posts
+            self.posts = posts.reversed()
             DispatchQueue.main.sync {
+                self.refreshControl.endRefreshing()
                 self.emptyView.isHidden = !posts.isEmpty
                 self.submissionListTableView.reloadData()
             }
