@@ -15,8 +15,10 @@ extension String {
         let url = URL(string: self)!
 
         getData(from: url) { data, response, error in
-            guard let data = data, error == nil else { return }
-            print(response?.suggestedFilename ?? url.lastPathComponent)
+            guard let data = data, error == nil else {
+                onComplete(UIImage(named: "broken-image")!)
+                return
+            }
 
             onComplete(UIImage(data: data)!)
         }

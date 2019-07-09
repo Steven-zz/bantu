@@ -378,6 +378,9 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
             self.dismiss(animated: true)
         } else {
             // update
+            guard let name = entityModel?.schoolName else { return }
+            LocalServices.updateFromCoreData(withSchoolName: name, updatedDraft: draft)
+            self.navigationController?.popViewController(animated: true)
         }
     }
     
@@ -448,8 +451,14 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
                                     location: location,
                                     user: user)
                     PostServices.submitPost(post: post) { isSuccess in
-                        print("postsucces please",isSuccess)
+                        LocalServices.deleteFromCoreData(withSchoolName: draft.schoolName)
                         SwiftOverlays.removeAllBlockingOverlays()
+                        let alertController = UIAlertController(title: "Sukses", message: "Berhasil membuat post", preferredStyle: .alert)
+                        let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: { _ in
+                            self.navigationController?.popViewController(animated: true)
+                        })
+                        alertController.addAction(defaultAction)
+                        self.present(alertController, animated: true, completion: nil)
                     }
                 }
             }

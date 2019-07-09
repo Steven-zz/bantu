@@ -20,8 +20,7 @@ class DraftListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        drafts = LocalServices.fetchAllDrafts()
-        GlobalSession.selectedIndex = 2
+        refreshTable()
     }
     
     func setupTableViews() {
@@ -30,6 +29,12 @@ class DraftListViewController: UIViewController, UITableViewDelegate, UITableVie
         
         draftListTableView.register(UINib(nibName: "DraftListTableViewCell", bundle: .main), forCellReuseIdentifier: "DraftCell")
         draftListTableView.tableFooterView = UIView()
+    }
+    
+    func refreshTable() {
+        drafts = LocalServices.fetchAllDrafts()
+        GlobalSession.selectedIndex = 2
+        draftListTableView.reloadData()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,6 +51,13 @@ class DraftListViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = CreateDraftViewController(entityModel: drafts[indexPath.row])
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            LocalServices.deleteFromCoreData(withSchoolName: drafts[indexPath.row].schoolName)
+            refreshTable()
+        }
     }
 
 }
