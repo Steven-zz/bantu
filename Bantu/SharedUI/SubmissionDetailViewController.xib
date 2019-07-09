@@ -40,16 +40,16 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ngx-3C-VIO">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="910.33333333333337"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="940.33333333333337"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SXW-cS-ayc" customClass="ImageSlideshow" customModule="ImageSlideshow">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="170"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6uS-mF-kEk" userLabel="LoadingView">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="170"/>
                                             <subviews>
                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Yof-Lt-upB">
-                                                    <rect key="frame" x="188.66666666666666" y="51.666666666666671" width="37" height="37"/>
+                                                    <rect key="frame" x="188.66666666666666" y="66.666666666666671" width="37" height="37"/>
                                                 </activityIndicatorView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -65,11 +65,11 @@
                                         <constraint firstItem="6uS-mF-kEk" firstAttribute="top" secondItem="SXW-cS-ayc" secondAttribute="top" id="7DN-ee-8qg"/>
                                         <constraint firstItem="6uS-mF-kEk" firstAttribute="leading" secondItem="SXW-cS-ayc" secondAttribute="leading" id="brY-0z-bJ0"/>
                                         <constraint firstAttribute="bottom" secondItem="6uS-mF-kEk" secondAttribute="bottom" id="ed9-SH-Tlb"/>
-                                        <constraint firstAttribute="height" constant="140" id="s6h-Wv-b9y"/>
+                                        <constraint firstAttribute="height" constant="170" id="s6h-Wv-b9y"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0oH-dt-c3Y" userLabel="SchoolName">
-                                    <rect key="frame" x="0.0" y="140" width="414" height="50"/>
+                                    <rect key="frame" x="0.0" y="170" width="414" height="50"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="School Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPP-1S-Krh">
                                             <rect key="frame" x="8" y="8" width="398" height="34"/>
@@ -87,7 +87,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VEA-ij-5eU" userLabel="About">
-                                    <rect key="frame" x="0.0" y="190" width="414" height="127"/>
+                                    <rect key="frame" x="0.0" y="220" width="414" height="127"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tentang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NrI-5o-dhw">
                                             <rect key="frame" x="8" y="8" width="398" height="18"/>
@@ -118,7 +118,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aOO-co-4z2" userLabel="Jumlah">
-                                    <rect key="frame" x="0.0" y="317" width="414" height="71"/>
+                                    <rect key="frame" x="0.0" y="347" width="414" height="71"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jumlah Guru" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gV2-JY-yR0">
                                             <rect key="frame" x="211" y="8" width="195" height="17"/>
@@ -179,7 +179,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tbl-dl-Bo5" userLabel="Access">
-                                    <rect key="frame" x="0.0" y="388" width="414" height="92"/>
+                                    <rect key="frame" x="0.0" y="418" width="414" height="92"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Akses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bho-Ub-oLs">
                                             <rect key="frame" x="8" y="8" width="398" height="18"/>
@@ -210,7 +210,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WDu-oq-Abc" userLabel="Notes">
-                                    <rect key="frame" x="0.0" y="480" width="414" height="92"/>
+                                    <rect key="frame" x="0.0" y="510" width="414" height="92"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Catatan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ob4-Wg-t7c">
                                             <rect key="frame" x="8" y="8" width="398" height="18"/>
@@ -241,7 +241,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E64-dK-TtX" userLabel="Address">
-                                    <rect key="frame" x="0.0" y="572" width="414" height="82"/>
+                                    <rect key="frame" x="0.0" y="602" width="414" height="82"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alamat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vsg-mJ-ub1">
                                             <rect key="frame" x="8" y="8" width="398" height="18"/>
@@ -272,7 +272,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2dv-35-mMh" userLabel="Lokasi">
-                                    <rect key="frame" x="0.0" y="654" width="414" height="192.33333333333337"/>
+                                    <rect key="frame" x="0.0" y="684" width="414" height="192.33333333333337"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lokasi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DkF-4S-lQ1">
                                             <rect key="frame" x="8" y="7.9999999999999982" width="114" height="16.333333333333329"/>
@@ -302,7 +302,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k6N-Cx-gCR" userLabel="Buttons">
-                                    <rect key="frame" x="0.0" y="846.33333333333337" width="414" height="64"/>
+                                    <rect key="frame" x="0.0" y="876.33333333333337" width="414" height="64"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4if-3z-vyo" userLabel="Navigasi">
                                             <rect key="frame" x="30" y="8" width="167" height="48"/>
@@ -340,7 +340,7 @@
                                     </constraints>
                                 </view>
                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9cO-B5-qyA" userLabel="AcceptReject">
-                                    <rect key="frame" x="0.0" y="910.33333333333337" width="414" height="64"/>
+                                    <rect key="frame" x="0.0" y="940.33333333333337" width="414" height="64"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WAx-Cj-Z53" userLabel="Reject">
                                             <rect key="frame" x="30" y="8" width="167" height="48"/>

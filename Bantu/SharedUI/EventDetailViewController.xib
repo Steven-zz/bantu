@@ -39,16 +39,16 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rCY-xI-zGm">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="855"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JYL-OD-gsz" customClass="ImageSlideshow" customModule="ImageSlideshow">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="170"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3c6-r4-15j">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="170"/>
                                             <subviews>
                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="GVt-Sc-jw7">
-                                                    <rect key="frame" x="188.5" y="45.5" width="37" height="37"/>
+                                                    <rect key="frame" x="188.5" y="66.5" width="37" height="37"/>
                                                 </activityIndicatorView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -63,12 +63,12 @@
                                         <constraint firstItem="3c6-r4-15j" firstAttribute="leading" secondItem="JYL-OD-gsz" secondAttribute="leading" id="0ma-pA-Dlm"/>
                                         <constraint firstAttribute="trailing" secondItem="3c6-r4-15j" secondAttribute="trailing" id="E1J-dG-cUC"/>
                                         <constraint firstAttribute="bottom" secondItem="3c6-r4-15j" secondAttribute="bottom" id="mYu-9V-Tb9"/>
-                                        <constraint firstAttribute="height" constant="128" id="oH0-Is-NjB"/>
+                                        <constraint firstAttribute="height" constant="170" id="oH0-Is-NjB"/>
                                         <constraint firstItem="3c6-r4-15j" firstAttribute="top" secondItem="JYL-OD-gsz" secondAttribute="top" id="sf6-In-ojU"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="crd-1h-XUG">
-                                    <rect key="frame" x="0.0" y="128" width="414" height="123"/>
+                                    <rect key="frame" x="0.0" y="170" width="414" height="123"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17 - 19 Agustus 2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bt9-Iu-O0u">
                                             <rect key="frame" x="30" y="35" width="376" height="14"/>
@@ -166,7 +166,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y7C-ro-z9o">
-                                    <rect key="frame" x="0.0" y="251" width="414" height="109"/>
+                                    <rect key="frame" x="0.0" y="293" width="414" height="109"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tentang Event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwl-cQ-JT1">
                                             <rect key="frame" x="12" y="4" width="96" height="17"/>
@@ -197,7 +197,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oni-TN-Wcg">
-                                    <rect key="frame" x="0.0" y="360" width="414" height="82.5"/>
+                                    <rect key="frame" x="0.0" y="402" width="414" height="82.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Syarat Menjadi Volunteer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvI-z5-i7k">
                                             <rect key="frame" x="12" y="4" width="170" height="17"/>
@@ -228,7 +228,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PWA-Zg-jqP">
-                                    <rect key="frame" x="0.0" y="442.5" width="414" height="50"/>
+                                    <rect key="frame" x="0.0" y="484.5" width="414" height="50"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSH-vu-TYW">
                                             <rect key="frame" x="12" y="0.0" width="66" height="50"/>
@@ -246,7 +246,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="av1-jk-8JJ" userLabel="Lokasi">
-                                    <rect key="frame" x="0.0" y="492.5" width="414" height="192.5"/>
+                                    <rect key="frame" x="0.0" y="534.5" width="414" height="192.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lokasi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCy-ve-GBM">
                                             <rect key="frame" x="8" y="8" width="114" height="16.5"/>
@@ -276,7 +276,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LfV-jr-grq" userLabel="Buttons">
-                                    <rect key="frame" x="0.0" y="685" width="414" height="64"/>
+                                    <rect key="frame" x="0.0" y="727" width="414" height="64"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3P-v0-2aG" userLabel="Navigasi">
                                             <rect key="frame" x="30" y="8" width="354" height="48"/>
@@ -299,7 +299,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IxR-Ku-MNI" userLabel="Buttons">
-                                    <rect key="frame" x="0.0" y="749" width="414" height="64"/>
+                                    <rect key="frame" x="0.0" y="791" width="414" height="64"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJn-OB-83b" userLabel="Contact">
                                             <rect key="frame" x="30" y="8" width="354" height="48"/>
