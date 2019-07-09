@@ -50,7 +50,6 @@
 		89E62D8122CFAFCA007922FF /* AdminSubmissionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E62D7F22CFAFCA007922FF /* AdminSubmissionListViewController.xib */; };
 		89E62D8622CFB0F5007922FF /* AdminSubmissionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62D8422CFB0F5007922FF /* AdminSubmissionListTableViewCell.swift */; };
 		89E62D8722CFB0F5007922FF /* AdminSubmissionListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E62D8522CFB0F5007922FF /* AdminSubmissionListTableViewCell.xib */; };
-		89E62D8922CFB383007922FF /* UIImage+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62D8822CFB383007922FF /* UIImage+DownloadImage.swift */; };
 		89E62D8C22D04BC1007922FF /* SubmissionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62D8A22D04BC1007922FF /* SubmissionDetailViewController.swift */; };
 		89E62D8D22D04BC1007922FF /* SubmissionDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E62D8B22D04BC1007922FF /* SubmissionDetailViewController.xib */; };
 		89E62D9522D0549E007922FF /* GlobalSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E62D8F22D0549E007922FF /* GlobalSession.swift */; };
@@ -125,7 +124,6 @@
 		89E62D7F22CFAFCA007922FF /* AdminSubmissionListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdminSubmissionListViewController.xib; sourceTree = "<group>"; };
 		89E62D8422CFB0F5007922FF /* AdminSubmissionListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminSubmissionListTableViewCell.swift; sourceTree = "<group>"; };
 		89E62D8522CFB0F5007922FF /* AdminSubmissionListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdminSubmissionListTableViewCell.xib; sourceTree = "<group>"; };
-		89E62D8822CFB383007922FF /* UIImage+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+DownloadImage.swift"; sourceTree = "<group>"; };
 		89E62D8A22D04BC1007922FF /* SubmissionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionDetailViewController.swift; sourceTree = "<group>"; };
 		89E62D8B22D04BC1007922FF /* SubmissionDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubmissionDetailViewController.xib; sourceTree = "<group>"; };
 		89E62D8F22D0549E007922FF /* GlobalSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalSession.swift; sourceTree = "<group>"; };
@@ -282,7 +280,6 @@
 				89C7771722CC664100BA96B3 /* UIButton+Design.swift */,
 				89C7771D22CCD89800BA96B3 /* UITextView+Placeholder.swift */,
 				89C7771F22CD004B00BA96B3 /* UIImage+Compression.swift */,
-				89E62D8822CFB383007922FF /* UIImage+DownloadImage.swift */,
 				89E62DB022D20AF2007922FF /* String+DownloadImage.swift */,
 				89E62DBC22D32BFE007922FF /* UIColor+Bantu.swift */,
 				8539CFAF22D386D2004645B7 /* UINavigationController+Bantu.swift */,
@@ -509,7 +506,6 @@
 				89C7772022CD004B00BA96B3 /* UIImage+Compression.swift in Sources */,
 				89C7771B22CCAE0500BA96B3 /* FooterCollectionReusableView.swift in Sources */,
 				850B31FF22D1F3FA0005E0CA /* LocalModel.xcdatamodeld in Sources */,
-				89E62D8922CFB383007922FF /* UIImage+DownloadImage.swift in Sources */,
 				89C7771822CC664100BA96B3 /* UIButton+Design.swift in Sources */,
 				89E62DC022D33254007922FF /* EventDetailViewController.swift in Sources */,
 				89C7772922CD1AD700BA96B3 /* DraftListViewController.swift in Sources */,
