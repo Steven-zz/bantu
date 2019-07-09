@@ -13,8 +13,6 @@ import UIKit
 class LocalServices{
     private init(){}
     
-    private var draftEntities: [DraftEntity] = []
-    
     static var context: NSManagedObjectContext{
         return persistentContainer.viewContext
     }
@@ -45,19 +43,19 @@ class LocalServices{
 }
 
 extension LocalServices {
-    static func saveToDraft(draft: DraftEntityModel) {
-        func imagesToNSData(images: [UIImage]) -> NSData {
-            let CDataArray = NSMutableArray()
-            
-            for img in images {
-                let data: NSData = NSData(data: img.jpegData(compressionQuality: 0.1)!)
-                CDataArray.add(data)
-            }
-            
-            let coreDataObject = NSKeyedArchiver.archivedData(withRootObject: CDataArray)
-            return (coreDataObject as NSData)
+    static func imagesToNSData(images: [UIImage]) -> NSData {
+        let CDataArray = NSMutableArray()
+        
+        for img in images {
+            let data: NSData = NSData(data: img.jpegData(compressionQuality: 0.1)!)
+            CDataArray.add(data)
         }
         
+        let coreDataObject = NSKeyedArchiver.archivedData(withRootObject: CDataArray)
+        return (coreDataObject as NSData)
+    }
+    
+    static func saveToDraft(draft: DraftEntityModel) {
         let newDraft = DraftEntity(context: LocalServices.context)
         
         let roadImages = imagesToNSData(images: draft.roadImages)
@@ -129,7 +127,7 @@ extension LocalServices {
         do{
             let fetchData = try LocalServices.context.fetch(fetchRequest)
             var draftArray: [DraftEntityModel] = []
-
+            
             for draft in fetchData {
                 draftArray.append(draftEntityToDraftModel(entity: draft))
             }
@@ -137,6 +135,76 @@ extension LocalServices {
         } catch {
             print("Fetch from core data fail")
             return []
+        }
+    }
+    
+    static func deleteFromCoreData(withSchoolName name: String) {
+        let managedContext = LocalServices.persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<DraftEntity> = DraftEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "schoolName = %@", name)
+        do
+        {
+            let fetchData = try LocalServices.context.fetch(fetchRequest)
+            
+            let node = fetchData[0]
+            managedContext.delete(node)
+            
+            do {
+                try managedContext.save()
+                print("Success Delete From Core Data")
+            } catch let error as NSError {
+                print("Error While Deleting Note: \(error.userInfo)")
+            }
+        }
+        catch _ {
+            print("Could not delete")
+        }
+    }
+    
+    static func updateFromCoreData(withSchoolName name: String, updatedDraft draft: DraftEntityModel) {
+        let context = LocalServices.persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<DraftEntity> = DraftEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "schoolName = %@", name)
+        
+        do {
+            let results = try context.fetch(fetchRequest)
+            fetchRequest.returnsObjectsAsFaults = false
+            print("Results Count :", results.count)
+            
+            if(results.count > 0 ){
+                let newDraft = results[0]
+                
+                let roadImages = imagesToNSData(images: draft.roadImages)
+                let schoolImages = imagesToNSData(images: draft.schoolImages)
+                
+                newDraft.timeStamp = draft.timeStamp
+                newDraft.schoolName = draft.schoolName
+                newDraft.about = draft.about
+                newDraft.studentNo = Int64(draft.studentNo)
+                newDraft.teacherNo = Int64(draft.teacherNo)
+                newDraft.address = draft.address
+                newDraft.accessNotes = draft.accessNotes
+                newDraft.notes = draft.notes
+                newDraft.contactNumber = draft.contactNumber
+                newDraft.locationAOI = draft.locationAOI
+                newDraft.locationName = draft.locationName
+                newDraft.locationLocality = draft.locationLocality
+                newDraft.locationAdminArea = draft.locationAdminArea
+                newDraft.locationLatitude = draft.locationLatitude
+                newDraft.locationLongitude = draft.locationLongitude
+                newDraft.roadImages = roadImages
+                newDraft.schoolImages = schoolImages
+                
+//                results[0].setValue(roadImages, forKey: "roadImages")
+                
+                try context.save();
+                print("Updated Core Data")
+                //                } endfor
+            } else {
+                print("No Audios to save")
+            }
+        } catch{
+            print("There was an error")
         }
     }
 }
