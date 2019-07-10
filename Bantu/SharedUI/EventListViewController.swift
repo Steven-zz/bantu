@@ -31,6 +31,8 @@ class EventListViewController: UIViewController, UITableViewDelegate, UITableVie
         eventListTable.register(UINib(nibName: "EventListTableViewCell", bundle: .main), forCellReuseIdentifier: "EventListCell")
         eventListTable.tableFooterView = UIView()
         
+        emptyView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didPullToRefresh(_:))))
+        
         refreshControl.addTarget(self, action: #selector(didPullToRefresh(_:)), for: .valueChanged)
         refreshControl.tintColor = .bantuBlue
         eventListTable.alwaysBounceVertical = true
@@ -57,6 +59,7 @@ class EventListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     @objc func didPullToRefresh(_: Any) {
+        emptyView.isHidden = true
         reloadEvents()
     }
     

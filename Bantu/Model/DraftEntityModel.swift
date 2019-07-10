@@ -19,12 +19,12 @@ struct DraftEntityModel {
     let accessNotes: String
     let notes: String
     let contactNumber: String
-    let locationAOI: String
-    let locationName: String
-    let locationLocality: String
-    let locationAdminArea: String
-    let locationLatitude: Double
-    let locationLongitude: Double
+    var locationAOI: String
+    var locationName: String
+    var locationLocality: String
+    var locationAdminArea: String
+    var locationLatitude: Double
+    var locationLongitude: Double
     let roadImages: [UIImage]
     let schoolImages: [UIImage]
 }

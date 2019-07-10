@@ -46,7 +46,7 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
     
     var schoolImages: [UIImage] = [UIImage]()
     var roadImages: [UIImage] = [UIImage]()
-    let entityModel: DraftEntityModel?
+    var entityModel: DraftEntityModel?
     
     var latitude: Double = 0.0
     var longitude: Double = 0.0
@@ -410,6 +410,21 @@ class CreateDraftViewController: UIViewController, UICollectionViewDelegate, UIC
     
     func uploadPost(user: User) {
         SwiftOverlays.showBlockingWaitOverlayWithText("Mengunggah Post")
+        
+        if entityModel?.locationAdminArea == "" || entityModel?.locationLocality == "" {
+            fetchLocInfo(from: CLLocation(latitude: entityModel?.locationLatitude ?? 0.0, longitude: entityModel?.locationLongitude ?? 0.0)) { city, name, adminArea, aoi, error  in
+                if city == "" || adminArea == "" {
+                    self.entityModel?.locationLocality = String(self.entityModel!.locationLatitude)
+                    self.entityModel?.locationAdminArea = String(self.entityModel!.locationLongitude)
+                } else {
+                    self.entityModel?.locationLocality = city ?? ""
+                    self.entityModel?.locationAdminArea = adminArea ?? ""
+                }
+                self.entityModel?.locationName = name ?? ""
+                self.entityModel?.locationAOI = aoi ?? ""
+            }
+        }
+        
         let currDate = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM-yyyy"
