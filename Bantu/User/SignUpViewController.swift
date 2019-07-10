@@ -80,7 +80,12 @@ class SignUpViewController: UIViewController {
                         GlobalSession.login(user: user)
                         DispatchQueue.main.sync {
                             SwiftOverlays.removeAllBlockingOverlays()
-                            self.dismiss(animated: true)
+                            let alertController = UIAlertController(title: "Sukses", message: "Akun berhasil dibuat", preferredStyle: .alert)
+                            let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: { _ in
+                                self.dismiss(animated: true)
+                            })
+                            alertController.addAction(defaultAction)
+                            self.present(alertController, animated: true, completion: nil)
                         }
                     } else {
                         SwiftOverlays.removeAllBlockingOverlays()
